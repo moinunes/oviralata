@@ -1,0 +1,121 @@
+
+
+
+
+
+
+
+
+adminer-4.6.2.php - adm de mysql
+
+
+
+
+https://jsfiddle.net/r0pw7g11/3/
+
+
+
+
+
+
+
+.carousel-inner1 {
+   max-height:270px ;
+   min-height:270px ;
+
+   max-width:380px ;
+   min-width:380px ;
+ 
+
+
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+   height:40px;   
+   width:100%;
+   /*background-color: rgba(0, 0, 0, 0.3)*/
+   background-color: rgba(0, 0, 0, 0.3);
+   background-size: 50%, 45%;
+   border-radius: 30%;
+   border: 1px solid #fafafa;
+   box-shadow: 1px 0px 1px 2px #EFFBFB;
+   box-shadow: 1px 0px 1px 2px #81DAF5;
+ }
+
+.carousel-caption {
+   margin:  0px;
+   padding: 0px;   
+   bottom:0px;
+   color: #cccccc;
+   font-family: arial;
+   font-size:16px;    
+   box-shadow: 0px 0px 0px 1px  #cccccc;
+   position:solid;
+}
+
+
+
+
+
+
+
+
+select personalizado
+https://silviomoreto.github.io/bootstrap-select/examples/
+
+
+<a href="javascript:mostrar_detalhes(<?=$id_imovel?>)" class="link_detalhe" >
+
+
+
+paleta de cores
+https://html-color-codes.info/codigos-de-colores-hexadecimales/
+
+
+-- tarefas pendentes
+
+1 - iniciar a homePage index.php + hlp_consulta_imovel.php
+2 - consultar HOST
+3 - escolher o nome do site 
+
+
+
+
+
+
+------------------------------------ firefox --------------------------------------------
+ctrl+shifs --> abre depurador
+
+
+
+
+
+------------------------------------ php ------------------------------------------------
+
+file_put_contents( __DIR__.'/teste.txt', $pasta ."\n" , FILE_APPEND );
+file_put_contents( __DIR__.'/teste.txt', $pasta ."\n"  );
+
+
+
+
+
+
+------------------------------------ git ----------------------------------------------
+git status
+git add .
+git 
+git commit -m "implementação do cadastro de cep"
+git push
+
+
+
+
+------------------------------------ Algumas constantes "mágicas" do PHP --------------
+__LINE__       - O número da linha corrente do arquivo.
+__FILE__       - O caminho completo e nome do arquivo com links simbólicos resolvidos. Se utilizado dentro de um include, o nome do arquivo incluído será retornado.
+__DIR__        - O diretório do arquivo. Se usado dentro de um include, o diretório do arquivo incluído é retornado. É equivalente a dirname(__FILE__). O nome do diretório não possui barra no final, a não ser que seja o diretório raiz.
+__FUNCTION__   - O nome da função.
+__CLASS__      - O nome da classe. O nome da classe inclui o namespace em que foi declarado (por exemplo, Foo\Bar). Note que a partir do PHP 5.4, __CLASS__ também funcionará em traits. Quando utilizada em um método trait, __CLASS__ é o nome da classe que está utilizando a trait.
+__TRAIT__      - O nome do trait. O nome do trait inclui o namespace em que foi declarado (por exemplo, Foo\Bar).
+__METHOD__     - O nome do método da classe.
+__NAMESPACE__  - O nome do namespace corrente. 
