@@ -19,21 +19,23 @@ class Imoveis_Hlp  extends conecta {
    private $id_tipo_imovel;
    private $nomes_bairros;
    private $pagina_atual;
+   private $valor_imovel;
+   
    //private $codigo_imovel;
    //private $titulo;
    //private $descricao;
    //private $proprietario_nome;
    //private $proprietario_dados;
    //private $endereco_imovel;
-   //private $valor_imovel;
+   
    //private $valor_condominio;
    //private $valor_iptu;
    //private $valor_laudemio;
-   //private $qtd_quartos;
-   //private $qtd_banheiro;
-   //private $qtd_vaga;
-   //private $area_util;
-   //private $area_total;
+   private $qtd_quartos;
+   private $qtd_banheiro;
+   private $qtd_vaga;
+   private $area_util;
+   private $area_total;
    //private $tem_escritura;
    //private $idade_imovel;
    //private $data_cadastro;
@@ -92,6 +94,54 @@ class Imoveis_Hlp  extends conecta {
       $this->pagina_atual = $valor;
    }
 
+   public function get_valor_imovel() {
+      return $this->valor_imovel;
+   }
+
+   public function set_valor_imovel( $valor ) {
+      $this->valor_imovel = $valor;
+   }
+
+   public function get_qtd_quartos() {
+      return $this->qtd_quartos;
+   }
+
+   public function set_qtd_quartos( $valor ) {
+      $this->qtd_quartos = $valor;
+   }  
+
+   public function get_qtd_vaga() {
+      return $this->qtd_vaga;
+   }
+
+   public function set_qtd_vaga( $valor ) {
+      $this->qtd_vaga = $valor;
+   }
+
+   public function get_area_util() {
+      return $this->area_util;
+   }
+
+   public function set_area_util( $valor ) {
+      $this->area_util = $valor;
+   }
+
+   public function get_area_total() {
+      return $this->area_total;
+   }
+
+   public function set_area_total( $valor ) {
+      $this->area_total = $valor;
+   }
+
+   public function get_qtd_banheiro() {
+      return $this->qtd_banheiro;
+   }
+
+   public function set_qtd_banheiro( $valor ) {
+      $this->qtd_banheiro = $valor;
+   }
+
    /**
    *
    * Obtém os imóveis
@@ -111,7 +161,25 @@ class Imoveis_Hlp  extends conecta {
       if ( $this->get_id_municipio() != '' ) {
          $filtro .= " AND tbmunicipio.id_municipio = ".$this->get_id_municipio();
       }
-      
+      if ( $this->get_valor_imovel() != '' ) {
+         $valor_imovel = str_replace( '.', '', trim($this->get_valor_imovel()) );
+         $valor_imovel = str_replace( ',', '.', $valor_imovel );
+         $filtro .= " AND tbimovel.valor_imovel <= ".$valor_imovel;
+      }
+      if ( $this->get_qtd_quartos() > 0 ) {         
+         $filtro .= " AND tbimovel.qtd_quartos >= ".$this->get_qtd_quartos();
+      }
+      if ( $this->get_qtd_vaga() > 0 ) {         
+         $filtro .= " AND tbimovel.qtd_vaga >= ".$this->get_qtd_vaga();
+      }
+      if ( $this->get_qtd_banheiro() > 0 ) {         
+         $filtro .= " AND tbimovel.qtd_banheiro >= ".$this->get_qtd_banheiro();
+      }
+      if ( $this->get_area_util() > 0 ) {         
+         $filtro .= " AND tbimovel.area_util >= ".$this->get_area_util();
+      }
+
+
       if ( $this->get_nomes_bairros() != '' ) {
          $filtro_bairro = '';
          $nomes_bairros = explode( ',', $this->get_nomes_bairros(), -1 );         
@@ -119,8 +187,9 @@ class Imoveis_Hlp  extends conecta {
             $nome_bairro = trim($bairro);
             $operador = ( $i+1 < count($nomes_bairros) ) ? ' OR ' : ' ';
             if ($nome_bairro!='') {
-               $filtro_bairro .= " tbbairro.nome_bairro='{$bairro}' {$operador} ";
+               $filtro_bairro .= " tbbairro.nome_bairro='{$nome_bairro}' {$operador} ";               
             }     
+            print($operador);
          }         
          $filtro .= ' AND '.$filtro_bairro;
       }
@@ -137,7 +206,7 @@ class Imoveis_Hlp  extends conecta {
                               JOIN tbmunicipio ON (tbmunicipio.id_municipio=tbbairro.id_municipio)
                WHERE
                   $filtro";
-      $stmt = $this->con->prepare( $sql );
+      $stmt = $this->con->prepare( $sql );      
       $stmt->execute();
       $imoveis = $stmt->fetch(PDO::FETCH_ASSOC);
       $this->total_registros = (int)$imoveis['total_registros'];
@@ -186,14 +255,15 @@ class Imoveis_Hlp  extends conecta {
                               JOIN tbmunicipio ON (tbmunicipio.id_municipio=tbbairro.id_municipio)
                WHERE
                   $filtro
-               LIMIT $do->inicio_exibir, $do->exibir   
-             ";
+               LIMIT $do->inicio_exibir, $do->exibir
+             ";            
       $stmt = $this->con->prepare( $sql );
       $stmt->execute();
       $imoveis = $stmt->fetchAll(PDO::FETCH_CLASS);      
 
-      //print '<pre>'; print_r($stmt->rowCount());
-            //print '<pre>'; print_r($imoveis);
+     // print $sql;
+     // print '<pre>'; print_r($stmt->rowCount());
+     // print '<pre>'; print_r($imoveis);
       
    } // obter_imoveis
 

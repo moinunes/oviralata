@@ -8,7 +8,6 @@ if ( !isset($_SESSION['login']) ) {
 include_once 'cadastro_hlp_imovel.php';
 include_once 'domicilio_hlp.php';
 include_once 'cadastro_hlp_tipo.php';
-header("Content-Type: text/html; charset=ISO-8859-1",true);
 
 
 ?>
@@ -19,8 +18,8 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
    <title>Imobiliaria</title>
 
    <meta charset="utf-8">   
-   <meta name="keywords" content="imobiliaria,imÛvel,imÛveis,apartamentos,casas,compra,venda,santos, s„o vicente,"/>
-   <meta name="description" content="Escolha seu imÛvel na baixada santista.">   
+   <meta name="keywords" content="imobiliaria,im√≥vel,im√≥veis,apartamentos,casas,compra,venda,santos, s√£o vicente,"/>
+   <meta name="description" content="Escolha seu im√≥vel na baixada santista.">   
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <!-- Bootstrap styles -->
@@ -39,7 +38,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
          <div class="col-md-1">
          </div>
          <div class="col-md-2">         
-            <p style="font-size: 18px">Cadastro de ImÛvel</p>
+            <p style="font-size: 18px">Cadastro de Im√≥vel</p>
          </div>
          <div class="col-md-2 text-right">            
             <a class="btn btn-outline-success btn_link" href="cadastro_imovel.php?acao=inclusao&comportamento=exibir_formulario&frm_id_imovel=0"><img src="../images/novo.svg"  > Novo</a>
@@ -114,11 +113,11 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                </select>
             </div>   
             <div class="col-md-8">
-               <label for="frm_titulo">TÌtulo</label>
+               <label for="frm_titulo">T√≠tulo</label>
                <input type="text" class="form-control form-control-sm" id="frm_titulo" name="frm_titulo" required  value="<?=$_REQUEST['frm_titulo']?>" />
             </div>
             <div class="col-md-2">
-               <label for="frm_titulo">CÛdigo do imÛvel</label>
+               <label for="frm_titulo">C√≥digo do im√≥vel</label>
                <input type="text" class="form-control form-control-sm" id="frm_codigo" name="frm_codigo" required  value="<?=$_REQUEST['frm_codigo_imovel']?>" readonly />
             </div>
          </div>   
@@ -129,7 +128,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
          
          <div class="row">    
             <div class="col-md-12">
-               <label for="frm_descricao">DescriÁ„o do imÛvel</label>
+               <label for="frm_descricao">Descri√ß√£o do im√≥vel</label>
                <textarea id='frm_descricao' name='frm_descricao' class="form-control form-control-sm" rows="5"  ><?=$_REQUEST['frm_descricao']?></textarea>
             </div>
          </div>
@@ -142,11 +141,11 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
 
          <div class="row border fundo_branco_1 sem_margem">       
             <div class="col-md-12">
-               EndereÁo do imÛvel
+               Endere√ßo do im√≥vel
                <button type="button" class="btn btn_lupa" id='btnBuscarCep'><img src="../images/lupa.svg"></button>
             </div>
             <div class="col-md-2">              
-               <label for="frm_imovel_cep">Cep do imÛvel</label>               
+               <label for="frm_imovel_cep">Cep do im√≥vel</label>               
                 <input type="text" class="form-control form-control-sm" id="frm_imovel_cep" name="frm_imovel_cep" value="<?=$_REQUEST['frm_imovel_cep']?>" required="required">
             </div>            
             <div class="col-md-6">
@@ -158,7 +157,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                <input type="text" class="form-control form-control-sm" id="frm_imovel_nome_bairro" name="frm_imovel_nome_bairro" value="<?=$_REQUEST['frm_imovel_nome_bairro']?>" readonly   >
             </div>
             <div class="col-md-3">
-               <label for="frm_imovel_nome_municipio">MunicÌpio</label>
+               <label for="frm_imovel_nome_municipio">Munic√≠pio</label>
                <input type="text" class="form-control form-control-sm" id="frm_imovel_nome_municipio" name="frm_imovel_nome_municipio" value="<?=$_REQUEST['frm_imovel_nome_municipio']?>" readonly  >
             </div>
             <div class="col-md-4">
@@ -166,7 +165,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                <input type="text" class="form-control form-control-sm" id="frm_imovel_local" name="frm_imovel_local" value="<?=$_REQUEST['frm_imovel_local']?>" readonly >
             </div>
             <div class="col-md-1">
-               <label for="frm_imovel_numero">N˙mero</label>
+               <label for="frm_imovel_numero">N√∫mero</label>
                <input type="text" class="form-control form-control-sm" id="frm_imovel_numero" name="frm_imovel_numero" value="<?=$_REQUEST['frm_imovel_numero']?>" required="required" >
             </div>
             <div class="col-md-4">
@@ -182,12 +181,14 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
 
          <div class="row">
             <div class="col-md-2">
-               <label for="frm_valor_imovel">Valor imÛvel (R$)</label>
-               <input type="text" class="form-control form-control-sm" id="frm_valor_imovel" name="frm_valor_imovel" value="<?=$_REQUEST['frm_valor_imovel']?>" >                  
+               <label for="frm_valor_imovel">Valor im√≥vel (R$)</label>
+               <input type="text" class="form-control form-control-sm mascara_dinheiro" id="frm_valor_imovel" name="frm_valor_imovel" value="<?=$_REQUEST['frm_valor_imovel']?>"  >
+
+
             </div>
 
             <div class="col-md-2">
-               <label for="exampleInputName2">Valor CondomÌnio (R$)</label>
+               <label for="exampleInputName2">Valor Condom√≠nio (R$)</label>
                <input type="text" class="form-control form-control-sm" id="frm_valor_condominio" name="frm_valor_condominio" value="<?=$_REQUEST['frm_valor_condominio']?>" >                  
             </div>
             <div class="col-md-2">
@@ -195,7 +196,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                <input type="text" class="form-control form-control-sm" id="frm_valor_iptu" name="frm_valor_iptu" value="<?=$_REQUEST['frm_valor_iptu']?>">                  
             </div>
             <div class="col-md-2">
-               <label for="frm_laudemio">LaudÍmio (R$)</label>
+               <label for="frm_laudemio">Laud√™mio (R$)</label>
                <input type="text" class="form-control form-control-sm" id="frm_valor_laudemio" name="frm_valor_laudemio" value="<?=$_REQUEST['frm_valor_laudemio']?>">
             </div>
             <div class="col-md-1">
@@ -211,18 +212,18 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                <input type="text" class="form-control form-control-sm" id="frm_qtd_vaga" name="frm_qtd_vaga" value="<?=$_REQUEST['frm_qtd_vaga']?>">                  
             </div>
             <div class="col-md-1">
-               <label for="frm_qtd_suite">SuÌtes</label>
+               <label for="frm_qtd_suite">Su√≠tes</label>
                <input type="text" class="form-control form-control-sm" id="frm_qtd_suite" name="frm_qtd_suite" value="<?=$_REQUEST['frm_qtd_suite']?>">
             </div>
          </div>
 
          <div class="row">    
             <div class="col-md-1">
-               <label for="frm_area">¡rea ˙til</label>
+               <label for="frm_area">√Årea √∫til</label>
                <input type="text" class="form-control form-control-sm" id="frm_area_util" name="frm_area_util" value="<?=$_REQUEST['frm_area_util']?>">
             </div>
             <div class="col-md-1">
-               <label for="frm_area">¡rea total</label>
+               <label for="frm_area">√Årea total</label>
                <input type="text" class="form-control form-control-sm" id="frm_area_total" name="frm_area_total" value="<?=$_REQUEST['frm_area_total']?>">
             </div>
             <div class="col-md-2">
@@ -230,14 +231,14 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                <input type="text" class="form-control form-control-sm" id="frm_tem_escritura" name="frm_tem_escritura" value="<?=$_REQUEST['frm_tem_escritura']?>"  >
             </div>
             <div class="col-md-2">
-               <label for="frm_idade_imovel">Idade do ImÛvel</label>
+               <label for="frm_idade_imovel">Idade do Im√≥vel</label>
                <input type="text" class="form-control form-control-sm" id="frm_idade_imovel" name="frm_idade_imovel" value="<?=$_REQUEST['frm_idade_imovel']?>"  >
             </div>
             <div class="col-md-2">
                <label for="frm_ativo">Ativo</label>               
                <select id='frm_ativo' name='frm_ativo' class="form-control form-control-sm" required="required" value="<?=$_REQUEST['frm_ativo']?>">
                   <option value="S" <?= $ativo=='S' ? "selected" : '';?> >Sim</option>
-                  <option value="N" <?= $ativo=='N' ? "selected" : '';?> >N„o</option>
+                  <option value="N" <?= $ativo=='N' ? "selected" : '';?> >N√£o</option>
                </select>
             </div>
          </div>
@@ -248,13 +249,13 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
 
          <div class="row border sem_margem">
             <div class="col-md-12"  >
-               <label>- CaracterÌsticas:</label>
+               <label>- Caracter√≠sticas:</label>
             </div>   
             <div class="col-auto">
                <input type="checkbox" id="frm_lavanderia"     name="frm_lavanderia" <?=$checked_lavanderia?> /><label for="frm_lavanderia">Lavanderia</label>
             </div>
             <div class="col-auto">
-               <input type="checkbox" id="frm_salao_festa"    name="frm_salao_festa" <?=$checked_salao_festa?> /><label for="frm_salao_festa">Sal„o de festas</label>
+               <input type="checkbox" id="frm_salao_festa"    name="frm_salao_festa" <?=$checked_salao_festa?> /><label for="frm_salao_festa">Sal√£o de festas</label>
             </div>
             <div class="col-auto">
                <input type="checkbox" id="frm_churrasqueira"  name="frm_churrasqueira" <?=$checked_churrasqueira?> /><label for="frm_churrasqueira">Churrasqueira</label>
@@ -269,10 +270,10 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                <input type="checkbox" id="frm_ar_condicionado" name="frm_ar_condicionado" <?=$checked_ar_condicionado?> /><label for="frm_ar_condicionado">Ar condicionado</label>
             </div>
             <div class="col-auto">
-               <input type="checkbox" id="frm_prox_hospital" name="frm_prox_hospital" <?=$checked_prox_hospital?> /><label for="frm_prox_hospital">PrÛx. a hospitais</label>
+               <input type="checkbox" id="frm_prox_hospital" name="frm_prox_hospital" <?=$checked_prox_hospital?> /><label for="frm_prox_hospital">Pr√≥x. a hospitais</label>
             </div>
             <div class="col-auto">
-               <input type="checkbox" id="frm_prox_mercado"  name="frm_prox_mercado" <?=$checked_prox_mercado?> /><label for="frm_prox_mercado">PrÛx. a mercados</label>
+               <input type="checkbox" id="frm_prox_mercado"  name="frm_prox_mercado" <?=$checked_prox_mercado?> /><label for="frm_prox_mercado">Pr√≥x. a mercados</label>
             </div>
          </div>
 
@@ -282,7 +283,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
 
          <div class="row">
             <div class="col-md-12"  >
-               <label for="frm_proprietario_nome">Nome do propriet·rio</label>
+               <label for="frm_proprietario_nome">Nome do propriet√°rio</label>
                <input type="text" class="form-control form-control-sm" id="frm_proprietario_nome" name="frm_proprietario_nome" value="<?=$_REQUEST['frm_proprietario_nome']?>"  >
             </div>
             <div class="col-md-12">
@@ -329,7 +330,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
          
          <div class="row">
             <div class="col-md-12">
-               <span class="cor_vermelha"><< Exclus„o de imÛvel >></span>
+               <span class="cor_vermelha"><< Exclus√£o de im√≥vel >></span>
             </div>
          </div>
 
@@ -339,19 +340,19 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                <input type="text" class="form-control form-control-sm" id="frm_tipo_imovel" name="frm_tipo_imovel" value="<?=$tipo->tipo_imovel?>" readonly  />
             </div>    
             <div class="col-md-8">
-               <label for="frm_titulo">TÌtulo</label>
+               <label for="frm_titulo">T√≠tulo</label>
                <input type="text" class="form-control form-control-sm" id="frm_titulo" name="frm_titulo" required  value="<?=$_REQUEST['frm_titulo']?>" readonly />
             </div>
 
             <div class="col-md-2">
-               <label for="frm_titulo">CÛdigo do imÛvel</label>
+               <label for="frm_titulo">C√≥digo do im√≥vel</label>
                <input type="text" class="form-control form-control-sm" id="frm_codigo" name="frm_codigo" required  value="<?=$_REQUEST['frm_codigo_imovel']?>" readonly />
             </div>
          </div>
 
          <div class="row">    
             <div class="col-md-12">
-               <label for="frm_descricao">DescriÁ„o do imÛvel</label>
+               <label for="frm_descricao">Descri√ß√£o do im√≥vel</label>
                <textarea id='frm_descricao' name='frm_descricao' class="form-control form-control-sm" rows="6" readonly="readonly" ><?=$_REQUEST['frm_descricao']?></textarea>
             </div>
          </div>
@@ -364,13 +365,13 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
 
          <div class="row cor_azul">       
             <div class="col-md-12">
-               EndereÁo do imÛvel
+               Endere√ßo do im√≥vel
             </div>
          </div>
 
          <div class="row border border-sucess">       
             <div class="col-md-2">              
-               <label for="frm_cep">Cep do imÛvel</label>
+               <label for="frm_cep">Cep do im√≥vel</label>
                 <input type="text" class="form-control form-control-sm" id="frm_cep" name="frm_cep" value="<?=$_REQUEST['frm_imovel_cep']?>" readonly >
             </div>            
             <div class="col-md-6">
@@ -382,7 +383,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                <input type="text" class="form-control form-control-sm" id="frm_imovel_nome_bairro" name="frm_imovel_nome_bairro" value="<?=$_REQUEST['frm_imovel_nome_bairro']?>" readonly  >
             </div>
             <div class="col-md-3">
-               <label for="frm_imovel_nome_municipio">MunicÌpio</label>
+               <label for="frm_imovel_nome_municipio">Munic√≠pio</label>
                <input type="text" class="form-control form-control-sm" id="frm_imovel_nome_municipio" name="frm_imovel_nome_municipio" value="<?=$_REQUEST['frm_imovel_nome_municipio']?>" readonly  >
             </div>
             <div class="col-md-4">
@@ -390,7 +391,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                <input type="text" class="form-control form-control-sm" id="frm_imovel_local" name="frm_imovel_local" value="<?=$_REQUEST['frm_imovel_local']?>" readonly >
             </div>
             <div class="col-md-1">
-               <label for="frm_imovel_numero">N˙mero</label>
+               <label for="frm_imovel_numero">N√∫mero</label>
                <input type="text" class="form-control form-control-sm" id="frm_imovel_numero" name="frm_imovel_numero" value="<?=$_REQUEST['frm_imovel_numero']?>" readonly >
             </div>
             <div class="col-md-4">
@@ -406,7 +407,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
          </div>
 
          <div class="text-right">
-            <input type="submit" name="b1" class="btn btn_excluir" value="Confirma a Exclus„o do imÛvel: <?=$_REQUEST['frm_codigo_imovel']?>">
+            <input type="submit" name="b1" class="btn btn_excluir" value="Confirma a Exclus√£o do im√≥vel: <?=$_REQUEST['frm_codigo_imovel']?>">
          </div>
 
       </form>
@@ -440,7 +441,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                
          <div class="row">
             <div class="col-md-2">
-               <label for="frm_filtro_municipio">MunicÌpio</label>
+               <label for="frm_filtro_municipio">Munic√≠pio</label>
                <select id='frm_filtro_municipio' name='frm_filtro_municipio' class="form-control form-control-sm" >
                   <option value="">...</option>
                   <?php
@@ -467,11 +468,11 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
                </select>
             </div>   
             <div class="col-md-4">
-               <label for="frm_titulo">TÌtulo</label>
+               <label for="frm_titulo">T√≠tulo</label>
                <input type="text" class="form-control form-control-sm" id="frm_filtro_titulo" name="frm_filtro_titulo" value="<?=$_REQUEST['frm_filtro_titulo']?>" />
             </div>
             <div class="col-md-2">
-               <label for="frm_codigo_imovel">CÛdigo imÛvel</label>
+               <label for="frm_codigo_imovel">C√≥digo im√≥vel</label>
                <input type="text" class="form-control form-control-sm" id="frm_filtro_codigo_imovel" name="frm_filtro_codigo_imovel" value="<?=$_REQUEST['frm_filtro_codigo_imovel']?>" />
             </div>    
             <div class="col-md-2">
@@ -488,8 +489,8 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
             <div class="col-md-2"></div>
             <div class="col-md-2"></div>
             <div class="col-md-2">Tipo</div>            
-            <div class="col-md-1">CÛdigo</div>
-            <div class="col-md-5">TÌtulo</div>            
+            <div class="col-md-1">C√≥digo</div>
+            <div class="col-md-5">T√≠tulo</div>            
          </div>
 
          <div class="row">
@@ -614,7 +615,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
       $_REQUEST['frm_imovel_complemento'    ] = !isset($imovel) ? '' : $domicilio_imovel->complemento;
       $_REQUEST['frm_imovel_local'          ] = !isset($imovel) ? '' : $domicilio_imovel->local;
 
-      $_REQUEST['frm_valor_imovel'          ] = !isset($imovel) ? '' : $imovel->valor_imovel;
+      $_REQUEST['frm_valor_imovel'          ] = !isset($imovel) ? '' : number_format($imovel->valor_imovel, 2, ',', '.');
       $_REQUEST['frm_valor_condominio'      ] = !isset($imovel) ? '' : $imovel->valor_condominio;
       $_REQUEST['frm_valor_iptu'            ] = !isset($imovel) ? '' : $imovel->valor_iptu;
       $_REQUEST['frm_valor_laudemio'        ] = !isset($imovel) ? '' : $imovel->valor_laudemio;
@@ -630,7 +631,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
       $_REQUEST['frm_ativo'                 ] = !isset($imovel) ? '' : $imovel->ativo;
 
 
-      // caracterÌsticas
+      // caracter√≠sticas
 //      print_r($imovel);
 
       $_REQUEST['frm_lavanderia'            ] = !isset($imovel) ? '' : $imovel->lavanderia;
@@ -645,11 +646,11 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
 
       if ( $_REQUEST['acao']=='inclusao' ) {
          $_REQUEST['frm_ativo'] = 'N';
-         $_REQUEST['frm_modo'] = '<< Inclus„o de ImÛvel >>';
+         $_REQUEST['frm_modo'] = '<< Inclus√£o de Im√≥vel >>';
       }
       
       if ( $_REQUEST['acao']=='alteracao' ) {
-         $_REQUEST['frm_modo'] = '<< AlteraÁ„o de ImÛvel >>';
+         $_REQUEST['frm_modo'] = '<< Altera√ß√£o de Im√≥vel >>';
       }
 
    } // igualar_formulario
@@ -661,8 +662,8 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
          case 'inclusao':
             igualar_objeto($imovel);
             $imovel->incluir();   
-            $mens  = "<br>Inclus„o realizada com sucesso.<br>";
-            $mens .= "CÛdigo: {$imovel->get_id_imovel()}";
+            $mens  = "<br>Inclus√£o realizada com sucesso.<br>";
+            $mens .= "C√≥digo: {$imovel->get_id_imovel()}";
             print $mens;
             break;
          
@@ -670,16 +671,16 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
             igualar_objeto($imovel);
             $imovel->set_id_imovel( $_REQUEST['frm_id_imovel'] );      
             $imovel->alterar();
-            $mens  = "<br>AlteraÁ„o realizada com sucesso.<br>";
-            $mens .= "CÛdigo: {$imovel->get_id_imovel()}";
+            $mens  = "<br>Altera√ß√£o realizada com sucesso.<br>";
+            $mens .= "C√≥digo: {$imovel->get_id_imovel()}";
             print $mens;
             break;
          
          case 'exclusao':
             $imovel->set_id_imovel( $_REQUEST['frm_id_imovel'] );
             $imovel->excluir();
-            $mens  = "<br>Exlus„o realizada com sucesso.<br>";
-            $mens .= "CÛdigo: {$imovel->get_id_imovel()}";
+            $mens  = "<br>Exlus√£o realizada com sucesso.<br>";
+            $mens .= "C√≥digo: {$imovel->get_id_imovel()}";
             print $mens;
             break;
          
@@ -747,7 +748,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
       <div class="row">
          <div class="col-md-12 div_rodape">
             <br>
-            <span class="font_cinza_p">Copyright © 2018 www,imobiliaria.com Todos os direitos reservados. </span>
+            <span class="font_cinza_p">Copyright ¬© 2018 www,imobiliaria.com Todos os direitos reservados. </span>
             <br><br>
          </div>            
       </div>         
@@ -760,6 +761,7 @@ header("Content-Type: text/html; charset=ISO-8859-1",true);
    <script src="../dist//jquery-ui/jquery-ui.min.js"></script>
    <script src="../dist/js/upload.js"></script>
    <script src="../dist/js/cadastro_imovel.js"></script>
+   <script src="../dist/jquery_mask/dist/jquery.mask.min.js"></script>
 
    
 

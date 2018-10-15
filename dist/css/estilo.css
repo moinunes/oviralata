@@ -2,7 +2,7 @@
 
 /*
  * Estilo
- * 
+ *  background-color:#d5ebcb; 
  */
 
 body {
@@ -81,20 +81,30 @@ a:active {
       font-family: arial;
       font-size:16px;
       color:#000000;
-      box-shadow: 0px 0px 1px 1px orange;
+      box-shadow: 0px 0px 1px 1px #642EFE;;
+       background-color: #E0FFFF;
    }
    .destaque_2:hover { 
-      background-color: #E0FFFF;
+      background-color: #642EFE;
    }
 
    .largura1{ width:90px; }
+
+   .tamanho_logo{
+      max-width:60%;
+   }
+
+   .titulo {   
+      color:#642EFE;
+      font-family: arial;
+      font-size:14px;
+   }
 
 }
 
 
 /* dispositivos MAIORES */
-@media only screen and ( min-width: 577px ) {
-   
+@media only screen and ( min-width: 577px ) {  
 
    .font_preta_p {   
       color: #000;
@@ -138,19 +148,35 @@ a:active {
       border-radius:5px;
    }
 
+
+/*
+ * testes
+ *  background-color:#d5ebcb; 
+ */
+
+
    .destaque_2 {   
       margin: 0px;
       padding:1px;   
       font-family: arial;
       font-size:22px;
-      color:#000000;
-      box-shadow: 0px 0px 1px 1px orange;
+      color:#000;
+      box-shadow: 0px 0px 1px 1px #cccccc;
+      background-color:#E3CEF6;
    }
-   .destaque_2:hover { 
-      background-color: #E0FFFF;
-   }
+  
 
    .largura1{ width:120px; }
+
+   .tamanho_logo{
+      max-width:100%;
+   }
+
+   .titulo {   
+      color:#BF00FF;
+      font-family: arial;
+      font-size:16px;
+   }
 
 }
 
@@ -162,7 +188,7 @@ a:active {
 }
 
 .fundo_branco_1 {
-   background-color:#fafafa;      
+   background-color:#ffffff;      
 }
 
 .fundo_branco_2 {
@@ -173,6 +199,10 @@ a:active {
 
 .fundo_azul_claro   {
    background-color:#EFF5FB;   
+}
+
+.fundo_verde_claro   {
+   background-color:#f3f9f0;
 }
 
 .fundo_cinza_1   {
@@ -321,6 +351,7 @@ a:active {
    color: orange;
   /* background-color:#999999; */
    box-shadow: 1px 0px 1px 2px #CED8F6;
+   background-color: #642EFE;
 
 }
 
@@ -331,13 +362,12 @@ a:active {
    opacity: 0.5;
    font-family: arial;
    font-size: 20px;  
-   color:#0080FF;
-   box-shadow: 1px 1px 1px 1px #0080FF;;
-   border-radius:5px;
+   color:#000000;
+   box-shadow: 1px 1px 1px 0px #cccccc;
+    background-color: #ECCEF5;
+   border-radius:3px;
 }
-.destaque_3:hover { 
-   background-color: #E0FFFF;
-}
+
 
 .altura_1 {
    margin-top:3px; 
@@ -373,7 +403,7 @@ label {
 .div_cabecalho {
    padding:0px;
    margin:0px;
-   background-color:#EFF5FB;
+   background-color:#ffffff;
    box-shadow:0px 2px 2px 1px #999999;
    min-height: 40px;
 }

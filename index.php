@@ -1,5 +1,4 @@
 <?php
- 
 
    include_once 'tools/endereco_hlp.php';
    include_once 'tools/cadastro_hlp_tipo.php';
@@ -16,7 +15,7 @@
    $filtro_preco    = isset($_REQUEST['frm_filtro_preco'])       ? trim($_REQUEST['frm_filtro_preco'])       : '';
    $filtro_quarto   = isset($_REQUEST['frm_filtro_quarto'])      ? trim($_REQUEST['frm_filtro_quarto'])      : '';
    $filtro_vaga     = isset($_REQUEST['frm_filtro_vaga'])        ? trim($_REQUEST['frm_filtro_vaga'])        : '';
-   $filtro_area     = isset($_REQUEST['frm_filtro_area'])        ? trim($_REQUEST['frm_filtro_area'])        : '';
+   $filtro_area_util = isset($_REQUEST['frm_filtro_area_util'])        ? trim($_REQUEST['frm_filtro_area_util'])        : '';
    $filtro_banheiro = isset($_REQUEST['frm_filtro_banheiro'])    ? trim($_REQUEST['frm_filtro_banheiro'])    : '';
 
    $tipo_imovel = new Cadastro_Hlp_Tipo();
@@ -32,11 +31,13 @@
    $imoveis->set_pagina_atual($pagina);
    $imoveis->set_id_municipio($id_municipio);
    $imoveis->set_id_tipo_imovel($id_tipo_imovel);
-
+   $imoveis->set_valor_imovel($filtro_preco);
+   $imoveis->set_qtd_quartos($filtro_quarto);
+   $imoveis->set_qtd_vaga($filtro_vaga);
+   $imoveis->set_area_util($filtro_area_util);
+   $imoveis->set_qtd_banheiro($filtro_banheiro);
    $imoveis->set_nomes_bairros($nomes_bairros);
    $imoveis->obter_imoveis($consulta_imoveis);
-
-
 
    switch ( $comportamento ) {
       case 'mostrar_detalhes':
@@ -57,7 +58,10 @@
 <head>
    <title>Imobiliaria</title>
 
+   
    <meta charset="utf-8" />
+
+
    <meta name="keywords" content="imobiliaria,imóvel,imóveis,apartamentos,casas,compra,venda,santos, são vicente,"/>
    <meta name="description" content="Escolha seu imóvel na baixada santista.">   
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -104,16 +108,16 @@
          <input type="hidden" id="frm_nomes_bairros" name="frm_nomes_bairros" value ="<?= $nomes_bairros;?>" size="300">
          
          <div class="row justify-content-md-left fundo_branco_1">            
-            <div class="col-auto fundo_branco">
+            <div class="col-1">
             </div>
-            <div class="col-auto">
+            <div class="col-10">
                <img src="images/logo.png" >
             </div>
-            <div class="col-auto text-right"> 
+            <div class="col-1"> 
             </div>
          </div>
 
-         <div class="row justify-content-md-left fundo_azul_claro">
+         <div class="row justify-content-md-left fundo_verde_claro">
             
             <div class="col-md-1">
             </div>
@@ -124,7 +128,7 @@
                   <option value="">Mostrar todos</option>                  
                   <?php
                   foreach ( $tipos_de as $item ) {?>
-                     <option value="<?=$item->id_tipo_imovel?>" <?= $id_tipo_imovel==trim($item->id_tipo_imovel) ? "selected" : '';?> ><?=utf8_encode($item->tipo_imovel)?></option>
+                     <option value="<?=$item->id_tipo_imovel?>" <?= $id_tipo_imovel==trim($item->id_tipo_imovel) ? "selected" : '';?> ><?=$item->tipo_imovel?></option>
                   <?php
                   }
                   ?>
@@ -137,7 +141,7 @@
                   <option value="">Mostrar todos</option>
                   <?php
                   foreach ( $municipios as $item ) {?>
-                     <option value="<?=$item['id_municipio']?>" <?= $id_municipio==trim($item['id_municipio']) ? "selected" : '';?> ><?=utf8_encode($item['nome_municipio'])?></option>
+                     <option value="<?=$item['id_municipio']?>" <?= $id_municipio==trim($item['id_municipio']) ? "selected" : '';?> ><?=$item['nome_municipio']?></option>
                   <?php
                   }
                   ?>
@@ -153,7 +157,7 @@
                   <select class="form-control form-control-sm" id="frm_filtro_bairro" name="frm_filtro_bairro" multiple="multiple"  style="display:none">
                      <?php
                      foreach ( $bairros as $item ) {
-                        $nome_bairro = utf8_encode($item['nome_bairro']);
+                        $nome_bairro = $item['nome_bairro'];
                         $pos = strpos( $nomes_bairros, $nome_bairro );
                         $selected = ($pos === false) ? '' : "selected";?>
                         <option value="<?=$item['id_bairro']?>" <?= $selected?> > <?= $nome_bairro;?></option>
@@ -173,7 +177,7 @@
          </div>
 
    
-         <div class="row fundo_azul_claro">                  
+         <div class="row fundo_verde_claro">                  
            
             <div class="col-md-1">
             </div>
@@ -182,9 +186,9 @@
                <div class="form-group form-group-inline sm" title="Preço MÁXIMO do imóvel">                  
                   <span>
                      <img class="sem_margem d-inline" src="images/preco.png" border="0" width="18" />                      
-                      <label for="frm_filtro_preco">Preço</label><br>
+                      <label for="frm_filtro_preco">Preço até</label><br>
                    </span>
-                  <input  type="text" class='select_padrao2' id='frm_filtro_preco' name='frm_filtro_preco' size='8' maxlength='12' data-mask="#.##0,00" data-mask-reverse="false" data-mask-maxlength="false" placeholder="ilimitado" value="<?=$filtro_preco;?>" />
+                  <input  type="text" class='form-control-sm mascara_dinheiro' id='frm_filtro_preco' name='frm_filtro_preco' size='12' style="height: 24px;"  placeholder="ilimitado" value="<?=$filtro_preco;?>" />
                 </div>
             </div>
 
@@ -232,33 +236,33 @@
          
             <div class="col" >
                <?php
-               $selected0  =$filtro_area==0   ? "selected" : '';
-               $selected10 =$filtro_area==10  ? "selected" : '';
-               $selected20 =$filtro_area==20  ? "selected" : '';
-               $selected30 =$filtro_area==30  ? "selected" : '';
-               $selected40 =$filtro_area==40  ? "selected" : '';
-               $selected50 =$filtro_area==50  ? "selected" : '';
-               $selected60 =$filtro_area==60  ? "selected" : '';
-               $selected70 =$filtro_area==70  ? "selected" : '';
-               $selected80 =$filtro_area==80  ? "selected" : '';
-               $selected90 =$filtro_area==90  ? "selected" : '';
-               $selected100=$filtro_area==100 ? "selected" : '';
+               $selected0  =$filtro_area_util==0   ? "selected" : '';
+               $selected10 =$filtro_area_util==10  ? "selected" : '';
+               $selected20 =$filtro_area_util==20  ? "selected" : '';
+               $selected30 =$filtro_area_util==30  ? "selected" : '';
+               $selected40 =$filtro_area_util==40  ? "selected" : '';
+               $selected50 =$filtro_area_util==50  ? "selected" : '';
+               $selected60 =$filtro_area_util==60  ? "selected" : '';
+               $selected70 =$filtro_area_util==70  ? "selected" : '';
+               $selected80 =$filtro_area_util==80  ? "selected" : '';
+               $selected90 =$filtro_area_util==90  ? "selected" : '';
+               $selected100=$filtro_area_util==100 ? "selected" : '';
                ?>
                <div class="form-group form-group-inline sm" title="Área do imóvel">                 
-                  <img src="images/area.png" border="0" width="20"  />                  
-                  <label for="frm_filtro_area">Área</label><br>
-                  <select class="select_padrao2" id="frm_filtro_area" name="frm_filtro_area">
+                  <img src="images/area_u.png" border="0" width="20"  />                  
+                  <label for="frm_filtro_area_util">Área útil</label><br>
+                  <select class="select_padrao2" id="frm_filtro_area_util" name="frm_filtro_area_util">
                      <option value="0"   <?=$selected0  ?> >todas</option>
-                     <option value="10"  <?=$selected10 ?> >10m² +</option>
-                     <option value="20"  <?=$selected20 ?> >20m² +</option>
-                     <option value="30"  <?=$selected30 ?> >30m² +</option>
-                     <option value="40"  <?=$selected40 ?> >40m² +</option>
-                     <option value="50"  <?=$selected50 ?> >50m² +</option>
-                     <option value="60"  <?=$selected60 ?> >60m² +</option>
-                     <option value="70"  <?=$selected70 ?> >70m² +</option>
-                     <option value="80"  <?=$selected80 ?> >80m² +</option>
-                     <option value="90"  <?=$selected90 ?> >90m² +</option>
-                     <option value="100" <?=$selected100?> >100m² +</option>
+                     <option value="10"  <?=$selected10 ?> >10m² ou +</option>
+                     <option value="20"  <?=$selected20 ?> >20m² ou +</option>
+                     <option value="30"  <?=$selected30 ?> >30m² ou +</option>
+                     <option value="40"  <?=$selected40 ?> >40m² ou +</option>
+                     <option value="50"  <?=$selected50 ?> >50m² ou +</option>
+                     <option value="60"  <?=$selected60 ?> >60m² ou +</option>
+                     <option value="70"  <?=$selected70 ?> >70m² ou +</option>
+                     <option value="80"  <?=$selected80 ?> >80m² ou +</option>
+                     <option value="90"  <?=$selected90 ?> >90m² ou +</option>
+                     <option value="100" <?=$selected100?> >100m² ou +</option>
                   </select>
                </div>
             </div>
@@ -337,19 +341,17 @@
             $i=0;
             foreach ( $consulta_imoveis as $imovel ) {  
                $id_imovel      = $imovel->id_imovel;
-               $titulo         = utf8_encode($imovel->titulo);
-               $nome_municipio = utf8_encode(trim($imovel->nome_municipio));
-               $descricao      = utf8_encode(substr($imovel->descricao,0,185));
+               $titulo         = $imovel->titulo;
+               $nome_municipio = trim($imovel->nome_municipio);
+               $descricao      = substr($imovel->descricao,0,120).'.<u>...mais...</u>';
                $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
-               ?>
-
-               
+               ?>              
 
                <!-- linha: 1-->         
                <div class="row fundo_branco_1">
                   <div class="col-md-auto">
                      <a href="javascript:mostrar_detalhes(<?=$id_imovel?>)"  >
-                        <span class="font_azul_m border border-primary">Código:<?=$id_imovel ?></span>
+                        <span class="titulo border border-primary">Código:<?=$id_imovel ?></span>
                      </a>  
                   </div>  
                   <div class="col-md-auto">
@@ -363,17 +365,19 @@
                <div class="row fundo_branco_2" > 
                   
                   <!-- coluna:1  ( fotos do imóvel ) -->
-                  <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="background-image: url('images/sem_foto1.png')" >
+                  <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="background-image: url('images/sem_foto.png');background-repeat: no-repeat;" >
                                            
                      <div class="imovel_<?=$id_imovel?> slide" id="div_imovel_<?=$id_imovel?>" style="display:none">
                         <?php
                         $i = 1;
-                        foreach ( $imagens as $imagem ) {                              
+                        foreach ( $imagens as $imagem ) {         
                            $caminho="fotos/{$id_imovel}/{$imagem}";?>
                            <div>
-                              <img src="<?=$caminho?>" >
+                              <a href="javascript:mostrar_detalhes(<?=$id_imovel?>)"  >
+                                 <img src="<?=$caminho?>" >
+                              </a>
                               <div>
-                                 <button type="button" class="btn slide_caption" onclick="javascript:mostrar_detalhes(<?=$id_imovel?>)">DETALHES</button>
+                                 <button type="button" class="btn slide_caption" onclick="javascript:mostrar_detalhes(<?=$id_imovel?>)">.</button>
                               </div>
                            </div>
                         <?php
@@ -402,22 +406,38 @@
                            <hr class="hr1">
                         </div>
                      </div>
-                     <div class="row text-center">                  
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
-                            <span class="font_cinza_m"><img width="18px" src="images/carro.png">&nbsp;<?= "{$imovel->qtd_vaga}"?>&nbsp;<?=($imovel->qtd_vaga>1) ? 'vagas':'vaga'?></span>
+
+                     <div class="row">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-7 col-xl-6">
+                           <div class="row">
+                              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
+                                  <span class="font_cinza_m"><img width="18px" src="images/carro.png">&nbsp;<?= "{$imovel->qtd_vaga}"?>&nbsp;<?=($imovel->qtd_vaga>1) ? 'vagas':'vaga'?></span>
+                              </div>
+                              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
+                                  <span class="font_cinza_m"><img src="images/cama.png">&nbsp;<?= "{$imovel->qtd_quartos}"?>&nbsp;<?=($imovel->qtd_quartos>1) ? 'quartos':'quarto'?></span>
+                              </div>                  
+                              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
+                                  <span class="font_cinza_m"><img width="18px" src="images/banheiro.png">&nbsp;<?="{$imovel->qtd_banheiro}"?>&nbsp;<?=($imovel->qtd_banheiro>1) ? 'banheiros':'banheiro'?></span>
+                              </div>                  
+                              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
+                                  <span class="font_cinza_m"><img width="18px" src="images/bide.png">&nbsp;<?="{$imovel->qtd_suite}"?>&nbsp;<?=($imovel->qtd_suite>1) ? 'suítes':'suíte'?></span>
+                              </div>                  
+                              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
+                                  <span class="font_cinza_m"><img width="18px" src="images/area_u.png"><?= "{$imovel->area_util}m² útil"?></span>
+                              </div>              
+                              <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
+                                  <span class="font_cinza_m"><img width="18px" src="images/area_t.png"><?= "{$imovel->area_total}m² total"?></span>
+                              </div>              
+                           </div>
                         </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
-                            <span class="font_cinza_m"><img src="images/cama.png">&nbsp;<?= "{$imovel->qtd_quartos}"?>&nbsp;<?=($imovel->qtd_quartos>1) ? 'quartos':'quarto'?></span>
-                        </div>                  
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
-                            <span class="font_cinza_m"><img width="18px" src="images/area.png"><?= "{$imovel->area_util}m²"?></span>
-                        </div>              
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
-                            <span class="font_cinza_m"><img width="18px" src="images/banheiro.png">&nbsp;<?="{$imovel->qtd_banheiro}"?>&nbsp;<?=($imovel->qtd_banheiro>1) ? 'banheiros':'banheiro'?></span>
-                        </div>                  
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
-                            <span class="font_cinza_m"><img width="18px" src="images/bide.png">&nbsp;<?="{$imovel->qtd_suite}"?>&nbsp;<?=($imovel->qtd_suite>1) ? 'suítes':'suíte'?></span>
-                        </div>                  
+                        <div class="col-lg-5 col-xl-6 d-none d-lg-block">
+                           <div class="row sem_margem">
+                              <div class="col-12">
+                                 <span class="font_cinza_p"><blockquote><?=$descricao ?></blockquote></span>
+                              </div>
+                           </div>   
+                        </div>
+
                      </div>
                      
                      <div class="row">
@@ -427,38 +447,39 @@
                      </div>
 
                      <div class="row">
-                        <div class="col text-center">                     
+                        <div class="col text-left">                     
                            <span class="font_cinza_m p-0 m-0"></span>
-                           <span class="font_azul_g destaque_2">R$ <?=$imovel->valor_imovel; ?></span>&nbsp;&nbsp;      
+                           <span class="destaque_2">R$ <?=number_format($imovel->valor_imovel, 2, ',', '.'); ?></span>&nbsp;&nbsp;
                         </div>   
                      </div>   
 
-                     <div class="row">
-                        <div class="col-5 col-sm-6 col-md-6 col-lg-6 col-xl-5 text-right">                     
+                     <div class="row text-center">
+                        <div class="col-auto">                     
                            <span class="font_cinza_p sem_margem">IPTU:</span>
                            <span class="font_preta_p sem_margem"><?='R$ '.$imovel->valor_iptu ?></span>                    
                         </div>
-                        <div class="col-7 col-sm-6 col-md-6 col-lg-6 col-xl-7 text-left">
-                           <span class="font_cinza_p sem_margem">Condomínio:</span>
+                        <div class="col-auto">
+                           <span class="font_cinza_p sem_margem">Condomínio</span>
                            <span class="font_preta_p sem_margem"><?='R$ '.$imovel->valor_condominio ?></span><br>
                         </div>                        
                      </div>                     
                      </a>
-                  </div>
+                  </div>                
 
                </div>
+               
                
 
                <!-- linha: 3-->  
                <div class="row">
-                  <div class="col-md-12 altura_linha_2">                     
+                  <div class="col-md-12 altura_linha_1">                     
                   </div>   
                </div>
 
                <!-- anuncios - publicidade  -->
                <?php
                if ($i==2) {?>
-                  <br>
+                  
                   <div class="row">
                      <div class="col-md-3">
                         <img class="img-fluid max-width:5%" src="<?=$caminho?>" alt="<?=$imagem;?>">               
@@ -473,11 +494,18 @@
                         <img class="img-fluid max-width:10%" src="<?=$caminho?>" alt="<?=$imagem;?>">               
                      </div>
                   </div>
+
+                  <div class="row">
+                     <div class="col-md-12 altura_linha_1">                     
+                     </div>   
+                  </div>
+
                <?php
                }
                $i++;   
             }
-            ?>        
+            ?>  
+
          </div>
       </div>
       <!-- fim dos registros(anuncios) -->
@@ -493,7 +521,7 @@
 
    <footer>
       <div class="row text-center">                  
-         aqui aqui aqui aqui aqui aqui aqui 
+         ......
       </div>
       <div class="row">
          <div class="col-md-12 div_rodape">
@@ -548,6 +576,9 @@ function montar_js($consulta_imoveis) {
 
 
 <script type="text/javascript">
+
+    $('.mascara_dinheiro').mask('#.##0,00', {reverse: true,maxlength: false});
+
     
    function submeter_form( pagina = '1') {
       $('#comportamento').val( 'submeter_form' );

@@ -185,3 +185,5 @@ vixivixit_IMG-20180728-WA0052.jpg
 /var/www/imobiliaria/fotos/11/IMG-20180728-WA0052.jpg /var/www/imobiliaria/fotos/11/t_IMG-20180728-WA0052.jpg
 vixivixit_IMG-20180728-WA0050.jpg
 /var/www/imobiliaria/fotos/11/IMG-20180728-WA0050.jpg /var/www/imobiliaria/fotos/11/t_IMG-20180728-WA0050.jpg
+vixit_IMG-20180728-WA0049.jpg
+/var/www/imobiliaria/fotos/50/IMG-20180728-WA0049.jpg /var/www/imobiliaria/fotos/50/t_IMG-20180728-WA0049.jpg

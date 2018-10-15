@@ -18,10 +18,10 @@ $imoveis->obter_imoveis($consulta_imoveis);
 $imovel = $consulta_imoveis[0];
 
 $id_imovel      = $imovel->id_imovel;
-$titulo         = utf8_encode($imovel->titulo);
-$nome_municipio = utf8_encode($imovel->nome_municipio);
-$nome_bairro    = utf8_encode($imovel->nome_bairro);
-$descricao      = utf8_encode(substr($imovel->descricao,0,185));
+$titulo         = $imovel->titulo;
+$nome_municipio = $imovel->nome_municipio;
+$nome_bairro    = $imovel->nome_bairro;
+$descricao      = $imovel->descricao;
 $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
 
 
@@ -57,14 +57,13 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
 
    
    <div class="container-fluid">
-         <div class="row div_cabecalho fundo_azul_claro">
+         <div class="row div_cabecalho fundo_branco_1">
             <div class="col-1">
             </div>
-            <div class="col-auto"> 
-               <span><img src="images/logo.png" class="largura1 align-middle"></span>
+            <div class="col-10"> 
+               <span><img src="images/logo.png" ></span>
             </div>
-            <div class="col-auto"> 
-               x
+            <div class="col-1"> 
             </div>
          </div>
    
@@ -158,22 +157,25 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
             </div>
 
             <div class="row">
-               <div class="col-12">
+               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
                   <span class="font_preta_p"><img class="altura_1" src="images/carro.png">&nbsp;<?= "{$imovel->qtd_vaga}"?>&nbsp;<?=($imovel->qtd_vaga>1) ? 'vagas':'vaga'?></span>
                </div>
-               <div class="col-12">
+               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
                   <span class="font_preta_p"><img class="altura_1" src="images/cama.png"><?= "{$imovel->qtd_quartos}"?>&nbsp;<?=($imovel->qtd_quartos>1) ? 'quartos':'quarto'?></span>
                </div>
-               <div class="col-12">
-                  <span class="font_preta_p"><img class="altura_1" src="images/area.png">&nbsp;<?="{$imovel->area_util}m²"?>&nbsp;área</span>
-               </div>
-               <div class="col-12">
+               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
                   <span class="font_preta_p"><img class="altura_1" src="images/banheiro.png">&nbsp;<?="{$imovel->qtd_banheiro}"?>&nbsp;<?=($imovel->qtd_banheiro>1) ? 'banheiros':'banheiro'?></span>
                </div>
-               <div class="col-12">
+               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
                   <span class="font_preta_p"><img class="altura_1" src="images/bide.png">&nbsp;<?="{$imovel->qtd_suite}"?>&nbsp;<?=($imovel->qtd_suite>1) ? 'suítes':'suíte'?></span>
                </div>
 
+               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
+                  <span class="font_preta_p"><img class="altura_1" src="images/area_u.png">&nbsp;<?="{$imovel->area_util}m²"?>&nbsp;útil</span>
+               </div>
+               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
+                  <span class="font_preta_p"><img class="altura_1" src="images/area_t.png">&nbsp;<?="{$imovel->area_total}m²"?>&nbsp;total</span>
+               </div>
                <div class="col-12">    
                   <span class="font_preta_p"><img class="altura_1" src="images/calendario.png">Idade do imóvel:&nbsp;<?="{$imovel->idade_imovel}"?>&nbsp;anos</span>
                </div>              
@@ -295,7 +297,7 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
          </div>
       
          <!-- coluna:3  e-mail -->
-         <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 fundo_azul_claro">
+         <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 fundo_verde_claro">
             <form method="post" id="form_email" name="form_email" >
                   
                <div class="row fundo_laranja_1">
@@ -371,7 +373,7 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
 
    
    <br>
-   <footer class="fundo_azul_claro">      
+   <footer class="fundo_verde_claro">      
       <input type="hidden" id="frm_id_imovel" name="frm_id_imovel" value = "">
       <div class="row div_cabecalho">
          <div class="col-md-1">

@@ -121,10 +121,10 @@ function fechar_modal() {
    dialog.dialog( "close" ); 
 } // sair
 
-$(document).ready(function() {  
-//$('#myModal').modal('show') 
-   //acao          = $('#acao').val();
-   //comportamento = $('#comportamento').val();
-   //id_imovel     = $('#frm_id_imovel').val();  
+
+$(document).ready(function() {
+   $('.mascara_dinheiro').mask('#.##0,00', {reverse: true,maxlength: false});
+
+
 
 })

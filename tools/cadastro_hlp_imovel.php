@@ -470,16 +470,27 @@ class Cadastro_Hlp_Imovel extends conecta {
     * Alterar o imóvel
     */
    function alterar() {
+      $valor_imovel = 0.00;
+
+      if ( trim($this->get_valor_imovel()) !='' ) {
+         $valor_imovel = str_replace( '.', '', trim($this->get_valor_imovel()) );
+         $valor_imovel = str_replace( ',', '.', $valor_imovel );
+      }
+      $descricao =  $this->get_descricao() ;
+      print $descricao;
+      //printj '--->'.$this->get_valor_imovel();
+      //print $valor_imovel;
+
       try {
          $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
          $sql = " UPDATE tbimovel
                   SET id_tipo_imovel    ='{$this->get_id_tipo_imovel()}',                      
                       titulo            ='{$this->get_titulo()}',
-                      descricao         ='{$this->get_descricao()}',
+                      descricao         ='{$descricao}',
                       proprietario_nome ='{$this->get_proprietario_nome()}',
                       proprietario_dados='{$this->get_proprietario_dados()}',
                       endereco_imovel   ='{$this->get_endereco_imovel()}',
-                      valor_imovel      ='{$this->get_valor_imovel()}',
+                      valor_imovel      ='{$valor_imovel}',
                       valor_condominio  ='{$this->get_valor_condominio()}',
                       valor_iptu        ='{$this->get_valor_iptu()}',
                       valor_laudemio    ='{$this->get_valor_laudemio()}',
