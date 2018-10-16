@@ -53,38 +53,44 @@ function logout() {
 <body>
 
    <header>
-      <div class="row div_cabecalho">
-         <div class="col-md-12">         
-         </div>
-         <div class="col-md-11 text-right">            
-            <?php Tools::exibir_data_extenso();?>
-         </div> 
-      </div>   
+      <?php include_once 'cabecalho_tools.php';?>      
    </header>  
 
    <form id="frmLogin" class="form-horizontal" action="login.php" method="POST" role="form">
    
    <div class="container">
    
-      <div class="row">
-         <div class="col-md-4">
-            <label for="frm_usuario">Usuário</label>               
-            <input type="text" class="form-control form-control-sm" id="frm_usuario" name="frm_usuario" value="moinunes">            
-         </div>      
+      <div class="row">            
+         <div class="col-12 altura_linha_2"></div>
       </div>
 
-      <div class="row">
-         <div class="col-md-4">
-            <label for="frm_usuario">Senha</label>
-            <input type="text" class="form-control form-control-sm" id="frm_senha" name="frm_senha" value="sucesso">
-         </div>
-      </div>
+
 
       <div class="row">
-         <div class="col-md-4">
-            <div class="text-right">
-               <input type="submit" name="b1" class="btn btn-success btn_salvar" value="Entrar">
+         <div class="col-12 col-sm-6 col-md-4 col-lg-8 col-xl-4 border"> 
+            
+            <div class="row">
+               <div class="col-md-12">
+                  <label for="frm_usuario">Usuário</label>               
+                  <input type="text" class="form-control form-control-sm" id="frm_usuario" name="frm_usuario" value="moinunes">            
+               </div>      
             </div>
+
+            <div class="row">
+               <div class="col-md-12">
+                  <label for="frm_usuario">Senha</label>
+                  <input type="text" class="form-control form-control-sm" id="frm_senha" name="frm_senha" value="sucesso">
+               </div>
+            </div>
+
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="text-right">
+                     <input type="submit" name="b1" class="btn btn-success btn_salvar" value="Entrar">
+                  </div>
+               </div>
+            </div>
+
          </div>
       </div>
 

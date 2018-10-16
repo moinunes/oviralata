@@ -52,25 +52,11 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
    
 </head>
 
-<body>
+<body class="fundo_cinza_1">
 
+   <?php include_once 'cabecalho.php';?>
 
-   
-   <div class="container-fluid">
-         <div class="row div_cabecalho fundo_branco_1">
-            <div class="col-1">
-            </div>
-            <div class="col-10"> 
-               <span><img src="images/logo.png" ></span>
-            </div>
-            <div class="col-1"> 
-            </div>
-         </div>
-   
-   
-   </div>      
-
-   
+  
    <div class="container">
 
       <div class="row border-top">
@@ -85,17 +71,17 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
             <!-- código e título -->
             <div class="row">
                <div class="col-12 text-center">
-                  <span class="font_azul_m border border-primary">Código:<?=$id_imovel ?></span>                  
+                  <span class="destaque_1">Código:<?=$id_imovel ?></span>                  
                </div>  
             </div>   
 
             <!-- código e título -->
             <div class="row">
                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
-                  <span class="destaque_0"><?= "{$imovel->tipo_imovel}" ?></span>                 
+                  <span class="destaque_3"><?= "{$imovel->tipo_imovel}" ?></span>                 
                </div>  
                <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
-                  <span class="destaque_2">R$ <?=$imovel->valor_imovel; ?></span>
+                  <span class="destaque_2">R$ <?=number_format($imovel->valor_imovel, 2, ',', '.'); ?></span>
                </div>  
             </div>   
 
@@ -195,7 +181,7 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
                   <span class="font_cinza_m text-right">Preço:</span>
                </div>   
                <div class="col-6">
-                  <span class="font_azul_p"><?='R$ '.$imovel->valor_imovel ?></span>
+                  <span class="font_azul_p"><?='R$ '.number_format($imovel->valor_imovel, 2, ',', '.'); ?></span>
                </div>                  
             </div>
 

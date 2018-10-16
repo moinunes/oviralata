@@ -188,8 +188,7 @@ class Imoveis_Hlp  extends conecta {
             $operador = ( $i+1 < count($nomes_bairros) ) ? ' OR ' : ' ';
             if ($nome_bairro!='') {
                $filtro_bairro .= " tbbairro.nome_bairro='{$nome_bairro}' {$operador} ";               
-            }     
-            print($operador);
+            }
          }         
          $filtro .= ' AND '.$filtro_bairro;
       }

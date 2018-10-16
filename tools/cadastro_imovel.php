@@ -31,14 +31,15 @@ include_once 'cadastro_hlp_tipo.php';
    
 </head>
 
-<body>
+<body class="fundo_cinza_1">
 
-   <header>
+   
+      <?php include_once 'cabecalho_tools.php';?>
       <div class="row div_cabecalho">
          <div class="col-md-1">
          </div>
          <div class="col-md-2">         
-            <p style="font-size: 18px">Cadastro de Imóvel</p>
+            <span class="font_cinza_f">Cadastro de Imóvel</span>
          </div>
          <div class="col-md-2 text-right">            
             <a class="btn btn-outline-success btn_link" href="cadastro_imovel.php?acao=inclusao&comportamento=exibir_formulario&frm_id_imovel=0"><img src="../images/novo.svg"  > Novo</a>
@@ -50,8 +51,7 @@ include_once 'cadastro_hlp_tipo.php';
             <a class="btn btn-outline-success btn_link" href="index.php?acao=vazio&comportamento=vazio"><img src="../images/voltar.svg" >Voltar</a>
          </div>
       </div>
-   </header>  
-
+   
    <div class="container">
 
    <?php
@@ -75,12 +75,7 @@ include_once 'cadastro_hlp_tipo.php';
       $checked_ar_condicionado = $_REQUEST['frm_ar_condicionado']=='1' ? 'checked' : '';
       $checked_prox_mercado    = $_REQUEST['frm_prox_mercado'   ]=='1' ? 'checked' : '';
       $checked_prox_hospital   = $_REQUEST['frm_prox_hospital'  ]=='1' ? 'checked' : '';
-      //$_REQUEST['frm_imovel_cep'] = '02563000';  // teste  teste  teste  teste  teste 
-
-      //print '<pre>';
-      print '->'.$_REQUEST['frm_lavanderia'   ].' '.$checked_lavanderia;
-      print '->'.$_REQUEST['frm_churrasqueira'   ].' '.$checked_churrasqueira;
-
+      
       ?>
 
 
@@ -95,7 +90,7 @@ include_once 'cadastro_hlp_tipo.php';
          
          <div class="row">
             <div class="col-md-12">
-               <span class="cor_vermelha"><?=$_REQUEST['frm_modo']?></span>
+               <span class="destaque_3"><?=$_REQUEST['frm_modo']?></span>
             </div>
          </div>
 
@@ -329,8 +324,8 @@ include_once 'cadastro_hlp_tipo.php';
          <input type="hidden" id="frm_id_domicilio_imovel" name="frm_id_domicilio_imovel" value = "<?=$_REQUEST['frm_id_domicilio_imovel']?>">
          
          <div class="row">
-            <div class="col-md-12">
-               <span class="cor_vermelha"><< Exclusão de imóvel >></span>
+            <div class="col-md-12">               
+               <span class="font_cinza_p"><< Exclusão de imóvel >></span>
             </div>
          </div>
 
@@ -438,8 +433,11 @@ include_once 'cadastro_hlp_tipo.php';
          <input type="hidden" id="comportamento" name="comportamento" value = "exibir_listagem">
          <input type="hidden" id="acao"          name="acao"          value = "<?=$_REQUEST['acao']?>">
 
-               
          <div class="row">
+            <div class="col-12 altura_linha_1"></div>
+         </div>
+               
+         <div class="row fundo_branco_1">
             <div class="col-md-2">
                <label for="frm_filtro_municipio">Município</label>
                <select id='frm_filtro_municipio' name='frm_filtro_municipio' class="form-control form-control-sm" >
@@ -454,7 +452,7 @@ include_once 'cadastro_hlp_tipo.php';
             </div>
          </div>
 
-         <div class="row">
+         <div class="row fundo_branco_1">
             <div class="col-md-2">
                <label for="frm_filtro_tipo_imovel">Tipo</label>
                <select id='frm_filtro_tipo_imovel' name='frm_filtro_tipo_imovel' class="form-control form-control-sm" >
@@ -481,11 +479,11 @@ include_once 'cadastro_hlp_tipo.php';
             </div>
          </div>
 
-         <div class="row">
+         <div class="row fundo_branco_1">
             <div class="col-md-12"><hr></div>
          </div>
 
-         <div class="row">            
+         <div class="row fundo_branco_1">            
             <div class="col-md-2"></div>
             <div class="col-md-2"></div>
             <div class="col-md-2">Tipo</div>            
@@ -493,44 +491,47 @@ include_once 'cadastro_hlp_tipo.php';
             <div class="col-md-5">Título</div>            
          </div>
 
-         <div class="row">
+         <div class="row fundo_branco_1">
             <div class="col-md-12"><hr></div>
          </div>
-
          
-         <?php
-         if ( isset($_REQUEST['frm_filtro_tipo_imovel']) ) {
-            $instancia = new Cadastro_Hlp_Imovel();
-            $instancia->set_id_tipo_imovel( $_REQUEST['frm_filtro_tipo_imovel'] );
-            $instancia->set_codigo_imovel( $_REQUEST['frm_filtro_codigo_imovel'] );
-            $instancia->set_titulo( $_REQUEST['frm_filtro_titulo'] );            
-            $instancia->set_id_municipio( $_REQUEST['frm_filtro_municipio'] );
-            $instancia->obter_imoveis( $imoveis );
-            $i = 0;
-            foreach ( $imoveis as $imovel ) { 
-               if( $i % 2 == 0 ) {
-                  $cor='cor_zebra_1';
-                  $i=1;
-               } else {
-                  $cor='cor_zebra_2';
+         <div class="row fundo_branco_1">
+            <div class='col-12'>
+               <?php         
+               if ( isset($_REQUEST['frm_filtro_tipo_imovel']) ) {
+                  $instancia = new Cadastro_Hlp_Imovel();
+                  $instancia->set_id_tipo_imovel( $_REQUEST['frm_filtro_tipo_imovel'] );
+                  $instancia->set_codigo_imovel( $_REQUEST['frm_filtro_codigo_imovel'] );
+                  $instancia->set_titulo( $_REQUEST['frm_filtro_titulo'] );            
+                  $instancia->set_id_municipio( $_REQUEST['frm_filtro_municipio'] );
+                  $instancia->obter_imoveis( $imoveis );
                   $i = 0;
-               }?>
-               <div class="row <?= "{$cor}" ?>">
-                  <div class="col-md-2">
-                     <a class="btn btn-outline-success btn_link2" href="cadastro_imovel.php?acao=alteracao&comportamento=exibir_formulario&frm_id_imovel=<?=$imovel->id_imovel?>"><img src="../images/editar.svg"> Alterar</a>
-                  </div>
-                  <div class="col-md-2">                  
-                     <a class="btn btn-outline-success btn_link2" href="cadastro_imovel.php?acao=exclusao&comportamento=exibir_formulario_exclusao&frm_id_imovel=<?=$imovel->id_imovel?>"><img src="../images/excluir.svg"> Excluir</a>
-                  </div>
-                  <div class="col-md-2"><?=$imovel->tipo_imovel ?></div>                  
-                  <div class="col-md-1"><?=$imovel->codigo_imovel?></div>
-                  <div class="col-md-5"><?=$imovel->titulo?></div>                  
-               </div>
-               
-            <?php   
-            }
-         }         
-         ?>        
+                  foreach ( $imoveis as $imovel ) { 
+                     if( $i % 2 == 0 ) {
+                        $cor='cor_zebra_1';
+                        $i=1;
+                     } else {
+                        $cor='cor_zebra_2';
+                        $i = 0;
+                     }?>
+                     <div class="row <?= "{$cor}" ?>">
+                        <div class="col-md-2">
+                           <a class="btn btn-outline-success btn_link2" href="cadastro_imovel.php?acao=alteracao&comportamento=exibir_formulario&frm_id_imovel=<?=$imovel->id_imovel?>"><img src="../images/editar.svg"> Alterar</a>
+                        </div>
+                        <div class="col-md-2">                  
+                           <a class="btn btn-outline-success btn_link2" href="cadastro_imovel.php?acao=exclusao&comportamento=exibir_formulario_exclusao&frm_id_imovel=<?=$imovel->id_imovel?>"><img src="../images/excluir.svg"> Excluir</a>
+                        </div>
+                        <div class="col-md-2"><?=$imovel->tipo_imovel ?></div>                  
+                        <div class="col-md-1"><?=$imovel->codigo_imovel?></div>
+                        <div class="col-md-5"><?=$imovel->titulo?></div>                  
+                     </div>
+                     
+                  <?php   
+                  }
+               }         
+               ?>
+            </div>
+         </div>
       </form>
    <?php
    } // exibir_listagem

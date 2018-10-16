@@ -172,7 +172,7 @@ if ( !isset($_SESSION['login']) ) {
                   <div class="col-md-1">
                      <a class="btn btn-outline-success btn_link2" href="cadastro_tipo.php?acao=alteracao&comportamento=exibir_formulario&frm_id_tipo_imovel=<?=$tipo->id_tipo_imovel?>"><img src="../images/editar.svg"> Alterar</a>
                   </div>
-                  <div class="col-md-2"><?=utf8_encode($tipo->tipo_imovel) ?></div>
+                  <div class="col-md-2"><?=$tipo->tipo_imovel ?></div>
                </div>
             <?php   
             }

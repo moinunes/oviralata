@@ -23,9 +23,9 @@
 
 .slick-prev:before,
 .slick-next:before {
-   color: #CC2EFA !important;
-   border:1px solid #ECCEF5;
-   box-shadow: 0px 0px 1px 1px #CC2EFA; 
+   color: #7cc15d !important;
+   border:1px solid #7cc15d;
+   box-shadow: 0px 0px 1px 1px #7cc15d; 
    font-size: 30px !important;
 
 }

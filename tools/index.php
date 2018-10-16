@@ -34,39 +34,27 @@ if ( !isset( $_SESSION['login'] ) ) {
 <body>
 
    <header>
-      
-      <div class="row cor_verde">
-         <div class="col-md-11 text-right">            
-            <?php Tools::exibir_data_extenso();?>
+      <?php include_once 'cabecalho_tools.php';?>
+  
+      <div class="row fundo_cinza_1">
+         <div class="col-0 col-sm-0 col-md-0 col-lg-1 col-xl-1">   
+             
          </div>
-         <div class="col-md-11 text-right">            
-               Usuário: <?=$_SESSION['usuario']?>            
-         </div>
-         <div class="col-md-1">                           
-         </div>
-      </div>
-
-      <div class="row div_cabecalho">
-         <div class="col-md-1">
-         </div>
-         <div class="col-md-3">         
-            <p style="font-size: 18px">Manutenção do Site</p>
-         </div>
-         <div class="col-md-2">        
+         <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 text-center">   
              <a class="btn btn-outline-success btn_link" href="cadastro_imovel.php?acao=alteracao&comportamento=exibir_listagem" role="button"><img src="../images/casa.svg"> Imóvel</a>
          </div>
-         <div class="col-md-2">
-             <a class="btn btn-outline-success btn_link" href="cadastro_tipo.php?acao=alteracao&comportamento=exibir_listagem" role="button"><img src="../images/tipo.svg"> Tipo Imóvel</a>
+         <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 text-center">
+             <a class="btn btn-outline-success btn_link" href="cadastro_tipo.php?acao=alteracao&comportamento=exibir_listagem" role="button"><img src="../images/tipo.svg"> Tipo</a>
          </div>
-         <div class="col-md-2">
+         <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 text-center">
              <a class="btn btn-outline-success btn_link" href="cadastro_cep.php?acao=alteracao&comportamento=exibir_listagem" role="button"><img src="../images/mail.svg"> CEP</a>
          </div>
-
-         <div class="col-md-2 text-right">
+         <div class="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-4 text-center">
              <a class="btn btn-outline-success btn_link" href="login.php?acao=logout&comportamento=vazio" role="button"><img src="../images/sair.svg"> Sair</a>
          </div>        
          
       </div>   
+
    </header>  
 
 
@@ -81,12 +69,11 @@ if ( !isset( $_SESSION['login'] ) ) {
 
       <div class="row">
          <div class="col-md-12">
-            <?=$_SESSION['usuario']?><br>
-            Essa é a tela de manutenção dos cadastros do SITE
+            <span class="font_cinza_g text-righ">Essa é a tela de manutenção dos cadastros do SITE</span>
             <br><br>
-            <a href="cadastro_imovel.php?acao=inclusao&comportamento=exibir_formulario&frm_imovel=0">Click Aqui</a> para cadastrar um NOVO IMÓVEL
+            <a href="cadastro_imovel.php?acao=inclusao&comportamento=exibir_formulario&frm_imovel=0">Incluir um IMÓVEL</a>
             <br><br>
-            <a href="cadastro_imovel.php?acao=alteracao&comportamento=exibir_listagem">Click Aqui</a> para alterar os dados de um IMÓVEL
+            <a href="cadastro_imovel.php?acao=alteracao&comportamento=exibir_listagem">Alterar um IMÓVEL</a>
          </div>
       </div>
       

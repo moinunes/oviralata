@@ -13,7 +13,7 @@ class Tools {
       setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
       date_default_timezone_set('America/Sao_Paulo');       
       //.. Imprime a data por extenso
-      echo strftime('%A, %d de %B de %Y', strtotime('today'));
+      echo strftime('%A, %d de %B/%Y', strtotime('today'));
    } // exibir_data_extenso
 
 

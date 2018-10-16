@@ -477,7 +477,7 @@ class Cadastro_Hlp_Imovel extends conecta {
          $valor_imovel = str_replace( ',', '.', $valor_imovel );
       }
       $descricao =  $this->get_descricao() ;
-      print $descricao;
+      //print $descricao;
       //printj '--->'.$this->get_valor_imovel();
       //print $valor_imovel;
 

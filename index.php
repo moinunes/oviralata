@@ -91,7 +91,7 @@
 
     
 
-<body  id="body" >
+<body class="fundo_cinza_1">
 
    <header id="header">
 
@@ -107,17 +107,9 @@
          <input type="hidden" id="frm_pagina" name="frm_pagina" value = "">
          <input type="hidden" id="frm_nomes_bairros" name="frm_nomes_bairros" value ="<?= $nomes_bairros;?>" size="300">
          
-         <div class="row justify-content-md-left fundo_branco_1">            
-            <div class="col-1">
-            </div>
-            <div class="col-10">
-               <img src="images/logo.png" >
-            </div>
-            <div class="col-1"> 
-            </div>
-         </div>
-
-         <div class="row justify-content-md-left fundo_verde_claro">
+         <?php include_once 'cabecalho.php';?>
+         
+         <div class="row fundo_verde_claro">
             
             <div class="col-md-1">
             </div>
@@ -171,7 +163,7 @@
                </div>
             </div>
 
-            <div class="col-md-1">                   
+            <div class="col-md-1">                
             </div>
 
          </div>
@@ -330,8 +322,7 @@
          
          <!-- d-none d-lg-block - esconde a div em telas menores que LG ( abaixo de 992px ) -->
          <div class="col-lg-3 col-xl-3 d-none d-lg-block">
-            <div class="div_esquerda"> <!-- aqui publicidade -->
-                <img src="images/logo.png" >
+            <div class="div_esquerda"> <!-- aqui publicidade -->               
             </div>   
          </div>
 
@@ -351,7 +342,7 @@
                <div class="row fundo_branco_1">
                   <div class="col-md-auto">
                      <a href="javascript:mostrar_detalhes(<?=$id_imovel?>)"  >
-                        <span class="titulo border border-primary">Código:<?=$id_imovel ?></span>
+                        <span class="destaque_1">Código:<?=$id_imovel ?></span>
                      </a>  
                   </div>  
                   <div class="col-md-auto">
@@ -375,10 +366,7 @@
                            <div>
                               <a href="javascript:mostrar_detalhes(<?=$id_imovel?>)"  >
                                  <img src="<?=$caminho?>" >
-                              </a>
-                              <div>
-                                 <button type="button" class="btn slide_caption" onclick="javascript:mostrar_detalhes(<?=$id_imovel?>)">.</button>
-                              </div>
+                              </a>                              
                            </div>
                         <?php
                         $i++;
@@ -472,7 +460,7 @@
 
                <!-- linha: 3-->  
                <div class="row">
-                  <div class="col-md-12 altura_linha_1">                     
+                  <div class="col-md-12 altura_linha_2">
                   </div>   
                </div>
 

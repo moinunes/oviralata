@@ -1,15 +1,10 @@
-@charset "UTF-8";
+@charset "UTF-8"
 
 /*
  * Estilo
  *  background-color:#d5ebcb; 
  */
 
-body {
-  padding: 0px;
-  margin: 2px;  
-  background-color:#EEEEEE;
-}
 
 
 input[type="number"] {
@@ -62,32 +57,44 @@ a:active {
       font-family: arial;   
       font-size:16px;
    }
-
-   .destaque_0 { 
-      text-align: center;  
-      padding: 2px;
-      margin: 3px;
-      opacity: 0.5;
+   
+   .destaque_1 {   
+      opacity: 0.8;
       font-family: arial;
-      font-size: 16px;  
-      color:#0080FF;
-      box-shadow: 1px 1px 1px 1px #0080FF;;
-      border-radius:5px;
+      font-size:16px;
+      color: green;
+      box-shadow: 1px 0px 1px 2px #7cc15d;
+      background-color: #ffffff;
    }
 
-   .destaque_2 {   
+   .destaque_2 { 
+      text-align: center;  
+      opacity: 0.8;
+      padding: 2px;
+      margin: 3px;
       margin: 0px;
       padding:1px;   
       font-family: arial;
       font-size:16px;
-      color:#000000;
-      box-shadow: 0px 0px 1px 1px #642EFE;;
-       background-color: #E0FFFF;
-   }
-   .destaque_2:hover { 
-      background-color: #642EFE;
+      color:#ffffff;;
+      box-shadow: 0px 0px 1px 1px #fff;
+      background-color: #7cc15d;
    }
 
+   .destaque_3 { 
+      text-align: center;  
+      padding: 2px;
+      margin: 3px;
+      opacity: 0.8;
+      font-family: arial;
+      font-size: 16px;  
+      color:#ffffff;
+      box-shadow: 0px 0px 1px 1px #fff;
+      background-color:  #7cc15d;
+      border-radius:0px;
+   }  
+
+   
    .largura1{ width:90px; }
 
    .tamanho_logo{
@@ -95,7 +102,7 @@ a:active {
    }
 
    .titulo {   
-      color:#642EFE;
+      color:green;
       font-family: arial;
       font-size:14px;
    }
@@ -136,35 +143,41 @@ a:active {
       font-size:18px;
    }
 
-   .destaque_0 { 
-      text-align: center;  
-      padding: 2px;
-      margin: 3px;
-      opacity: 0.5;
+   .destaque_1 {   
+      opacity: 0.8;
       font-family: arial;
-      font-size: 20px;  
-      color:#0080FF;
-      box-shadow: 1px 1px 1px 1px #0080FF;;
-      border-radius:5px;
+      font-size:18px;
+      color: green;
+      box-shadow: 1px 0px 1px 1px #7cc15d;
+      background-color: #ffffff;
    }
 
-
-/*
- * testes
- *  background-color:#d5ebcb; 
- */
-
-
-   .destaque_2 {   
+   .destaque_2 { 
+      text-align: center;  
+      opacity: 0.8;
+      padding: 2px;
+      margin: 3px;
       margin: 0px;
       padding:1px;   
       font-family: arial;
-      font-size:22px;
-      color:#000;
-      box-shadow: 0px 0px 1px 1px #cccccc;
-      background-color:#E3CEF6;
+      font-size:18px;
+      color:#ffffff;;
+      box-shadow: 0px 0px 1px 1px #fff;
+      background-color: #7cc15d;
    }
-  
+
+   .destaque_3 { 
+      text-align: center;  
+      padding: 2px;
+      margin: 3px;
+      opacity: 0.8;
+      font-family: arial;
+      font-size: 18px;  
+      color:#ffffff;
+      box-shadow: 0px 0px 1px 1px #fff;
+      background-color:  #7cc15d;
+      border-radius:0px;
+   }  
 
    .largura1{ width:120px; }
 
@@ -173,7 +186,7 @@ a:active {
    }
 
    .titulo {   
-      color:#BF00FF;
+      color:green;
       font-family: arial;
       font-size:16px;
    }
@@ -193,7 +206,7 @@ a:active {
 
 .fundo_branco_2 {
    background-color:#ffffff;   
-   box-shadow: 1px 2px 1px 1px #cccccc;
+   box-shadow: 1px 1px 1px 0px #7cc15d;
 }
 
 
@@ -344,31 +357,6 @@ a:active {
    font-size:18px;   
 }
 
-.destaque_1 {   
-   opacity: 0.5;
-   font-family: arial;
-   font-size:22px;
-   color: orange;
-  /* background-color:#999999; */
-   box-shadow: 1px 0px 1px 2px #CED8F6;
-   background-color: #642EFE;
-
-}
-
-.destaque_3 { 
-   text-align: center;  
-   padding: 2px;
-   margin: 3px;
-   opacity: 0.5;
-   font-family: arial;
-   font-size: 20px;  
-   color:#000000;
-   box-shadow: 1px 1px 1px 0px #cccccc;
-    background-color: #ECCEF5;
-   border-radius:3px;
-}
-
-
 .altura_1 {
    margin-top:3px; 
    margin-bottom:3px; 
@@ -402,9 +390,10 @@ label {
 
 .div_cabecalho {
    padding:0px;
-   margin:0px;
+   margin-left:4px;
+   margin-right:4px;
    background-color:#ffffff;
-   box-shadow:0px 2px 2px 1px #999999;
+   box-shadow: 1px 1px 1px 0px #7cc15d;
    min-height: 40px;
 }
 
@@ -481,11 +470,13 @@ label {
 .btn_link {
    padding:0px;
    margin:1px;
-   height: 25px;   
-   width: 110px;
+   height: 22px;   
+   width: 80px;
    background-color: #E0FFFF;
    color: #999;
    border-radius: 5px;
+   font-size:14px; 
+
 }
 .btn_link:hover { 
    color: #ccc;
