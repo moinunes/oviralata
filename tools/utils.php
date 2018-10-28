@@ -1,5 +1,5 @@
 <?php
-include_once 'tools/conecta.php';
+include_once 'conecta.php';
 
 /**
 *
@@ -14,8 +14,8 @@ class Utils {
    * Configura o paginador
    *
    */ 
-   public function configura_paginador( $total_registros, $pagina_atual ) {
-      $exibir        = 5;
+   static public function configura_paginador( $total_registros, $pagina_atual ) {
+      $exibir        = 8;
       $do            = new StdClass();
       $pagina_atual  = ( $pagina_atual != '' ) ? $pagina_atual : 1;
       $qtd_paginas   = ceil(($total_registros/$exibir));
@@ -33,7 +33,7 @@ class Utils {
    * Monta o paginador
    *
    */ 
-   public function paginador( $qtd_paginas, $pagina_atual ) {?>
+   static public function paginador( $qtd_paginas, $pagina_atual ) {?>
       <div id="paginacao" class="text-center">   
          <?php
          $link='';
@@ -60,6 +60,17 @@ class Utils {
       </div>
    <?php
    } // paginador
+
+
+   public function exibir_data_extenso() {
+      setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
+      date_default_timezone_set('America/Sao_Paulo');      
+      if ( $_SERVER['SERVER_NAME'] =='localhost' ) {
+         echo  strftime('%A, %d de %B/%Y', strtotime('today'));
+      } else {
+         echo utf8_encode( strftime('%A, %d, de %B/%Y',strtotime('today')) );
+      }
+   } // exibir_data_extenso
 
 
 }

@@ -1,15 +1,12 @@
 <?php
-include_once 'tools/conecta.php';
-include_once 'tools/utils.php';
+include_once './tools/conecta.php';
+include_once './tools/utils.php';
 
 /**
 *
 * Essa classe auxilia na consulta de imóveis para o site
 * 
 */   
-
-         //........... file_put_contents( __DIR__.'/teste.txt', $pasta ."\n" );
-
 
 class Imoveis_Hlp  extends conecta {
 
@@ -19,32 +16,13 @@ class Imoveis_Hlp  extends conecta {
    private $id_tipo_imovel;
    private $nomes_bairros;
    private $pagina_atual;
-   private $valor_imovel;
+   private $valor_imovel;   
    
-   //private $codigo_imovel;
-   //private $titulo;
-   //private $descricao;
-   //private $proprietario_nome;
-   //private $proprietario_dados;
-   //private $endereco_imovel;
-   
-   //private $valor_condominio;
-   //private $valor_iptu;
-   //private $valor_laudemio;
    private $qtd_quartos;
    private $qtd_banheiro;
    private $qtd_vaga;
    private $area_util;
    private $area_total;
-   //private $tem_escritura;
-   //private $idade_imovel;
-   //private $data_cadastro;
-   //private $ativo;
-   //private $id_domicilio_imovel;
-   //private $imovel_cep;
-   //private $imovel_numero;
-   //private $imovel_complemento;
-   
 
    public function get_id_tipo_imovel() {
       return $this->id_tipo_imovel;
@@ -148,23 +126,25 @@ class Imoveis_Hlp  extends conecta {
    *
    */   
    public function obter_imoveis( &$imoveis ) {
-      $filtro = "1=1";      
+
+      $filtro = "1=1 AND tbimovel.ativo='S' ";
+
       if ( $this->get_id_tipo_imovel() != '' ) {
          $filtro .= " AND tbimovel.id_tipo_imovel = ".$this->get_id_tipo_imovel();
       }
       if ( $this->get_id_imovel() != '' ) {
-         $filtro .= " AND id_imovel = ".$this->get_id_imovel();
+         $filtro .= " AND tbimovel.id_imovel = ".$this->get_id_imovel();
       }
       if ( $this->get_codigo_imovel() != '' ) {
-         $filtro .= " AND id_imovel = ".$this->get_codigo_imovel();
+         $filtro .= " AND tbimovel.id_imovel = ".$this->get_codigo_imovel();
       }
       if ( $this->get_id_municipio() != '' ) {
          $filtro .= " AND tbmunicipio.id_municipio = ".$this->get_id_municipio();
       }
-      if ( $this->get_valor_imovel() != '' ) {
+      if ( $this->get_valor_imovel() != '' ) {         
          $valor_imovel = str_replace( '.', '', trim($this->get_valor_imovel()) );
          $valor_imovel = str_replace( ',', '.', $valor_imovel );
-         $filtro .= " AND tbimovel.valor_imovel <= ".$valor_imovel;
+         $filtro .= " AND tbimovel.valor_imovel <= ".$valor_imovel;         
       }
       if ( $this->get_qtd_quartos() > 0 ) {         
          $filtro .= " AND tbimovel.qtd_quartos >= ".$this->get_qtd_quartos();
@@ -172,13 +152,15 @@ class Imoveis_Hlp  extends conecta {
       if ( $this->get_qtd_vaga() > 0 ) {         
          $filtro .= " AND tbimovel.qtd_vaga >= ".$this->get_qtd_vaga();
       }
-      if ( $this->get_qtd_banheiro() > 0 ) {         
+      if ( $this->get_qtd_banheiro() > 1 ) {         
          $filtro .= " AND tbimovel.qtd_banheiro >= ".$this->get_qtd_banheiro();
       }
       if ( $this->get_area_util() > 0 ) {         
          $filtro .= " AND tbimovel.area_util >= ".$this->get_area_util();
       }
 
+      //.. ordenar
+      $ordem = ' ORDER BY tbimovel.id_imovel DESC ';
 
       if ( $this->get_nomes_bairros() != '' ) {
          $filtro_bairro = '';
@@ -205,11 +187,12 @@ class Imoveis_Hlp  extends conecta {
                               JOIN tbmunicipio ON (tbmunicipio.id_municipio=tbbairro.id_municipio)
                WHERE
                   $filtro";
+      
       $stmt = $this->con->prepare( $sql );      
       $stmt->execute();
       $imoveis = $stmt->fetch(PDO::FETCH_ASSOC);
       $this->total_registros = (int)$imoveis['total_registros'];
-      
+    
       $do = Utils::configura_paginador( $this->total_registros, $this->get_pagina_atual() ) ;
       $this->set_pagina_atual( $do->pagina_atual );
       $this->qtd_paginas = $do->qtd_paginas;
@@ -254,15 +237,12 @@ class Imoveis_Hlp  extends conecta {
                               JOIN tbmunicipio ON (tbmunicipio.id_municipio=tbbairro.id_municipio)
                WHERE
                   $filtro
+               $ordem    
                LIMIT $do->inicio_exibir, $do->exibir
              ";            
       $stmt = $this->con->prepare( $sql );
       $stmt->execute();
-      $imoveis = $stmt->fetchAll(PDO::FETCH_CLASS);      
-
-     // print $sql;
-     // print '<pre>'; print_r($stmt->rowCount());
-     // print '<pre>'; print_r($imoveis);
+      $imoveis = $stmt->fetchAll(PDO::FETCH_CLASS); 
       
    } // obter_imoveis
 

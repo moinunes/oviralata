@@ -20,7 +20,7 @@ class Fotos {
    */
    public function incluir_foto() {
       $dir = DIR_FOTOS.$_SESSION['dir_tmp'];
-      $imagem = $_POST['imagem'];
+      $imagem = urldecode( $_POST['imagem'] );
       $tipo   = $_POST['tipo'];
       $nome   = $_POST['nome'];
       if ($tipo=='thumbnail'){
@@ -30,7 +30,7 @@ class Fotos {
       $imagem  = str_replace( $retirar, '', $imagem );
       $dados   = base64_decode($imagem);
       if ( !is_dir($dir) ) {
-         mkdir( $dir, 0777 );
+         mkdir( $dir, 0755 );
       }
       $nome_foto = $dir."/{$nome}";
 
@@ -111,7 +111,7 @@ switch ($_POST['acao']) {
       break;
 
    case 'obter_miniaturas':
-      $id_imovel = $_POST['id_imovel'];      
+      $id_imovel = $_POST['id_imovel'];
       $fotos->obter_miniaturas($id_imovel);
       break;
    

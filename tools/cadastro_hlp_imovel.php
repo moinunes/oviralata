@@ -36,6 +36,7 @@ class Cadastro_Hlp_Imovel extends conecta {
    private $ativo;
    private $id_domicilio_imovel;
    private $imovel_cep;
+   private $imovel_id_logradouro;
    private $imovel_numero;
    private $imovel_complemento;
    private $id_municipio;
@@ -236,6 +237,14 @@ class Cadastro_Hlp_Imovel extends conecta {
       $this->imovel_cep = $valor;
    }
 
+   public function get_imovel_id_logradouro() {
+      return $this->imovel_id_logradouro;
+   }
+
+   public function set_imovel_id_logradouro( $valor ) {
+      $this->imovel_id_logradouro = $valor;
+   }
+
    public function get_imovel_numero() {
       return $this->imovel_numero;
    }
@@ -336,111 +345,123 @@ class Cadastro_Hlp_Imovel extends conecta {
    /**
     * Inclui o imóvel
     */
-   function incluir() {
+   function incluir() {     
 
-      // inclui domicilio imóvel
-      $this->incluir_domicilio_imovel($id_domicilio_imovel);
+      $valor_imovel = 0.00;
+      if ( trim($this->get_valor_imovel()) !='' ) {
+         $valor_imovel = str_replace( '.', '', trim($this->get_valor_imovel()) );
+         $valor_imovel = str_replace( ',', '.', $valor_imovel );
+      }
 
-      // inclui o imóvel
-      $campos = " id_tipo_imovel,                        
-                  titulo,
-                  descricao,
-                  proprietario_nome,
-                  proprietario_dados,
-                  endereco_imovel,
-                  valor_imovel,
-                  valor_condominio,
-                  valor_iptu,
-                  valor_laudemio,
-                  qtd_quartos,
-                  qtd_banheiro,
-                  qtd_vaga,
-                  qtd_suite,
-                  area_util,
-                  area_total,
-                  tem_escritura,
-                  idade_imovel,
-                  data_cadastro,
-                  ativo,
-                  id_domicilio_imovel,
-                  lavanderia,
-                  salao_festa,
-                  churrasqueira,
-                  academia,
-                  piscina,
-                  ar_condicionado,
-                  prox_mercado,
-                  prox_hospital
-                  ";
-      $sql = "INSERT INTO tbimovel({$campos})
-              VALUES (:id_tipo_imovel,                      
-                      :titulo,
-                      :descricao,
-                      :proprietario_nome,
-                      :proprietario_dados,
-                      :endereco_imovel,
-                      :valor_imovel,
-                      :valor_condominio,
-                      :valor_iptu,
-                      :valor_laudemio,
-                      :qtd_quartos,
-                      :qtd_banheiro,
-                      :qtd_vaga,
-                      :qtd_suite,
-                      :area_util,
-                      :area_total,
-                      :tem_escritura,
-                      :idade_imovel,
-                      :data_cadastro,
-                      :ativo,
-                      :id_domicilio_imovel,
-                      :lavanderia,
-                      :salao_festa,
-                      :churrasqueira,
-                      :academia,
-                      :piscina,
-                      :ar_condicionado,
-                      :prox_mercado,
-                      :prox_hospital
-               )";
-      $stmt = $this->con->prepare($sql);
-      $stmt->bindValue(':id_tipo_imovel',      $this->get_id_tipo_imovel(),    PDO::PARAM_INT);      
-      $stmt->bindValue(':titulo',              $this->get_titulo(),            PDO::PARAM_STR);
-      $stmt->bindValue(':descricao',           $this->get_descricao(),         PDO::PARAM_STR);
-      $stmt->bindValue(':proprietario_nome',   $this->get_proprietario_nome(), PDO::PARAM_STR);
-      $stmt->bindValue(':proprietario_dados',  $this->get_proprietario_dados(),PDO::PARAM_STR);
-      $stmt->bindValue(':endereco_imovel',     $this->get_endereco_imovel(),   PDO::PARAM_STR);
-      $stmt->bindValue(':valor_imovel',        $this->get_valor_imovel(),      PDO::PARAM_STR);
-      $stmt->bindValue(':valor_condominio',    $this->get_valor_condominio(),  PDO::PARAM_STR);
-      $stmt->bindValue(':valor_iptu',          $this->get_valor_iptu(),        PDO::PARAM_STR);
-      $stmt->bindValue(':valor_laudemio',      $this->get_valor_laudemio(),    PDO::PARAM_STR);
-      $stmt->bindValue(':qtd_quartos',         $this->get_qtd_quartos(),       PDO::PARAM_STR);
-      $stmt->bindValue(':qtd_banheiro',        $this->get_qtd_banheiro(),      PDO::PARAM_STR);
-      $stmt->bindValue(':qtd_vaga',            $this->get_qtd_vaga(),          PDO::PARAM_STR);
-      $stmt->bindValue(':qtd_suite',           $this->get_qtd_suite(),         PDO::PARAM_STR);
-      $stmt->bindValue(':area_util',           $this->get_area_util(),         PDO::PARAM_STR);
-      $stmt->bindValue(':area_total',          $this->get_area_total(),        PDO::PARAM_STR);
-      $stmt->bindValue(':tem_escritura',       $this->get_tem_escritura(),     PDO::PARAM_STR);
-      $stmt->bindValue(':idade_imovel',        $this->get_idade_imovel(),      PDO::PARAM_STR);
-      $stmt->bindValue(':data_cadastro',       $this->get_data_cadastro(),     PDO::PARAM_STR);
-      $stmt->bindValue(':ativo',               $this->get_ativo(),             PDO::PARAM_STR);
-      $stmt->bindValue(':id_domicilio_imovel', $id_domicilio_imovel,           PDO::PARAM_INT);
+      try {
+         $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-      $stmt->bindValue(':lavanderia',          $this->get_lavanderia(),         PDO::PARAM_STR);
-      $stmt->bindValue(':salao_festa',         $this->get_salao_festa(),        PDO::PARAM_STR);
-      $stmt->bindValue(':churrasqueira',       $this->get_churrasqueira(),      PDO::PARAM_STR);
-      $stmt->bindValue(':academia',            $this->get_academia(),           PDO::PARAM_STR);
-      $stmt->bindValue(':piscina',             $this->get_piscina(),            PDO::PARAM_STR);
-      $stmt->bindValue(':ar_condicionado',     $this->get_ar_condicionado(),    PDO::PARAM_STR);
-      $stmt->bindValue(':prox_mercado',        $this->get_prox_mercado(),       PDO::PARAM_STR);
-      $stmt->bindValue(':prox_hospital',       $this->get_prox_hospital(),      PDO::PARAM_STR);
+         // inclui domicilio imóvel
+         $this->incluir_domicilio_imovel($id_domicilio_imovel);
 
-      $stmt->execute();
-      $id_movel = $this->con->lastInsertId();
-      
-      // renomear a pasta de fotos
-      $this->renomear_pasta_temporaria($id_movel);
-      
+         // inclui o imóvel
+         $campos = " id_tipo_imovel,                        
+                     titulo,
+                     descricao,
+                     proprietario_nome,
+                     proprietario_dados,
+                     endereco_imovel,
+                     valor_imovel,
+                     valor_condominio,
+                     valor_iptu,
+                     valor_laudemio,
+                     qtd_quartos,
+                     qtd_banheiro,
+                     qtd_vaga,
+                     qtd_suite,
+                     area_util,
+                     area_total,
+                     tem_escritura,
+                     idade_imovel,
+                     ativo,
+                     id_domicilio_imovel,
+                     lavanderia,
+                     salao_festa,
+                     churrasqueira,
+                     academia,
+                     piscina,
+                     ar_condicionado,
+                     prox_mercado,
+                     prox_hospital
+                     ";
+         $sql = "INSERT INTO tbimovel({$campos})
+                 VALUES (:id_tipo_imovel,                      
+                         :titulo,
+                         :descricao,
+                         :proprietario_nome,
+                         :proprietario_dados,
+                         :endereco_imovel,
+                         :valor_imovel,
+                         :valor_condominio,
+                         :valor_iptu,
+                         :valor_laudemio,
+                         :qtd_quartos,
+                         :qtd_banheiro,
+                         :qtd_vaga,
+                         :qtd_suite,
+                         :area_util,
+                         :area_total,
+                         :tem_escritura,
+                         :idade_imovel,
+                         :ativo,
+                         :id_domicilio_imovel,
+                         :lavanderia,
+                         :salao_festa,
+                         :churrasqueira,
+                         :academia,
+                         :piscina,
+                         :ar_condicionado,
+                         :prox_mercado,
+                         :prox_hospital
+                  )";
+         $stmt = $this->con->prepare($sql);
+         $stmt->bindValue(':id_tipo_imovel',      $this->get_id_tipo_imovel(),    PDO::PARAM_INT);      
+         $stmt->bindValue(':titulo',              $this->get_titulo(),            PDO::PARAM_STR);
+         $stmt->bindValue(':descricao',           $this->get_descricao(),         PDO::PARAM_STR);
+         $stmt->bindValue(':proprietario_nome',   $this->get_proprietario_nome(), PDO::PARAM_STR);
+         $stmt->bindValue(':proprietario_dados',  $this->get_proprietario_dados(),PDO::PARAM_STR);
+         $stmt->bindValue(':endereco_imovel',     $this->get_endereco_imovel(),   PDO::PARAM_STR);
+         $stmt->bindValue(':valor_imovel',        $valor_imovel,                  PDO::PARAM_STR);
+         $stmt->bindValue(':valor_condominio',    $this->get_valor_condominio(),  PDO::PARAM_STR);
+         $stmt->bindValue(':valor_iptu',          $this->get_valor_iptu(),        PDO::PARAM_STR);
+         $stmt->bindValue(':valor_laudemio',      $this->get_valor_laudemio(),    PDO::PARAM_STR);
+         $stmt->bindValue(':qtd_quartos',         $this->get_qtd_quartos(),       PDO::PARAM_STR);
+         $stmt->bindValue(':qtd_banheiro',        $this->get_qtd_banheiro(),      PDO::PARAM_STR);
+         $stmt->bindValue(':qtd_vaga',            $this->get_qtd_vaga(),          PDO::PARAM_STR);
+         $stmt->bindValue(':qtd_suite',           $this->get_qtd_suite(),         PDO::PARAM_STR);
+         $stmt->bindValue(':area_util',           $this->get_area_util(),         PDO::PARAM_STR);
+         $stmt->bindValue(':area_total',          $this->get_area_total(),        PDO::PARAM_STR);
+         $stmt->bindValue(':tem_escritura',       $this->get_tem_escritura(),     PDO::PARAM_STR);
+         $stmt->bindValue(':idade_imovel',        $this->get_idade_imovel(),      PDO::PARAM_STR);
+         $stmt->bindValue(':ativo',               $this->get_ativo(),             PDO::PARAM_STR);
+         $stmt->bindValue(':id_domicilio_imovel', $id_domicilio_imovel,           PDO::PARAM_INT);
+
+         $stmt->bindValue(':lavanderia',          $this->get_lavanderia(),         PDO::PARAM_STR);
+         $stmt->bindValue(':salao_festa',         $this->get_salao_festa(),        PDO::PARAM_STR);
+         $stmt->bindValue(':churrasqueira',       $this->get_churrasqueira(),      PDO::PARAM_STR);
+         $stmt->bindValue(':academia',            $this->get_academia(),           PDO::PARAM_STR);
+         $stmt->bindValue(':piscina',             $this->get_piscina(),            PDO::PARAM_STR);
+         $stmt->bindValue(':ar_condicionado',     $this->get_ar_condicionado(),    PDO::PARAM_STR);
+         $stmt->bindValue(':prox_mercado',        $this->get_prox_mercado(),       PDO::PARAM_STR);
+         $stmt->bindValue(':prox_hospital',       $this->get_prox_hospital(),      PDO::PARAM_STR);
+
+         $stmt->execute();
+         $id_movel = $this->con->lastInsertId();
+         $this->set_id_imovel($id_movel);
+         
+         // renomear a pasta de fotos
+         $this->renomear_pasta_temporaria($id_movel);
+
+         
+      } catch(PDOException $e) {
+         echo 'Error: ' . $e->getMessage();
+      }      
+
       return null;
    } // incluir
 
@@ -451,6 +472,7 @@ class Cadastro_Hlp_Imovel extends conecta {
    function incluir_domicilio_imovel(&$id) {
       $instancia = new Endereco_Hlp();
       $instancia->set_filtro_cep( $this->get_imovel_cep() );
+      $instancia->set_filtro_id_logradouro( $this->get_imovel_id_logradouro() );
       $instancia->obter_dados($dados);
       $id_logradouro = $dados[0]['id_logradouro'];
 
@@ -471,15 +493,11 @@ class Cadastro_Hlp_Imovel extends conecta {
     */
    function alterar() {
       $valor_imovel = 0.00;
-
       if ( trim($this->get_valor_imovel()) !='' ) {
          $valor_imovel = str_replace( '.', '', trim($this->get_valor_imovel()) );
          $valor_imovel = str_replace( ',', '.', $valor_imovel );
       }
       $descricao =  $this->get_descricao() ;
-      //print $descricao;
-      //printj '--->'.$this->get_valor_imovel();
-      //print $valor_imovel;
 
       try {
          $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -552,11 +570,11 @@ class Cadastro_Hlp_Imovel extends conecta {
     */
    function alterar_domicilio_imovel() {
       $instancia = new Endereco_Hlp();
-      $instancia->obter_id_logradouro( $id_logradouro, $this->get_imovel_cep() );
+      $instancia->obter_id_logradouro( $id, $this->get_imovel_cep(),  $this->get_imovel_id_logradouro() );
       $sql = " UPDATE tbdomicilio
                   SET numero        ='{$this->get_imovel_numero()}',
                       complemento   ='{$this->get_imovel_complemento()}',
-                      id_logradouro ={$id_logradouro}
+                      id_logradouro ={$id}
                   WHERE id_domicilio={$this->get_id_domicilio_imovel()} ";
       $stmt = $this->con->prepare($sql);
       $stmt->execute();
@@ -567,7 +585,7 @@ class Cadastro_Hlp_Imovel extends conecta {
     * Obtém os imóveis
     *
     */   
-   function obter_imoveis( &$imoveis ) {      
+   function obter_imoveis( &$imoveis ) {
       $filtro = "1=1";
       if ( $this->get_id_imovel() != '' ) {
          $filtro .= " AND id_imovel = ".$this->get_id_imovel();
@@ -583,6 +601,9 @@ class Cadastro_Hlp_Imovel extends conecta {
       }
       if ( $this->get_id_municipio() != '' ) {
          $filtro .= " AND tbmunicipio.id_municipio = ".$this->get_id_municipio();
+      }
+      if ( $this->get_proprietario_nome() != '' ) {
+         $filtro .= " AND LOWER(proprietario_nome) LIKE '%".$this->get_proprietario_nome()."%'";
       }
       $sql = " SELECT 
                   tbimovel.id_imovel,
@@ -605,7 +626,6 @@ class Cadastro_Hlp_Imovel extends conecta {
                   tbimovel.area_total,
                   tbimovel.tem_escritura,
                   tbimovel.idade_imovel,
-                  tbimovel.data_cadastro,
                   tbimovel.ativo,
                   tbimovel.id_domicilio_imovel,
                   tbimovel.lavanderia,
@@ -616,6 +636,7 @@ class Cadastro_Hlp_Imovel extends conecta {
                   tbimovel.ar_condicionado,
                   tbimovel.prox_mercado,
                   tbimovel.prox_hospital,
+                  tbimovel.data_cadastro,
                   tbtipo_imovel.tipo_imovel
                FROM 
                   tbimovel
@@ -626,9 +647,8 @@ class Cadastro_Hlp_Imovel extends conecta {
                               JOIN tbmunicipio ON (tbmunicipio.id_municipio=tbbairro.id_municipio)
                WHERE
                   $filtro
+               ORDER BY tbimovel.id_imovel DESC   
              ";
-             
-      //print $sql;
 
       $stmt = $this->con->prepare( $sql );
       $stmt->execute();
@@ -680,8 +700,6 @@ class Cadastro_Hlp_Imovel extends conecta {
                                            $resultado['complemento'].' / '.
                                            $resultado['local'].' / '.
                                            $resultado['nome_municipio' ];
-
-         header('Content-Type: text/html; charset=ISO-8859-15');        
          echo json_encode($resultado);
       } else {
          $resultado['status'] = 'CEP não encontrado.';

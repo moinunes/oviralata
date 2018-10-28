@@ -32,14 +32,15 @@ if ( !isset($_SESSION['login']) ) {
 <body>
 
    <header>
+      <?php include_once 'cabecalho_tools.php';?>
       <div class="row div_cabecalho">
          <div class="col-md-1">
          </div>
          <div class="col-md-2">         
-            <p style="font-size: 18px">Cadastro - CEP</p>
+            <p style="font-size: 18px">Cadastro - CEP automático</p>
          </div>
          <div class="col-md-7">            
-             <p class="cor_vermelha">Utilizar esse cadastro somente se não encontrar o CEP na base de dados</p>
+             <p class="font_azul_m">Utilizar esse cadastro somente se não encontrar o CEP na base de dados</p>
          </div>         
         <div class="col-md-2">            
             <a class="btn btn-outline-success btn_link" href="index.php?acao=vazio&comportamento=vazio"><img src="../images/voltar.svg" >Voltar</a>
@@ -60,8 +61,8 @@ if ( !isset($_SESSION['login']) ) {
       $_REQUEST['frm_filtro_municipio' ] = isset($_REQUEST['frm_filtro_municipio'])  ? $_REQUEST['frm_filtro_municipio']  : '';
       $_REQUEST['frm_filtro_uf'        ] = isset($_REQUEST['frm_filtro_uf'])         ? $_REQUEST['frm_filtro_uf']         : '';
 
-      $_REQUEST['frm_filtro_logradouro'] ='engenheiro caetano a';
-      $_REQUEST['frm_filtro_municipio']='são paulo';
+      //$_REQUEST['frm_filtro_logradouro'] ='engenheiro caetano a';
+      //$_REQUEST['frm_filtro_municipio']='são paulo';
       ?>
       
       <form id="formulario" class="form-horizontal" action="cadastro_cep.php" method="POST" role="form">
@@ -73,30 +74,28 @@ if ( !isset($_SESSION['login']) ) {
          <div class="row">            
             <div class="col-md-2">
                <label for="frm_filtro_cep">CEP</label>
-               <input type="text" class="form-control form-control-sm" id="frm_filtro_cep" name="frm_filtro_cep" value="<?=$_REQUEST['frm_filtro_cep']?>" />               
+               <input type="text" class="form-control form-control-sm" id="frm_filtro_cep" name="frm_filtro_cep" value="<?=$_REQUEST['frm_filtro_cep']?>" />
             </div>            
          </div>
 
          <div class="row">
-            <div class="col-md-3">
-               <label for="frm_filtro_cep">Logradouro</label>
-               <input type="text" class="form-control form-control-sm" id="frm_filtro_logradouro" name="frm_filtro_logradouro" value="<?=$_REQUEST['frm_filtro_logradouro']?>" />
-            </div>
-
-            <div class="col-md-2">
-               <label for="frm_filtro_cep">Município</label>
-               <input type="text" class="form-control form-control-sm" id="frm_filtro_municipio" name="frm_filtro_municipio" value="<?=$_REQUEST['frm_filtro_municipio']?>" />
-            </div>
              <div class="col-md-1">
                <label for="frm_filtro_uf">UF</label>               
-               <select id='frm_filtro_uf' name='frm_filtro_uf' class="form-control form-control-sm" required="required" value="<?=$_REQUEST['frm_filtro_uf']?>">
+               <select id='frm_filtro_uf' name='frm_filtro_uf' class="form-control form-control-sm" value="<?=$_REQUEST['frm_filtro_uf']?>" />
                   <option value="SP">SP</option>                  
                </select>
             </div>
-
+            <div class="col-md-2">
+               <label for="frm_filtro_cep">Município</label>
+               <input type="text" class="form-control form-control-sm" id="frm_filtro_municipio" name="frm_filtro_municipio"  value="<?=$_REQUEST['frm_filtro_municipio']?>" placeholder='informe o município'  />
+            </div>
+            <div class="col-md-3">
+               <label for="frm_filtro_cep">Logradouro</label>
+               <input type="text" class="form-control form-control-sm" id="frm_filtro_logradouro" name="frm_filtro_logradouro" value="<?=$_REQUEST['frm_filtro_logradouro']?>" placeholder='informe o logradouro' />
+            </div>
             <div class="col-md-2">
                <br>               
-               <input type="button" id="btnFiltrar" name="btnFiltrar" class="btn btn-success btn_salvar" value="Filtrar" onclick="validar_filtros();"  >
+               <input type="submit" id="btnFiltrar" name="btnFiltrar" class="btn btn-success btn_salvar" value="Filtrar" onclick="validar_filtros();"  >
             </div>
          </div>
 
@@ -248,7 +247,7 @@ if ( !isset($_SESSION['login']) ) {
    <!--  -->   
    <script src="../dist/js/jquery-3.3.1.min.js"></script>
    <script src="../dist/bootstrap-4.1/js/bootstrap.js"></script>
-   <script src="../dist//jquery-ui/jquery-ui.min.js"></script>
+   <script src="../dist/jquery-ui/jquery-ui.min.js"></script>
 
 
 

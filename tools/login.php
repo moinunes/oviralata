@@ -1,15 +1,13 @@
 <?php
 session_start();
-include_once 'tools.php';
 
 if ( isset($_REQUEST['acao']) && $_REQUEST['acao']=='logout' ) {
    logout();
 }
 
 if ( isset($_REQUEST['frm_usuario']) ) {
-   if ( validar_login() ) {
-      $host  = $_SERVER['HTTP_HOST'].'/imobiliaria/tools/index.php'; 
-      header("Location: http://$host");
+   if ( validar_login() ) { 
+      header("Location: index.php");
    }
 }
 

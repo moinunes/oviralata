@@ -161,8 +161,8 @@ class Importar_Cep {
 } // Importar_Cep
 
 $atualizar = new Importar_Cep();
-$atualizar->_importar_municipio = 'são vicente';
-$atualizar->_importar_municipio = 'santos';
+//$atualizar->_importar_municipio = 'são vicente';
+//$atualizar->_importar_municipio = 'santos';
 $atualizar->_importar_municipio = 'praia grande';
 $atualizar->executar();
 

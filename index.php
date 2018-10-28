@@ -1,9 +1,9 @@
 <?php
 
-   include_once 'tools/endereco_hlp.php';
-   include_once 'tools/cadastro_hlp_tipo.php';
+   include_once './tools/endereco_hlp.php';
+   include_once './tools/cadastro_hlp_tipo.php';   
    include_once 'imoveis_hlp.php';
-   include_once 'tools/utils.php';
+   include_once './tools/utils.php';
 
 
    $id_tipo_imovel  = isset($_REQUEST['frm_filtro_tipo_imovel']) ? trim($_REQUEST['frm_filtro_tipo_imovel']) : '';
@@ -12,11 +12,12 @@
    $comportamento   = isset($_REQUEST['comportamento'])          ? trim($_REQUEST['comportamento'])          : '';
    $pagina          = isset($_REQUEST['frm_pagina'])             ? trim($_REQUEST['frm_pagina'])             : '';
 
-   $filtro_preco    = isset($_REQUEST['frm_filtro_preco'])       ? trim($_REQUEST['frm_filtro_preco'])       : '';
-   $filtro_quarto   = isset($_REQUEST['frm_filtro_quarto'])      ? trim($_REQUEST['frm_filtro_quarto'])      : '';
-   $filtro_vaga     = isset($_REQUEST['frm_filtro_vaga'])        ? trim($_REQUEST['frm_filtro_vaga'])        : '';
-   $filtro_area_util = isset($_REQUEST['frm_filtro_area_util'])        ? trim($_REQUEST['frm_filtro_area_util'])        : '';
-   $filtro_banheiro = isset($_REQUEST['frm_filtro_banheiro'])    ? trim($_REQUEST['frm_filtro_banheiro'])    : '';
+   $filtro_preco     = isset($_REQUEST['frm_filtro_preco'])      ? trim($_REQUEST['frm_filtro_preco'])       : '';
+   $filtro_quarto    = isset($_REQUEST['frm_filtro_quarto'])     ? trim($_REQUEST['frm_filtro_quarto'])      : '';
+   $filtro_vaga      = isset($_REQUEST['frm_filtro_vaga'])       ? trim($_REQUEST['frm_filtro_vaga'])        : '';
+   $filtro_area_util = isset($_REQUEST['frm_filtro_area_util'])  ? trim($_REQUEST['frm_filtro_area_util'])   : '';
+   $filtro_banheiro  = isset($_REQUEST['frm_filtro_banheiro'])   ? trim($_REQUEST['frm_filtro_banheiro'])    : '';
+   $filtro_codigo    = isset($_REQUEST['frm_filtro_codigo'])     ? trim($_REQUEST['frm_filtro_codigo'])      : '';
 
    $tipo_imovel = new Cadastro_Hlp_Tipo();
    $tipo_imovel->obter_tipos( $tipos_de );
@@ -32,6 +33,7 @@
    $imoveis->set_id_municipio($id_municipio);
    $imoveis->set_id_tipo_imovel($id_tipo_imovel);
    $imoveis->set_valor_imovel($filtro_preco);
+   $imoveis->set_codigo_imovel($filtro_codigo);
    $imoveis->set_qtd_quartos($filtro_quarto);
    $imoveis->set_qtd_vaga($filtro_vaga);
    $imoveis->set_area_util($filtro_area_util);
@@ -58,8 +60,8 @@
 <head>
    <title>Imobiliaria</title>
 
-   
-   <meta charset="utf-8" />
+
+   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 
    <meta name="keywords" content="imobiliaria,imóvel,imóveis,apartamentos,casas,compra,venda,santos, são vicente,"/>
@@ -77,7 +79,7 @@
 
    <!--  .js -->
    <script src="./dist/js/jquery-3.3.1.min.js"></script>
-   <script src="./dist//jquery-ui/jquery-ui.min.js"></script>
+   <script src="./dist/jquery-ui/jquery-ui.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
    <script src="./dist/bootstrap-4.1/js/bootstrap.min.js"></script>
    <script src="./dist/fSelect/fSelect.js"></script>
@@ -129,7 +131,7 @@
 
             <div class="col-12 col-sm-3 col-md-auto col-lg-3 col-xl-2">
                <label for="frm_filtro_municipio">Município</label>
-               <select class="select_padrao" id='frm_filtro_municipio' name='frm_filtro_municipio' onchange="submeter_form()" >
+               <select class="select_padrao" id='frm_filtro_municipio' name='frm_filtro_municipio' onchange="limpar_filtro_bairros();submeter_form()" >
                   <option value="">Mostrar todos</option>
                   <?php
                   foreach ( $municipios as $item ) {?>
@@ -180,7 +182,7 @@
                      <img class="sem_margem d-inline" src="images/preco.png" border="0" width="18" />                      
                       <label for="frm_filtro_preco">Preço até</label><br>
                    </span>
-                  <input  type="text" class='form-control-sm mascara_dinheiro' id='frm_filtro_preco' name='frm_filtro_preco' size='12' style="height: 24px;"  placeholder="ilimitado" value="<?=$filtro_preco;?>" />
+                  <input type="text" class='form-control-sm mascara_dinheiro' id='frm_filtro_preco' name='frm_filtro_preco' size='12' style="height: 24px;"  placeholder="ilimitado" value="<?=$filtro_preco;?>" />
                 </div>
             </div>
 
@@ -217,7 +219,7 @@
                   <img src="images/carro.png" border="0" width="20"  />                 
                   <label for="frm_filtro_vaga">Vagas</label><br>
                   <select class="select_padrao2" id="frm_filtro_vaga" name="frm_filtro_vaga">
-                     <option value="1" <?=$selected0?> >0 ou +</option>
+                     <option value="0" <?=$selected0?> >0 ou +</option>
                      <option value="1" <?=$selected1?> >1 ou +</option>
                      <option value="2" <?=$selected2?> >2 ou +</option>
                      <option value="3" <?=$selected3?> >3 ou +</option>                 
@@ -225,7 +227,26 @@
                   </select>
                </div>
             </div>
-         
+
+            <div class="col" >
+               <?php
+               $selected1=$filtro_banheiro==1 ? "selected" : '';
+               $selected2=$filtro_banheiro==2 ? "selected" : '';
+               $selected3=$filtro_banheiro==3 ? "selected" : '';
+               $selected4=$filtro_banheiro==4 ? "selected" : '';
+               ?>
+               <div class="form-group form-group-inline sm" title="Quantidade mínima de BANHEIROS">
+                  <img src="images/banheiro.png" border="0" width="20" />
+                  <label for="frm_filtro_banheiro">Banheiros</label><br>
+                  <select class="select_padrao2" id="frm_filtro_banheiro" name="frm_filtro_banheiro">
+                     <option value="1" <?=$selected1?> >1 ou +</option>
+                     <option value="2" <?=$selected2?> >2 ou +</option>
+                     <option value="3" <?=$selected3?> >3 ou +</option>                 
+                     <option value="4" <?=$selected4?> >4 ou +</option>                 
+                  </select>
+               </div>
+            </div>
+
             <div class="col" >
                <?php
                $selected0  =$filtro_area_util==0   ? "selected" : '';
@@ -258,29 +279,17 @@
                   </select>
                </div>
             </div>
-
-            <div class="col" >
-               <?php
-               $selected1=$filtro_banheiro==1 ? "selected" : '';
-               $selected2=$filtro_banheiro==2 ? "selected" : '';
-               $selected3=$filtro_banheiro==3 ? "selected" : '';
-               $selected4=$filtro_banheiro==4 ? "selected" : '';
-               ?>
-               <div class="form-group form-group-inline sm" title="Quantidade mínima de BANHEIROS">
-                  <img src="images/banheiro.png" border="0" width="20" />
-                  <label for="frm_filtro_banheiro">Banheiros</label><br>
-                  <select class="select_padrao2" id="frm_filtro_banheiro" name="frm_filtro_banheiro">
-                     <option value="1" <?=$selected1?> >1 ou +</option>
-                     <option value="2" <?=$selected2?> >2 ou +</option>
-                     <option value="3" <?=$selected3?> >3 ou +</option>                 
-                     <option value="4" <?=$selected4?> >4 ou +</option>                 
-                  </select>
-               </div>
-            </div>
                      
+            <div class="col-1 d-none d-lg-block destaque_4">
+               <label for="frm_filtro_codigo">Código</label><br>
+               <input  type="text" class='form-control-sm' id='frm_filtro_codigo' name='frm_filtro_codigo' size='6' style="height: 24px;" value="<?=$filtro_codigo;?>" />
+            </div>
+
+            
+                                 
             <div class="col text-right">
                <label for="btn_buscar"></label><br>
-               <button type="button" class="btn btn_buscar text-center" id='btnBuscar' onclick="submeter_form()">Buscar</button>
+               <button type="button" class="btn btn_buscar" id='btnBuscar' onclick="submeter_form()">Filtrar</button>
             </div> 
 
             <div class="col-1">
@@ -320,17 +329,26 @@
                              coluna 2 da direita imprime os anuncios -->         
       <div class="row">         
          
-         <!-- d-none d-lg-block - esconde a div em telas menores que LG ( abaixo de 992px ) -->
-         <div class="col-lg-3 col-xl-3 d-none d-lg-block">
-            <div class="div_esquerda"> <!-- aqui publicidade -->               
-            </div>   
+        <div class="col-lg-3 col-xl-3 d-none d-lg-block">
+            <div class="row div_esquerda"> <!-- destaque - aqui publicidade  ***lado esquerdo*** -->                            
+               <div class="col-12">               
+                 <span class="font_azul_p"><?php Utils::exibir_data_extenso();?></span>
+               </div>
+            </div>
          </div>
 
+
          <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9" >
-            <?php
-              
+            
+            <div class="row fundo_cinza_1">
+               <div class="col-12">
+                  <span class="font_azul_p"><?=$imoveis->total_registros ?> imóveis encontrados</span>
+               </div>
+            </div>
+
+            <?php              
             $i=0;
-            foreach ( $consulta_imoveis as $imovel ) {  
+            foreach ( $consulta_imoveis as $imovel ) {
                $id_imovel      = $imovel->id_imovel;
                $titulo         = $imovel->titulo;
                $nome_municipio = trim($imovel->nome_municipio);
@@ -359,8 +377,7 @@
                   <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="background-image: url('images/sem_foto.png');background-repeat: no-repeat;" >
                                            
                      <div class="imovel_<?=$id_imovel?> slide" id="div_imovel_<?=$id_imovel?>" style="display:none">
-                        <?php
-                        $i = 1;
+                        <?php                        
                         foreach ( $imagens as $imagem ) {         
                            $caminho="fotos/{$id_imovel}/{$imagem}";?>
                            <div>
@@ -369,7 +386,6 @@
                               </a>                              
                            </div>
                         <?php
-                        $i++;
                         }
                         ?>
                      </div>                     
@@ -466,25 +482,16 @@
 
                <!-- anuncios - publicidade  -->
                <?php
-               if ($i==2) {?>
+               if ($i==3) {?>
                   
                   <div class="row">
-                     <div class="col-md-3">
-                        <img class="img-fluid max-width:5%" src="<?=$caminho?>" alt="<?=$imagem;?>">               
-                     </div>
-                     <div class="col-md-3"> 
-                        <img class="img-fluid max-width:10%" src="<?=$caminho?>" alt="<?=$imagem;?>">               
-                     </div>
-                     <div class="col-md-3"> 
-                        <img class="img-fluid max-width:10%" src="<?=$caminho?>" alt="<?=$imagem;?>">               
-                     </div>
-                     <div class="col-md-3"> 
-                        <img class="img-fluid max-width:10%" src="<?=$caminho?>" alt="<?=$imagem;?>">               
+                     <div class="col-12 text-center">
+                        <img class="img-fluid max-width:5%" src="<?="images/logo.png"?>" alt="<?=$imagem;?>">               
                      </div>
                   </div>
 
                   <div class="row">
-                     <div class="col-md-12 altura_linha_1">                     
+                     <div class="col-12 altura_linha_1">                     
                      </div>   
                   </div>
 
@@ -495,6 +502,8 @@
             ?>  
 
          </div>
+         
+
       </div>
       <!-- fim dos registros(anuncios) -->
 
@@ -509,12 +518,12 @@
 
    <footer>
       <div class="row text-center">                  
-         ......
       </div>
       <div class="row">
          <div class="col-md-12 div_rodape">
+            <span class="font_cinza_p">Copyright © 2018 www.imoveisbs.com.br</span>
             <br>
-            <span class="font_cinza_p">Copyright © 2018 www,imobiliaria.com Todos os direitos reservados. </span>
+            <span class="font_cinza_p">Todos os direitos reservados. </span>
             <br><br>
          </div>            
       </div>         
@@ -565,9 +574,13 @@ function montar_js($consulta_imoveis) {
 
 <script type="text/javascript">
 
-    $('.mascara_dinheiro').mask('#.##0,00', {reverse: true,maxlength: false});
+   $('.mascara_dinheiro').mask('#.##0,00', {reverse: true, maxlength: false});
 
-    
+   function limpar_filtro_bairros() {
+      $('#frm_nomes_bairros').val('');
+   }
+
+
    function submeter_form( pagina = '1') {
       $('#comportamento').val( 'submeter_form' );
       $('#frm_pagina').val( pagina );

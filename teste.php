@@ -1,113 +1,61 @@
+<!DOCTYPE html>
 <html>
-  <head>
-  <title>My Now Amazing Webpage</title>
-  
-
-   <link rel="stylesheet" href="./dist/css/estilo.css" >
-
-    <link rel="stylesheet" href="./dist/bootstrap-4.1/css/bootstrap.min.css">
-
-   <link rel="stylesheet" type="text/css" href="./dist/slick/slick/slick.css"/>
-   <link rel="stylesheet" type="text/css" href="./dist/slick/slick/slick-theme.css"/>   
-
-
-
-
-
-
-
-   <style type="text/css">
-  
-   
-   
-    .slider {
-        width: 100%;        
-        margin:0px;
-        padding: 0px;
-    }
-
-    .slick-slide {
-      margin: 0px 0px 0px 1px;
-
-    }
-
-    .slick-slide img {
-      width: 100%;
-      max-height: 200px;
-      min-height: 200px;
-
-    }
-
-    .slick-prev:before,
-    .slick-next:before {
-      color: black;
-    }
-
-    .slick-slide {
-      transition: all ease-in-out .3s;
-      opacity: .2;
-    }
-    
-    .slick-active {
-      opacity: .5;
-    }
-
-    .slick-current {
-      opacity: 1;
-    }
-
-    </style>
-
-  </head>
-<body>
-
-   <div class="container-fluid">
-
-      <div class="row">
-         <div class="col-md-12">
-           <div><img src="fotos/11/IMG-20180728-WA0049.jpg" ></div>
-          <div><img src="fotos/11/IMG-20180728-WA0051.jpg" ></div>  
-         </div>
-
-      </div>
-
-   </div>
-
-   <script src="./dist/js/jquery-3.3.1.min.js"></script>
-   <script src="./dist//jquery-ui/jquery-ui.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-   <script src="./dist/bootstrap-4.1/js/bootstrap.min.js"></script>
-
-
-  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-   <script type="text/javascript" src="./dist/slick/slick/slick.min.js"></script>
-
-
-
-
-
-
-
-
-  <script type="text/javascript">
-
-   $(document).ready(function(){    
-   
-
-$('.carousel').slick({
-  dots: false,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-});
-
-
-
-
-    });
-  </script>
-
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Everson da Luz">
+        <title>Mostrar imagem ao passar mouse no link</title>
+        <style type="text/css">
+            *{
+                margin:0px;
+                padding:0px;
+                border:0px;
+            }
+            ul{
+                margin: 20px 0 0 20px;
+                list-style:none;
+            }
+            a{
+                position: relative; /* Para que a imagem não saia fora do link */
+                display:block;
+                width:100px;
+                padding:5px 0;
+                border:1px #999999 solid;
+                background-color:#CCCCCC;
+                text-decoration:none;
+                color:#FFFFFF;
+            }
+            a:hover{
+                background-color:#999999;
+            }
+            a tag1{
+                display:none; /* Aqui você define que todo span que estiver dentro de um a estara invisivel */
+            }
+            a:hover tag1{
+                display:block; /* Aqui você diz que ao passar o mouse sobre o link, colocar um display no span dentro desse link */
+                position:absolute; /* Para você poder posicionar ao queira, sem quebrar o layour em volta */
+                top: 0px; /* Para ficar na mesma altura do link */
+                left: 100%; /* Empurra a imagem para fora do link, ficando ao seu lado */
+                border:1px #CCCCCC solid; /* Estilo extra, lembrando que você pode colocar qualquer estilo nesse elemento */
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>
+                <a href="#">Gato<tag1><img src="images/gato.jpg" alt="gato" /></tag1></a>
+            </li>
+            <li>
+                <a href="#">Cachorro<tag1><img src="fotos/20/IMG-20180728-WA0056.jpg" alt="cachorro" /></tag1></a>
+            </li>
+            <li>
+                <a href="#">Papagaio<tag1><img src="fotos/20//IMG-20180728-WA0058.jpg" alt="papagaio" /></tag1></a>
+            </li>
+            <li>
+                <a href="#">Coruja<tag1><img src="images/coruja.jpg" alt="coruja" /></tag1></a>
+            </li>
+             <li>
+                <a href="#">Papagaio<span><img src="fotos/20//IMG-20180728-WA0058.jpg" alt="papagaio" /></span></a>
+            </li>
+        </ul>
+    </body>
 </html>

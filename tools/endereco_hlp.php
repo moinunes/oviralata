@@ -13,6 +13,7 @@ class Endereco_Hlp extends conecta {
    private $_filtro_cep;
    private $_filtro_nome_logradouro;
    private $_filtro_id_municipio;
+   private $_filtro_id_logradouro;
    
    public function get_filtro_cep() {
       return $this->_filtro_cep;
@@ -28,8 +29,7 @@ class Endereco_Hlp extends conecta {
 
    public function set_filtro_nome_logradouro( $valor ) {
       $this->_filtro_nome_logradouro = $valor;
-   }  
-
+   }
 
    public function get_filtro_id_municipio() {
       return $this->_filtro_id_municipio;
@@ -37,6 +37,14 @@ class Endereco_Hlp extends conecta {
 
    public function set_filtro_id_municipio( $valor ) {
       $this->_filtro_id_municipio = $valor;
+   }
+ 
+   public function get_filtro_id_logradouro() {
+      return $this->_filtro_id_logradouro;
+   }
+
+   public function set_filtro_id_logradouro( $valor ) {
+      $this->_filtro_id_logradouro = $valor;
    }
  
    function obter_municipios(&$dados) {
@@ -77,23 +85,22 @@ class Endereco_Hlp extends conecta {
    } // obter_bairros
 
    function obter_endereco_por_cep() {
-      $cep             = isset($_POST['filtro_cep'])          ? trim($_POST['filtro_cep'])          : '';
-      $nome_logradouro = isset($_POST['filtro_logradouro'])   ? trim($_POST['filtro_logradouro'])   : '';
-      $id_municipio    = isset($_POST['filtro_id_municipio']) ? trim($_POST['filtro_id_municipio']) : '';
+      $cep           = isset($_POST['filtro_cep'])           ? trim($_POST['filtro_cep'])             : '';
+      $id_logradouro = isset($_POST['filtro_id_logradouro']) ? trim($_POST['filtro_id_logradouro'])   : '';
 
       $this->set_filtro_cep($cep);
-      $this->set_filtro_nome_logradouro($nome_logradouro);
-      $this->set_filtro_id_municipio($id_municipio);
+      $this->set_filtro_id_logradouro($id_logradouro);
 
       $this->obter_dados($resultado);
       if ( count($resultado)>0 ) {
          $resultado= $resultado[0];
-         $endereco['complemento'      ] = utf8_encode($resultado['complemento']);
-         $endereco['local'            ] = utf8_encode($resultado['local']);
+         $endereco['complemento'      ] = $resultado['complemento'];
+         $endereco['local'            ] = $resultado['local'];
          $endereco['status'           ] = 'ok'; 
-         $endereco['nome_logradouro'  ] = utf8_encode($resultado['nome_logradouro']);
-         $endereco['nome_bairro'      ] = utf8_encode($resultado['nome_bairro']);
-         $endereco['nome_municipio'   ] = utf8_encode($resultado['nome_municipio']);
+         $endereco['nome_logradouro'  ] = $resultado['nome_logradouro'];
+         $endereco['id_logradouro'    ] = $resultado['id_logradouro'];
+         $endereco['nome_bairro'      ] = $resultado['nome_bairro'];
+         $endereco['nome_municipio'   ] = $resultado['nome_municipio'];
          echo json_encode($endereco);
       } else {
          $resultado['status'] = 'CEP não encontrado.';               
@@ -116,6 +123,9 @@ class Endereco_Hlp extends conecta {
       if ( $this->get_filtro_id_municipio() != '' ) {
          $filtro .= " AND tbmunicipio.id_municipio = '{$this->get_filtro_id_municipio()}' ";
       }
+      if ( $this->get_filtro_id_logradouro() != '' ) {
+         $filtro .= " AND tblogradouro.id_logradouro = '{$this->get_filtro_id_logradouro()}' ";
+      }
       $sql = " SELECT 
                   tblogradouro.id_logradouro,
                   tblogradouro.cep,
@@ -133,10 +143,6 @@ class Endereco_Hlp extends conecta {
                WHERE {$filtro}
              ";
 
-             // teste
-//             file_put_contents( __DIR__.'/teste.txt', '--------->'.$sql  );
-             //////
-
       if ($filtro!='1=1') {             
          $stmt = $this->con->prepare( $sql );
          $stmt->execute();      
@@ -147,19 +153,19 @@ class Endereco_Hlp extends conecta {
       }
    } // obter_dados
 
-   function obter_id_logradouro( &$id_logradouro, $cep ) {
+   function obter_id_logradouro( &$id, $cep, $id_logradouro ) {
       $cep = trim($cep);
-      $id_logradouro = 0;
+      $id  = 0;
       $sql = " SELECT 
                   tblogradouro.id_logradouro    
                FROM 
                   tblogradouro
-               WHERE cep='{$cep}' ";
+               WHERE cep='{$cep}' AND id_logradouro={$id_logradouro} ";
       $stmt = $this->con->prepare( $sql );
       $stmt->execute();      
       $resultado = $stmt->fetchAll(PDO::FETCH_OBJ);
       if ( count($resultado)>0 ) {
-         $id_logradouro = $resultado[0]->id_logradouro;
+         $id = $resultado[0]->id_logradouro;
       }      
    } // obter_id_logradouro
 

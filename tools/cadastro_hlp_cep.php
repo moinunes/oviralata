@@ -106,6 +106,9 @@ class Cadastro_Hlp_Cep extends conecta {
     */
    function incluir() {
       $retorno ='';
+      try {
+         $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
       foreach ( $this->_array_cep as $cep ) {
          if ( !$this->cep_ja_existe($cep) ) {
             $json  = file_get_contents('https://viacep.com.br/ws/'. $cep . '/json/');
@@ -119,6 +122,12 @@ class Cadastro_Hlp_Cep extends conecta {
             $retorno .= "{$cep} --> já existe<br>";
          }
       }
+
+
+      } catch(PDOException $e) {
+         echo 'Error: ' . $e->getMessage();
+      }   
+
       $this->retorno = $retorno;
    } // incluir
 
@@ -152,7 +161,7 @@ class Cadastro_Hlp_Cep extends conecta {
    } // incluir_uf
 
    function incluir_municipio() {
-      $nome_cidade = utf8_decode($this->dados->localidade);
+      $nome_cidade = $this->dados->localidade;
 
       $sql = " SELECT id_municipio FROM tbmunicipio WHERE nome_municipio='{$nome_cidade}'";
       $stmt = $this->con->prepare( $sql );
@@ -171,7 +180,7 @@ class Cadastro_Hlp_Cep extends conecta {
    } // incluir_municipio
 
    function incluir_bairro() {
-      $nome_bairro  = utf8_decode($this->dados->bairro);
+      $nome_bairro  = $this->dados->bairro;
       $id_municipio = $this->id_municipio;
 
       $sql = " SELECT id_bairro FROM tbbairro WHERE nome_bairro='{$nome_bairro}'";
@@ -191,9 +200,9 @@ class Cadastro_Hlp_Cep extends conecta {
    } // incluir_bairro
 
    function incluir_logradouro() {
-      $nome_logradouro = utf8_decode($this->dados->logradouro);
+      $nome_logradouro = $this->dados->logradouro;
       $cep             = str_replace('-', '', $this->dados->cep );
-      $complemento     = utf8_decode($this->dados->complemento);
+      $complemento     = $this->dados->complemento;
       $local           = '';
 
       $sql = " SELECT id_logradouro FROM tblogradouro WHERE cep='{$cep}'";

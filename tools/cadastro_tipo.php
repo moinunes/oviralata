@@ -32,6 +32,7 @@ if ( !isset($_SESSION['login']) ) {
 <body>
 
    <header>
+      <?php include_once 'cabecalho_tools.php';?>
       <div class="row div_cabecalho">
          <div class="col-md-1">
          </div>
@@ -140,16 +141,11 @@ if ( !isset($_SESSION['login']) ) {
             <div class="col-md-12"><hr></div>
          </div>
 
-         <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-1"></div>            
-            <div class="col-md-2">Tipo de imóvel</div>            
+         <div class="row">            
+            <div class="col-2"></div>
+            <div class="col-8">Tipo imóvel</div>
+            <div class="col-1"></div>
          </div>
-
-         <div class="row">
-            <div class="col-md-12"><hr></div>
-         </div>
-
          
          <?php
          if ( isset($_REQUEST['frm_filtro_tipo_imovel']) ) {
@@ -166,13 +162,14 @@ if ( !isset($_SESSION['login']) ) {
                   $i = 0;
                }?>
                <div class="row <?= "{$cor}" ?>">
-                  <div class="col-md-1">                  
-                     <a class="btn btn-outline-success btn_link2" href="cadastro_tipo.php?acao=exclusao&comportamento=exibir_formulario&frm_id_tipo_imovel=<?=$tipo->id_tipo_imovel?>"><img src="../images/excluir.svg"> Excluir</a>
+                  <div class="col-2">
+                     <a class="btn btn-outline-success btn_link2" href="cadastro_tipo.php?acao=alteracao&comportamento=exibir_formulario&frm_id_tipo_imovel=<?=$tipo->id_tipo_imovel?>"><img src="../images/editar.svg"></a>
+                  </div>                  
+                  <div class="col-8"><?=$tipo->tipo_imovel ?></div>
+                  <div class="col-1">                  
+                     <a class="btn btn-outline-success btn_link2" href="cadastro_tipo.php?acao=exclusao&comportamento=exibir_formulario&frm_id_tipo_imovel=<?=$tipo->id_tipo_imovel?>"><img src="../images/excluir.svg"></a>
                   </div>
-                  <div class="col-md-1">
-                     <a class="btn btn-outline-success btn_link2" href="cadastro_tipo.php?acao=alteracao&comportamento=exibir_formulario&frm_id_tipo_imovel=<?=$tipo->id_tipo_imovel?>"><img src="../images/editar.svg"> Alterar</a>
-                  </div>
-                  <div class="col-md-2"><?=$tipo->tipo_imovel ?></div>
+                  
                </div>
             <?php   
             }
@@ -241,7 +238,7 @@ if ( !isset($_SESSION['login']) ) {
             print $tipo->cod_erro;
          } else {            
             $mens  = "<br>Inclusão realizada com sucesso.<br>";
-            $mens .= "Código: {$tipo->get_tipo_imovel()}";
+            $mens .= "Tipo: {$tipo->get_tipo_imovel()}";
             print $mens;
          }
       } 
@@ -294,7 +291,7 @@ if ( !isset($_SESSION['login']) ) {
    <!--  -->   
    <script src="../dist/js/jquery-3.3.1.min.js"></script>
    <script src="../dist/bootstrap-4.1/js/bootstrap.js"></script>
-   <script src="../dist//jquery-ui/jquery-ui.min.js"></script>
+   <script src="../dist/jquery-ui/jquery-ui.min.js"></script>
 
 </body>
 

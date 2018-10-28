@@ -5,9 +5,9 @@ if ( !isset($_SESSION['login']) ) {
    header("Location:login.php");
 }
 
-include_once 'cadastro_hlp_imovel.php';
-include_once 'domicilio_hlp.php';
-include_once 'cadastro_hlp_tipo.php';
+include_once '../tools/cadastro_hlp_imovel.php';
+include_once '../tools/domicilio_hlp.php';
+include_once '../tools/cadastro_hlp_tipo.php';
 
 
 ?>
@@ -33,21 +33,23 @@ include_once 'cadastro_hlp_tipo.php';
 
 <body class="fundo_cinza_1">
 
-   
       <?php include_once 'cabecalho_tools.php';?>
       <div class="row div_cabecalho">
-         <div class="col-md-1">
-         </div>
-         <div class="col-md-2">         
+        
+  
+         <div class="col-5 text-center">         
             <span class="font_cinza_f">Cadastro de Imóvel</span>
          </div>
-         <div class="col-md-2 text-right">            
-            <a class="btn btn-outline-success btn_link" href="cadastro_imovel.php?acao=inclusao&comportamento=exibir_formulario&frm_id_imovel=0"><img src="../images/novo.svg"  > Novo</a>
-         </div>
-         <div class="col-md-1 text-right">            
-             <a class="btn btn-outline-success btn_link" href="cadastro_imovel.php?acao=alteracao&comportamento=exibir_listagem"><img src="../images/editar.svg" alt="Alterar" >Alterar</a>            
-         </div>         
-        <div class="col-md-6 text-right">            
+   
+         <?php   
+         if($_REQUEST['comportamento']=='exibir_listagem'){?>
+            <div class="col-3">            
+               <a class="btn btn-outline-success btn_link" href="cadastro_imovel.php?acao=inclusao&comportamento=exibir_formulario&frm_id_imovel=0"><img src="../images/novo.svg"  > Novo</a>
+            </div>
+         <?php
+         }?>
+
+        <div class="col-2">            
             <a class="btn btn-outline-success btn_link" href="index.php?acao=vazio&comportamento=vazio"><img src="../images/voltar.svg" >Voltar</a>
          </div>
       </div>
@@ -81,13 +83,18 @@ include_once 'cadastro_hlp_tipo.php';
 
       <form id="frmCadastroImovel" class="form-horizontal" action="cadastro_imovel.php" method="POST" enctype="multipart/form-data" role="form">
 
-         <div id='div_buscar'></div>
+         <div id='div_buscar'></div>         
 
-         <input type="hidden" id="comportamento"           name="comportamento"           value = "efetivar">         
-         <input type="hidden" id="acao"                    name="acao"                    value = "<?=$_REQUEST['acao']?>">
-         <input type="hidden" id="frm_id_imovel"           name="frm_id_imovel"           value = "<?=$_REQUEST['frm_id_imovel']?>">
-         <input type="hidden" id="frm_id_domicilio_imovel" name="frm_id_domicilio_imovel" value = "<?=$_REQUEST['frm_id_domicilio_imovel']?>">
-         
+         <input type="hidden" id="comportamento"            name="comportamento"            value = "efetivar">         
+         <input type="hidden" id="frm_imovel_id_logradouro" name="frm_imovel_id_logradouro" value = "<?=$_REQUEST['frm_imovel_id_logradouro']?>">         
+         <input type="hidden" id="acao"                     name="acao"                     value = "<?=$_REQUEST['acao']?>">
+         <input type="hidden" id="frm_id_imovel"            name="frm_id_imovel"            value = "<?=$_REQUEST['frm_id_imovel']?>">
+         <input type="hidden" id="frm_id_domicilio_imovel"  name="frm_id_domicilio_imovel"  value = "<?=$_REQUEST['frm_id_domicilio_imovel']?>">
+
+         <div class="row">
+             <div class="col-12 altura_linha_1"></div>
+         </div>
+
          <div class="row">
             <div class="col-md-12">
                <span class="destaque_3"><?=$_REQUEST['frm_modo']?></span>
@@ -95,6 +102,10 @@ include_once 'cadastro_hlp_tipo.php';
          </div>
 
          <div class="row">
+             <div class="col-12 altura_linha_1"></div>
+         </div>
+
+         <div class="row fundo_azul_claro">
             <div class="col-md-2">
                <label for="frm_id_tipo_imovel">Tipo</label>
                <select id='frm_id_tipo_imovel' name='frm_id_tipo_imovel' class="form-control form-control-sm" required="required" value="<?=$_REQUEST['frm_id_tipo_imovel']?>">
@@ -117,24 +128,19 @@ include_once 'cadastro_hlp_tipo.php';
             </div>
          </div>   
 
-         <div class="row">
-            <br>
+          <div class="row fundo_azul_claro">
+             <div class="col-12 altura_linha_1"></div>
          </div>
          
-         <div class="row">    
+         <div class="row fundo_azul_claro">    
             <div class="col-md-12">
                <label for="frm_descricao">Descrição do imóvel</label>
                <textarea id='frm_descricao' name='frm_descricao' class="form-control form-control-sm" rows="5"  ><?=$_REQUEST['frm_descricao']?></textarea>
             </div>
+            <div class="col-12 altura_linha_1"></div>
          </div>
-
-         <div class="row">            
-            <div class="col-md-12">
-               <br>
-            </div>
-         </div>
-
-         <div class="row border fundo_branco_1 sem_margem">       
+         
+         <div class="row fundo_branco_1 border">
             <div class="col-md-12">
                Endereço do imóvel
                <button type="button" class="btn btn_lupa" id='btnBuscarCep'><img src="../images/lupa.svg"></button>
@@ -170,29 +176,27 @@ include_once 'cadastro_hlp_tipo.php';
             </div>
          </div>
 
-         <div class="row">
+         <div class="row fundo_azul_claro">
              <div class="col-12 altura_linha_1"></div>
          </div>
 
-         <div class="row">
+         <div class="row fundo_azul_claro">
             <div class="col-md-2">
                <label for="frm_valor_imovel">Valor imóvel (R$)</label>
-               <input type="text" class="form-control form-control-sm mascara_dinheiro" id="frm_valor_imovel" name="frm_valor_imovel" value="<?=$_REQUEST['frm_valor_imovel']?>"  >
-
-
+               <input type="text" class="form-control form-control-sm" id="frm_valor_imovel" name="frm_valor_imovel" value="<?=$_REQUEST['frm_valor_imovel']?>" data-mask="#.##0,00" data-mask-reverse="false"  >
             </div>
 
             <div class="col-md-2">
                <label for="exampleInputName2">Valor Condomínio (R$)</label>
-               <input type="text" class="form-control form-control-sm" id="frm_valor_condominio" name="frm_valor_condominio" value="<?=$_REQUEST['frm_valor_condominio']?>" >                  
+               <input type="text" class="form-control form-control-sm" id="frm_valor_condominio" name="frm_valor_condominio" value="<?=$_REQUEST['frm_valor_condominio']?>" data-mask="#.##0,00" data-mask-reverse="false"  >                
             </div>
             <div class="col-md-2">
                <label for="frm_iptu">Valor IPTU (R$)</label>
-               <input type="text" class="form-control form-control-sm" id="frm_valor_iptu" name="frm_valor_iptu" value="<?=$_REQUEST['frm_valor_iptu']?>">                  
+               <input type="text" class="form-control form-control-sm" id="frm_valor_iptu" name="frm_valor_iptu" value="<?=$_REQUEST['frm_valor_iptu']?>" data-mask="#.##0,00" data-mask-reverse="false"  >            
             </div>
             <div class="col-md-2">
                <label for="frm_laudemio">Laudêmio (R$)</label>
-               <input type="text" class="form-control form-control-sm" id="frm_valor_laudemio" name="frm_valor_laudemio" value="<?=$_REQUEST['frm_valor_laudemio']?>">
+               <input type="text" class="form-control form-control-sm" id="frm_valor_laudemio" name="frm_valor_laudemio" value="<?=$_REQUEST['frm_valor_laudemio']?>" data-mask="#.##0,00" data-mask-reverse="false"  >
             </div>
             <div class="col-md-1">
                <label for="frm_qtd_quartos">Quartos</label>
@@ -212,7 +216,7 @@ include_once 'cadastro_hlp_tipo.php';
             </div>
          </div>
 
-         <div class="row">    
+         <div class="row fundo_azul_claro">    
             <div class="col-md-1">
                <label for="frm_area">Área útil</label>
                <input type="text" class="form-control form-control-sm" id="frm_area_util" name="frm_area_util" value="<?=$_REQUEST['frm_area_util']?>">
@@ -238,11 +242,11 @@ include_once 'cadastro_hlp_tipo.php';
             </div>
          </div>
 
-         <div class="row">
+         <div class="row fundo_azul_claro">
              <div class="col-12 altura_linha_1"></div>
          </div>
 
-         <div class="row border sem_margem">
+         <div class="row fundo_azul_claro border">
             <div class="col-md-12"  >
                <label>- Características:</label>
             </div>   
@@ -270,13 +274,10 @@ include_once 'cadastro_hlp_tipo.php';
             <div class="col-auto">
                <input type="checkbox" id="frm_prox_mercado"  name="frm_prox_mercado" <?=$checked_prox_mercado?> /><label for="frm_prox_mercado">Próx. a mercados</label>
             </div>
+            <div class="col-12 altura_linha_1"></div>
          </div>
 
-         <div class="row">
-             <div class="col-12 altura_linha_1"></div>
-         </div>
-
-         <div class="row">
+         <div class="row fundo_azul_claro border">
             <div class="col-md-12"  >
                <label for="frm_proprietario_nome">Nome do proprietário</label>
                <input type="text" class="form-control form-control-sm" id="frm_proprietario_nome" name="frm_proprietario_nome" value="<?=$_REQUEST['frm_proprietario_nome']?>"  >
@@ -285,22 +286,28 @@ include_once 'cadastro_hlp_tipo.php';
                <label for="frm_proprietario_dados">Dados do Proprietario</label>
                <textarea id='frm_proprietario_dados' name='frm_proprietario_dados' class="form-control form-control-sm" rows="2"  ><?=$_REQUEST['frm_proprietario_dados']?></textarea>
             </div>
+            <div class="col-12 altura_linha_1"></div>
+         </div>
+
+         <div class="row border border-sucess rounded fundo_branco_2">
+            <div class="col-md-6">
+               <label for='file-input' class='file_personalizado'>Escolha as Fotos</label>            
+               <input id="file-input" type="file"  onchange="upload_fotos()" multiple />
+               <div id="div_fotos"></div>               
+            </div>
+            <div class="col-md-6">
+               <div id="div_foto_grande" class="div_foto_grande"></div>
+            </div>            
 
          </div>
 
-         <div class="row">
-             <div class="col-12 altura_linha_1"></div>
+         <div class="row border border-sucess rounded fundo_branco_2">
+            <div class="col text-right">
+               <input type="submit" name="b1" class="btn btn-success btn_salvar" value="Salvar">
+            </div>
          </div>
 
-         <div class="border border-sucess rounded fundo_branco_2 ">               
-            <label for='file-input' class='file_personalizado'>Escolha as Fotos</label>            
-            <input id="file-input" type="file"  onchange="upload_fotos()" multiple />
-            <div id="div_fotos"></div>              
-         </div>
 
-         <div class="text-right">
-            <input type="submit" name="b1" class="btn btn-success btn_salvar" value="Salvar">
-         </div>
       </form>
 
    <?php
@@ -364,7 +371,7 @@ include_once 'cadastro_hlp_tipo.php';
             </div>
          </div>
 
-         <div class="row border border-sucess">       
+         <div class="row">       
             <div class="col-md-2">              
                <label for="frm_cep">Cep do imóvel</label>
                 <input type="text" class="form-control form-control-sm" id="frm_cep" name="frm_cep" value="<?=$_REQUEST['frm_imovel_cep']?>" readonly >
@@ -422,6 +429,7 @@ include_once 'cadastro_hlp_tipo.php';
       $_REQUEST['frm_filtro_titulo'       ] = isset($_REQUEST['frm_filtro_titulo'       ]) ? $_REQUEST['frm_filtro_titulo'       ] : '';
       $_REQUEST['frm_filtro_codigo_imovel'] = isset($_REQUEST['frm_filtro_codigo_imovel']) ? $_REQUEST['frm_filtro_codigo_imovel'] : '';
       $_REQUEST['frm_filtro_municipio'    ] = isset($_REQUEST['frm_filtro_municipio'    ]) ? $_REQUEST['frm_filtro_municipio'    ] : '';
+      $_REQUEST['frm_filtro_proprietario' ] = isset($_REQUEST['frm_filtro_proprietario' ]) ? $_REQUEST['frm_filtro_proprietario' ] : '';
       
       $tipo      = isset($_REQUEST['frm_filtro_tipo_imovel']) ? $_REQUEST['frm_filtro_tipo_imovel'] : '';
       $municipio = isset($_REQUEST['frm_filtro_municipio']) ? $_REQUEST['frm_filtro_municipio'] : '';
@@ -470,9 +478,13 @@ include_once 'cadastro_hlp_tipo.php';
                <input type="text" class="form-control form-control-sm" id="frm_filtro_titulo" name="frm_filtro_titulo" value="<?=$_REQUEST['frm_filtro_titulo']?>" />
             </div>
             <div class="col-md-2">
-               <label for="frm_codigo_imovel">Código imóvel</label>
+               <label class="font_azul_p" for="frm_codigo_imovel">Código imóvel</label>
                <input type="text" class="form-control form-control-sm" id="frm_filtro_codigo_imovel" name="frm_filtro_codigo_imovel" value="<?=$_REQUEST['frm_filtro_codigo_imovel']?>" />
-            </div>    
+            </div> 
+             <div class="col-md-2">
+               <label for="frm_filtro_proprietario">Proprietário</label>
+               <input type="text" class="form-control form-control-sm" id="frm_filtro_proprietario" name="frm_filtro_proprietario" value="<?=$_REQUEST['frm_filtro_proprietario']?>" />
+            </div>   
             <div class="col-md-2">
                <br>               
                <input type="submit" id="btnFiltrar" name="btnFiltrar" class="btn btn-success btn_salvar" value="Filtrar">
@@ -483,55 +495,55 @@ include_once 'cadastro_hlp_tipo.php';
             <div class="col-md-12"><hr></div>
          </div>
 
-         <div class="row fundo_branco_1">            
-            <div class="col-md-2"></div>
-            <div class="col-md-2"></div>
-            <div class="col-md-2">Tipo</div>            
-            <div class="col-md-1">Código</div>
-            <div class="col-md-5">Título</div>            
+         <div class="row">
+            <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 text-center">&nbsp;</div>
+            <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-1 text-center" ><span class="font_cinza_p">Tipo  </span></div>
+            <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-1 text-center"><span class="font_cinza_p">Código</span></div>
+            <div class="col-5 col-sm-5 col-md-3 col-lg-4 col-xl-4"><span class="font_cinza_p">Título</span></div>
+            <div class="col-2 text-left d-none d-lg-block"><span class="font_cinza_p">Proprietário</span></div>
+            <div class="col-1 text-center d-none d-lg-block"><span class="font_cinza_p">Ativo</span></div>
+            <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-1 text-center"></div>
          </div>
 
-         <div class="row fundo_branco_1">
-            <div class="col-md-12"><hr></div>
-         </div>
-         
-         <div class="row fundo_branco_1">
-            <div class='col-12'>
-               <?php         
-               if ( isset($_REQUEST['frm_filtro_tipo_imovel']) ) {
-                  $instancia = new Cadastro_Hlp_Imovel();
-                  $instancia->set_id_tipo_imovel( $_REQUEST['frm_filtro_tipo_imovel'] );
-                  $instancia->set_codigo_imovel( $_REQUEST['frm_filtro_codigo_imovel'] );
-                  $instancia->set_titulo( $_REQUEST['frm_filtro_titulo'] );            
-                  $instancia->set_id_municipio( $_REQUEST['frm_filtro_municipio'] );
-                  $instancia->obter_imoveis( $imoveis );
+  
+         <?php         
+         if ( isset($_REQUEST['frm_filtro_tipo_imovel']) ) {
+            $instancia = new Cadastro_Hlp_Imovel();
+            $instancia->set_id_tipo_imovel( $_REQUEST['frm_filtro_tipo_imovel'] );
+            $instancia->set_codigo_imovel( $_REQUEST['frm_filtro_codigo_imovel'] );
+            $instancia->set_titulo( $_REQUEST['frm_filtro_titulo'] );            
+            $instancia->set_id_municipio( $_REQUEST['frm_filtro_municipio'] );
+            $instancia->set_proprietario_nome( $_REQUEST['frm_filtro_proprietario'] );
+            $instancia->obter_imoveis( $imoveis );
+            $i = 0;
+            foreach ( $imoveis as $imovel ) { 
+               if( $i % 2 == 0 ) {
+                  $cor='cor_zebra_1';
+                  $i=1;
+               } else {
+                  $cor='cor_zebra_2';
                   $i = 0;
-                  foreach ( $imoveis as $imovel ) { 
-                     if( $i % 2 == 0 ) {
-                        $cor='cor_zebra_1';
-                        $i=1;
-                     } else {
-                        $cor='cor_zebra_2';
-                        $i = 0;
-                     }?>
-                     <div class="row <?= "{$cor}" ?>">
-                        <div class="col-md-2">
-                           <a class="btn btn-outline-success btn_link2" href="cadastro_imovel.php?acao=alteracao&comportamento=exibir_formulario&frm_id_imovel=<?=$imovel->id_imovel?>"><img src="../images/editar.svg"> Alterar</a>
-                        </div>
-                        <div class="col-md-2">                  
-                           <a class="btn btn-outline-success btn_link2" href="cadastro_imovel.php?acao=exclusao&comportamento=exibir_formulario_exclusao&frm_id_imovel=<?=$imovel->id_imovel?>"><img src="../images/excluir.svg"> Excluir</a>
-                        </div>
-                        <div class="col-md-2"><?=$imovel->tipo_imovel ?></div>                  
-                        <div class="col-md-1"><?=$imovel->codigo_imovel?></div>
-                        <div class="col-md-5"><?=$imovel->titulo?></div>                  
-                     </div>
-                     
-                  <?php   
-                  }
-               }         
-               ?>
-            </div>
-         </div>
+               }?>
+               <div class="row <?= "{$cor}" ?>">
+                  <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+                     <a class="btn btn-outline-success btn_link2" href="cadastro_imovel.php?acao=alteracao&comportamento=exibir_formulario&frm_id_imovel=<?=$imovel->id_imovel?>"><img src="../images/editar.svg"></a>
+                  </div>                        
+                  <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-1 text-center"><span class="font_preta_p"><?=substr($imovel->tipo_imovel,0,1)?></span></div>
+                  <div class="col-2 col-sm-2 col-md-1 col-lg-1 col-xl-1 text-center"><span class="font_azul_p"><?=$imovel->codigo_imovel?></span></div>
+                  <div class="col-5 col-sm-5 col-md-3 col-lg-4 col-xl-4"><span class="font_preta_p"><?=$imovel->titulo?></span></div>
+                  <div class="col-2 text-left d-none d-lg-block"><span class="font_preta_p"><?=$imovel->proprietario_nome;?></span></div>
+                  <div class="col-1 text-center d-none d-lg-block"><span class="font_preta_p"><?=$imovel->ativo;?></span></div>
+                  <div class="col-2 text-center d-none d-lg-block">                  
+                     <a class="btn btn-outline-success btn_link2" href="cadastro_imovel.php?acao=exclusao&comportamento=exibir_formulario_exclusao&frm_id_imovel=<?=$imovel->id_imovel?>"><img src="../images/excluir.svg"></a>
+                  </div>
+               </div>
+               
+            <?php   
+            }
+         }         
+         ?>
+       
+
       </form>
    <?php
    } // exibir_listagem
@@ -548,16 +560,14 @@ include_once 'cadastro_hlp_tipo.php';
          $comportamento = $_REQUEST['comportamento'];
       }
 
-
       if ( $comportamento == 'exibir_formulario' ) {
          if ( $acao=='inclusao' ) {                 
             $_SESSION['dir_tmp'] = 'tmp_'.date('Ymd').'_'.rand();
+            echo "<input type='hidden' id='frm_id_imovel' value ='{$_SESSION['dir_tmp']}'>";
          } else if ( $acao=='alteracao' ) {         
             $_SESSION['dir_tmp'] = $_REQUEST['frm_id_imovel'];
          }
       }
-
-      //  print '-->'.$_SESSION['dir_tmp'].' '.$comportamento;
 
       switch ($comportamento) {         
          case 'exibir_formulario':
@@ -610,6 +620,7 @@ include_once 'cadastro_hlp_tipo.php';
       $_REQUEST['frm_id_domicilio_imovel'   ] = !isset($imovel) ? '' : $imovel->id_domicilio_imovel;
       $_REQUEST['frm_imovel_cep'            ] = !isset($imovel) ? '' : $domicilio_imovel->cep;
       $_REQUEST['frm_imovel_nome_logradouro'] = !isset($imovel) ? '' : $domicilio_imovel->nome_logradouro;
+      $_REQUEST['frm_imovel_id_logradouro'  ] = !isset($imovel) ? '' : $domicilio_imovel->id_logradouro;
       $_REQUEST['frm_imovel_nome_bairro'    ] = !isset($imovel) ? '' : $domicilio_imovel->nome_bairro;
       $_REQUEST['frm_imovel_nome_municipio' ] = !isset($imovel) ? '' : $domicilio_imovel->nome_municipio;
       $_REQUEST['frm_imovel_numero'         ] = !isset($imovel) ? '' : $domicilio_imovel->numero;
@@ -631,10 +642,6 @@ include_once 'cadastro_hlp_tipo.php';
       $_REQUEST['frm_data_cadastro'         ] = !isset($imovel) ? '' : $imovel->data_cadastro;
       $_REQUEST['frm_ativo'                 ] = !isset($imovel) ? '' : $imovel->ativo;
 
-
-      // características
-//      print_r($imovel);
-
       $_REQUEST['frm_lavanderia'            ] = !isset($imovel) ? '' : $imovel->lavanderia;
       $_REQUEST['frm_salao_festa'           ] = !isset($imovel) ? '' : $imovel->salao_festa;
       $_REQUEST['frm_churrasqueira'         ] = !isset($imovel) ? '' : $imovel->churrasqueira;
@@ -647,7 +654,7 @@ include_once 'cadastro_hlp_tipo.php';
 
       if ( $_REQUEST['acao']=='inclusao' ) {
          $_REQUEST['frm_ativo'] = 'N';
-         $_REQUEST['frm_modo'] = '<< Inclusão de Imóvel >>';
+         $_REQUEST['frm_modo'] = '<< NOVO Imóvel >>';
       }
       
       if ( $_REQUEST['acao']=='alteracao' ) {
@@ -662,34 +669,40 @@ include_once 'cadastro_hlp_tipo.php';
       switch ($_REQUEST['acao']) {
          case 'inclusao':
             igualar_objeto($imovel);
-            $imovel->incluir();   
-            $mens  = "<br>Inclusão realizada com sucesso.<br>";
-            $mens .= "Código: {$imovel->get_id_imovel()}";
-            print $mens;
+            $imovel->incluir();
+            header("Location: cadastro_imovel_ok.php?id_imovel={$imovel->get_id_imovel()}");              
             break;
          
          case 'alteracao':
             igualar_objeto($imovel);
             $imovel->set_id_imovel( $_REQUEST['frm_id_imovel'] );      
             $imovel->alterar();
-            $mens  = "<br>Alteração realizada com sucesso.<br>";
-            $mens .= "Código: {$imovel->get_id_imovel()}";
+            $mens ='<br>';
+            $mens .= "O Imóvel de Código: {$imovel->get_id_imovel()} foi alterado com sucesso.";
             print $mens;
             break;
          
          case 'exclusao':
             $imovel->set_id_imovel( $_REQUEST['frm_id_imovel'] );
             $imovel->excluir();
-            $mens  = "<br>Exlusão realizada com sucesso.<br>";
-            $mens .= "Código: {$imovel->get_id_imovel()}";
+            $mens ='<br>';
+            $mens .= "O Imóvel de Código: {$imovel->get_id_imovel()} foi Excluído com sucesso.";
             print $mens;
             break;
          
          default:
             # code...
-            break;
+            break;            
       }
-
+      ?>
+ 
+      <br><br><br>
+      <a href="cadastro_imovel.php?acao=inclusao&comportamento=exibir_listagem">Quero Incluir um IMÓVEL</a>
+      <br><br><br>
+      <a href="cadastro_imovel.php?acao=alteracao&comportamento=exibir_listagem">Quero alterar um IMÓVEL</a>              
+          
+            
+   <?php
    } // efetivar
    
    function igualar_objeto( &$imovel ) {      
@@ -715,6 +728,7 @@ include_once 'cadastro_hlp_tipo.php';
       $imovel->set_id_domicilio_imovel( $_REQUEST['frm_id_domicilio_imovel'] );
 
       $imovel->set_imovel_cep( $_REQUEST['frm_imovel_cep'] );
+      $imovel->set_imovel_id_logradouro( $_REQUEST['frm_imovel_id_logradouro'] );
       $imovel->set_imovel_numero( $_REQUEST['frm_imovel_numero'] );
       $imovel->set_imovel_complemento( $_REQUEST['frm_imovel_complemento'] );
 
@@ -738,14 +752,12 @@ include_once 'cadastro_hlp_tipo.php';
       $imovel->set_prox_hospital( $prox_hospital );
 
    } // igualar_objeto
-   ?>
-
-
-  
+   ?>  
 
    </div> <!-- container -->
 
-   <footer>
+   <div class="container">
+   
       <div class="row">
          <div class="col-md-12 div_rodape">
             <br>
@@ -753,13 +765,14 @@ include_once 'cadastro_hlp_tipo.php';
             <br><br>
          </div>            
       </div>         
-   </footer>
+   
+   </div> <!-- container -->
 
    <!--  -->
    <script src="../dist/js/load-image/load-image.all.min.js"></script>
    <script src="../dist/js/jquery-3.3.1.min.js"></script>
    <script src="../dist/bootstrap-4.1/js/bootstrap.js"></script>
-   <script src="../dist//jquery-ui/jquery-ui.min.js"></script>
+   <script src="../dist/jquery-ui/jquery-ui.min.js"></script>
    <script src="../dist/js/upload.js"></script>
    <script src="../dist/js/cadastro_imovel.js"></script>
    <script src="../dist/jquery_mask/dist/jquery.mask.min.js"></script>

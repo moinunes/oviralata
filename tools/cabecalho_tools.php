@@ -1,5 +1,5 @@
 <?php
-include_once 'tools.php';
+include_once 'utils.php';
 ?>
 
 
@@ -15,13 +15,13 @@ include_once 'tools.php';
       <img src="../images/logo.png" >
    </div>
    <div class="col-7 col-sm-6 col-md-4 col-lg-3 col-xl-3 text-right">     
-      <span class="font_azul_p"><?php Tools::exibir_data_extenso();?></span>
+      <span class="font_azul_p"><?php Utils::exibir_data_extenso();?></span>
    </div>   
 
    <div class="col-5 col-sm-6 col-md-4 col-lg-3 col-xl-3 text-center">            
       <?php 
       if(isset($_SESSION['usuario'])){?>
-         <span class="font_cinza_p text-righ">Usuário: <?=$_SESSION['usuario']?></span>
+         <span class="font_cinza_p text-righ"><?=$_SESSION['usuario']?></span>
       <?php 
       }?>
    </div>

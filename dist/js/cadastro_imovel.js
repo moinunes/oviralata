@@ -12,17 +12,19 @@ var dialog;
 * Obtém o endereco após digitar o CEP 
 *------------------------------------------------------*/
 $( "#frm_imovel_cep" ).blur(function() {
-   var _cep = $('#frm_imovel_cep').val();
-   obter_endereco_por_cep(_cep);
+   var _cep           = $('#frm_imovel_cep').val();
+   var _id_logradouro = '';
+   obter_endereco_por_cep( _cep, _id_logradouro );
 });  //  obter_endereco   
-function obter_endereco_por_cep(_cep) {
+function obter_endereco_por_cep( _cep, _id_logradouro ) {
    $.ajax({
      type: 'POST',
      url: 'endereco_hlp.php',     
-     async: true,     
+     async: false,     
      data: {       
        acao: 'obter_endereco_por_cep',
        filtro_cep: _cep,
+       filtro_id_logradouro: _id_logradouro,
      }
    })
    .done(function(data){
@@ -32,6 +34,8 @@ function obter_endereco_por_cep(_cep) {
         $('#frm_imovel_nome_bairro').val( obj.nome_bairro);
         $('#frm_imovel_nome_municipio').val( obj.nome_municipio);
         $('#frm_imovel_local').val( obj.local+' | '+obj.complemento );
+        $('#frm_imovel_id_logradouro').val( obj.id_logradouro );
+        
       } else {
          $('#frm_imovel_nome_logradouro').val( obj.status );         
          $('#frm_imovel_nome_bairro').val( '' );
@@ -63,16 +67,16 @@ function buscar_logradouro( _order = null ) {
       var _filtro_logradouro   = $("#frm_filtro_logradouro").val()
       var _filtro_id_municipio = $("#frm_filtro_id_municipio").val()
       $.ajax({ 
-      url: 'buscar_cep.php',
-      type: "POST",
-      async: true,
-      dataType: "html",
-      data: { 
-         acao: 'obter_logradouros',
-         order: 'cep',
-         filtro_cep: _filtro_cep,
-         filtro_logradouro: _filtro_logradouro,
-         filtro_id_municipio: _filtro_id_municipio,
+         url: 'buscar_cep.php',
+         type: "POST",
+         async: false,
+         dataType: "html",
+         data: { 
+            acao: 'obter_logradouros',
+            order: 'cep',
+            filtro_cep: _filtro_cep,
+            filtro_logradouro: _filtro_logradouro,
+            filtro_id_municipio: _filtro_id_municipio,
       },
       success: function(resultado){   
          $("#div_buscar").html( resultado );
@@ -84,9 +88,10 @@ function buscar_logradouro( _order = null ) {
    });
 } // buscar_logradouro
 
-function PreencherEndereco(_cep) {
-   $("#frm_imovel_cep").val( _cep );
-   obter_endereco_por_cep(_cep)
+function PreencherEndereco( _cep, _id_logradouro ) {
+   $("#frm_imovel_cep").val( _cep );  
+   $("#frm_imovel_id_logradouro").val( _id_logradouro );   
+   obter_endereco_por_cep( _cep, _id_logradouro)
    fechar_modal();
 }
 
@@ -120,11 +125,3 @@ function criar_janela_modal( _height=550, _width=700, _titulo = 'Pesquisar' ) {
 function fechar_modal() {   
    dialog.dialog( "close" ); 
 } // sair
-
-
-$(document).ready(function() {
-   $('.mascara_dinheiro').mask('#.##0,00', {reverse: true,maxlength: false});
-
-
-
-})

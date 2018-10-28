@@ -27,6 +27,16 @@ a:active {
 /* dispositivos menores */
 @media only screen and ( max-width: 576px ) {
 
+   .font_cinza_p { 
+      color: #999;
+      font-family:arial;
+      font-size:12px;
+   }
+   .font_cinza_m {   
+      color: #424242;
+      font-family:arial;
+      font-size:14px;
+   }
 
    .font_preta_p {   
       color: #000;
@@ -94,7 +104,6 @@ a:active {
       border-radius:0px;
    }  
 
-   
    .largura1{ width:90px; }
 
    .tamanho_logo{
@@ -112,6 +121,17 @@ a:active {
 
 /* dispositivos MAIORES */
 @media only screen and ( min-width: 577px ) {  
+
+   .font_cinza_p { 
+      color: #999;
+      font-family:arial;
+      font-size:12px;
+   }
+   .font_cinza_m {   
+      color: #424242;
+      font-family:arial;
+      font-size:14px;
+   }
 
    .font_preta_p {   
       color: #000;
@@ -222,6 +242,15 @@ a:active {
    background-color:#EEEEEE;
 }
 
+.fundo_cinza_2   {
+   background-color:#e6e6fa;
+   
+}
+
+.fundo_cinza_3   {
+   background-color:#dcdcdc;
+}
+
 
 .fundo_laranja_1 {
    background-color:#ffe5c2;
@@ -279,10 +308,10 @@ a:active {
 }
 
 .div_esquerda {
-   width: auto;
-   min-height: 100%;
+   width: 100%;
+   min-height: 100%;   
    background-color:#fafafa;
-   box-shadow: 0px 1px 1px 1px #dadada;
+   box-shadow: 1px 1px 1px 0px #7cc15d;
 }
 
 .cor_vermelha {
@@ -290,46 +319,25 @@ a:active {
    background-color: red;
 }
 
-.cor_zebra_1 {    
-   padding:4px;
-   margin:4px;
+.cor_zebra_1 {
+   margin-bottom:5px;
+   padding:0px;
    background-color:#F0F8FF;
 }
 .cor_zebra_1:hover { 
    color: green;
    background-color:#F2F5A9;
-   border-width:1px;
-   border-style: solid;
-    border-color: #F7FE2;   
 }
 
 .cor_zebra_2 {
-   padding:4px;
-   margin:4px;
+   margin-bottom:5px;
+   padding:0px;
    background-color:#ffffff;
 }
 .cor_zebra_2:hover { 
    color: green;
-   background-color:#F2F5A9;
-   border-width:1px;
-   border-style: solid;
-   border-color: #F7FE2;  
+   background-color:#F2F5A9; 
 }
-
-
-.font_cinza_p { 
-   color: #999;
-   font-family:arial;
-   font-size:11px;
-}
-.font_cinza_m {   
-   color: #424242;
-   font-family:arial;
-   font-size:14px;
-}
-
-
-
 
 .font_azul_g {   
    color:#0080FF;
@@ -351,8 +359,7 @@ a:active {
 
 .font_verde_g {
    padding: 3px;
-   color: #999;
-   background-color: #E0F8F7;
+   color: green;
    font-family:"Times New Roman",Verdana, sans-serif;
    font-size:18px;   
 }
@@ -417,6 +424,7 @@ label {
 }
 
 .div_rodape {
+   z-index:0;
    padding:11px;
    margin:12px;
    height:80px;   
@@ -471,29 +479,29 @@ label {
    padding:0px;
    margin:1px;
    height: 22px;   
-   width: 80px;
+   width:70px;
    background-color: #E0FFFF;
-   color: #999;
+   color: #000;
    border-radius: 5px;
    font-size:14px; 
 
 }
 .btn_link:hover { 
-   color: #ccc;
+   color: green;
    background-color: #E0FFFF;
 }
 
 .btn_link2 {
-   padding:1px;
-   margin:1px;
-   width: 85px;
+   padding:0px;
+   margin:0px;
+   width: 30px;
+   height: 27px;   
    background-color: #E0FFFF;
    color: #999;
    border-radius: 5px;
+   font-size:14px; 
 }
 .btn_link2:hover { 
-   color: #ccc;
-   background-color: #E0FFFF;
 }
 
 .btn_detalhes {
@@ -516,17 +524,38 @@ label {
 .btn_buscar {
    padding:0px;   
    height:24px !important;   
-   width: 85px;   
-   color:#ffffff;
+   width: 85px;
    border-radius:3px;
-   background-color: #FAaa1E;
+   color:#000;
+   background-color: #FFCC33;
    font-size:16px;
    border-style: solid;
-   box-shadow: 0px 1px 1px 0px #999999;
+   box-shadow: 0px 1px 1px 0px #ccc;
+   box-shadow: 0px 1px 1px 0px green; 
 }
-.btn_buscar:hover {       
-   text-decoration:none;
+.btn_buscar:hover {
    color:green;
+   box-shadow: 0px 1px 1px 0px green;   
+   text-decoration:none;   
+}
+
+.btn_voltar {
+   padding:0px;   
+   height:24px !important;   
+   width: 85px;
+   border-radius:3px;
+   color:#000000;
+   background-color: #FFCC33;
+   background-color:#FFCC33;
+   font-size:16px;
+   border-style: solid;
+   box-shadow: 0px 1px 1px 0px #ccc;
+}
+.btn_voltar:hover {
+   color:#ffffff; 
+   background-color:green;
+   box-shadow: 0px 1px 1px 0px green;   
+   text-decoration:none;   
 }
 
 .btn_excluir {
@@ -587,7 +616,7 @@ label {
    margin-top: 2px;
    margin-bottom:2px;
     color: #f00;
-    background-color: #fafafa;    
+    background-color: #ffffff;    
     line-height:0.0;
 }
 
@@ -668,5 +697,22 @@ label {
 }
 
 
+.destaque_4 { 
+      height:50px; 
+      text-align: center;  
+      padding:0px;
+      margin:0px;    
+      font-family: arial;
+      font-size: 16px;  
+      color:#000000;
+      box-shadow: 0px 0px 1px 0px #006400;
+      background-color: #90ee90;
+      border-radius:0px;
+   }  
 
-
+.div_foto_grande{
+   position: relative;
+   top: 50%;
+   transform: translateY(-50%); 
+   min-height:500px; 
+}

@@ -285,33 +285,44 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
          <!-- coluna:3  e-mail -->
          <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 fundo_verde_claro">
             <form method="post" id="form_email" name="form_email" >
-                  
+               <input type="hidden" id="frm_id_imovel" name="frm_id_imovel" value = "<?=$imovel->id_imovel;?>">
                <div class="row fundo_laranja_1">
-                  <div class="col-md-12 text-center">                  
-                     <span class="font_azul_m">Gostei do imóvel</span>
+                  <div class="col-12 text-center">                  
+                     <span class="font_azul_m">Gostou do imóvel?</span>
                      <br>
                   </div>            
-                  <div class="col-md-12"><hr class="hr2"></div>
-                  <div class="col-md-12">                  
-                     Telefones:<br>
-                     <span class="font_cinza_m">(013) 9 9708-1968</span>
-                     <span><img src="images/whatsapp.png"></span>                     
+                  <div class="col-12"><hr class="hr2"></div>                   
+                  <div class="col-12 text-center"> 
+                     <span class="font_preta_p">Ligue:</span>
+                     <span class="font_cinza_g">(13) 99708-1968</span>
+                     <span><img src="images/whatsapp.png" /></span>                     
                   </div>
                </div>
+
                <div id="div_email">
                <div class="row fundo_laranja_1">
                   <div class="col-md-12"><hr class="hr2"></div>
+
+                  <div class="col-md-12 text-center">                  
+                     <span class="font_azul_m">Quer enviar um e-mail?</span>
+                     <br>
+                  </div>   
+
                   <div class="col-md-12">
                      <label for="frm_nome">Nome</label>
-                     <input type="text" class="form-control form-control-sm" id="frm_nome" name="frm_nome" required  value="Moises Nunes" />
+                     <input type="text" class="form-control form-control-sm" id="frm_nome" name="frm_nome" required  placeholder="Digite seu nome" />
                   </div>
                   <div class="col-md-12">
                      <label for="frm_email">E-mail</label>
-                     <input type="email" class="form-control form-control-sm" id="frm_email" name="frm_email" required  value="moinunes@gmail.com" />
+                     <input type="email" class="form-control form-control-sm" id="frm_email" name="frm_email" required  placeholder="Digite seu e-mail" />
                   </div>
                   <div class="col-md-12">
                      <label for="frm_fone">Telefone</label>
-                     <input type="text" class="form-control form-control-sm" id="frm_fone" name="frm_fone" required  value="9999-8888" />
+                     <input type="text" class="form-control form-control-sm" id="frm_fone" name="frm_fone" required   placeholder="Digite seu telefone" />
+                  </div>
+                   <div class="col-md-12">
+                     <label for="frm_fone">Mensagem</label>
+                     <textarea id='frm_mens' name='frm_mens' class="form-control form-control-sm" rows="4"  >Olá, gostei do imóvel quero receber mais informações sobre o mesmo...</textarea>
                   </div>
                   <div class="col-md-12 text-center">
                      <button type="submit" class="btn btn-outline-success btn_email"><img src="./images/mail.svg"> Enviar</button>                    
@@ -355,24 +366,30 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
 
       </div>
 
+      <div class="row fundo_verde_claro">
+         <div class="col-md-12 text-right">
+            <a class="btn btn_voltar" href="javascript:window.history.go(-1)" role="button"><img src="images/voltar.svg"> Voltar</a>
+         </div>
+      </div>
+
    </div> <!-- /container -->      
 
    
    <br>
    <footer class="fundo_verde_claro">      
-      <input type="hidden" id="frm_id_imovel" name="frm_id_imovel" value = "">
+      
       <div class="row div_cabecalho">
-         <div class="col-md-1">
+         <div class="col-12">
          </div>         
          <div class="col-12">         
-            <span class="font_cinza_p">Copyright © 2018 www,imobiliaria.com Todos os direitos reservados. </span>
+            <span class="font_cinza_p">Copyright © 2018 www.imoveisbs.com.br</span>
          </div>
-         <div class="col-md-7"> 
-            <span class="font_cinza_p">Coretora: Magda CRECI: 123456</span>
+         <div class="col-12">         
+            <span class="font_cinza_p">Todos os direitos reservados. </span>
          </div>
-         <div class="col-md-7"> 
-            <span class="font_cinza_p">.</span>
-         </div>
+         <div class="col-12">
+            <br><br>
+         </div> 
       </div>      
    </footer>
 
@@ -416,10 +433,11 @@ function enviar_email() {
       async: true,
       dataType: "html",
       data: { 
-         acao: 'enviar_email',
+         codigo_imovel: $("#frm_id_imovel").val(),
          nome: $("#frm_nome").val(),
          email: $("#frm_email").val(),
-         telefone: $("#frm_fone").val(),         
+         fone: $("#frm_fone").val(),
+         mens: $("#frm_mens").val(),
       },
       success: function(resultado){   
          $("#div_email").html( resultado );         
