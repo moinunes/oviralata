@@ -293,9 +293,10 @@ include_once '../tools/cadastro_hlp_tipo.php';
             <div class="col-md-6">
                <label for='file-input' class='file_personalizado'>Escolha as Fotos</label>            
                <input id="file-input" type="file"  onchange="upload_fotos()" multiple />
+               <input type="text" id='frm_status' />
                <div id="div_fotos"></div>               
             </div>
-            <div class="col-md-6">
+            <div class="col-6 text-left d-none d-lg-block">
                <div id="div_foto_grande" class="div_foto_grande"></div>
             </div>            
 

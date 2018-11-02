@@ -5,29 +5,32 @@
 *-----------------------------------------------------------------------------------*/
 
 function upload_fotos() {
-
+   
    var id_imovel = $('#frm_id_imovel').val();
    var files     = document.querySelector('input[type=file]').files;
-   
+   total_fotos = files.length;
+
    //.. thumbnail
    for ( var i = 0, file; file = files[i]; i++) {
-      redimensionar( file, 90, 90 , 'thumbnail' );
+      redimensionar( file, 90, 90 , 'thumbnail', i+1 );
    }     
 
    //.. foto normal
    for ( var i = 0, file; file = files[i]; i++) {
-      redimensionar( file, 500, 500,  null   );
+      redimensionar( file, 500, 500,  null, i+1 );
    }  
+   
+   
    
 } // upload_fotos
 
 
-function redimensionar( file, largura, altura, tipo ) {  
+function redimensionar( file, largura, altura, tipo, i ) {  
    var id_imovel = $('#frm_id_imovel').val();
    var loadingImage = loadImage(
       file,
       function ( img, data ) {
-         salvar_foto_na_pasta( img, file, tipo );
+         salvar_foto_na_pasta( img, file, tipo, i );
          if (tipo=='thumbnail') {
             exibir_miniatura(file.name,img);
          }
@@ -39,13 +42,13 @@ function redimensionar( file, largura, altura, tipo ) {
          resize:true,
       }
    );
-   if (loadingImage) {   
+   if (loadingImage) {      
    }
 } // redimensionar
 
-function salvar_foto_na_pasta( img, file, tipo ) {
+function salvar_foto_na_pasta( img, file, tipo, i  ) {
    nome   = file.name;
-   base64 = img.toDataURL("image/jpeg", 0.8 )
+   base64 = img.toDataURL( "image/jpeg", 1.0 )
    base64 = encodeURIComponent(base64);
    $.ajax({
      type: "POST",
@@ -63,6 +66,7 @@ function salvar_foto_na_pasta( img, file, tipo ) {
    })
    .done(function(){
       // nada
+      $('#frm_status').val( i+'/'+total_fotos );
    });
 
 } // salvar
@@ -136,7 +140,7 @@ function exibir_todas_miniaturas(dados) {
          //..         
          $("#div_fotos").append( str );
       }      
-   });   
+   });
 }
 
 

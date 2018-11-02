@@ -13,3 +13,421 @@ vixit_IMG-20180729-WA0061.jpg
 /var/www/imobiliaria/fotos/57/IMG-20180729-WA0061.jpg /var/www/imobiliaria/fotos/57/t_IMG-20180729-WA0061.jpg
 vixit_IMG-20180729-WA0062.jpg
 /var/www/imobiliaria/fotos/57/IMG-20180729-WA0062.jpg /var/www/imobiliaria/fotos/57/t_IMG-20180729-WA0062.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0074.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0074.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0074.jpg
+vixit_IMG-20181022-WA0075.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0075.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0075.jpg
+vixit_IMG-20181022-WA0076.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0076.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0076.jpg
+vixit_IMG-20181022-WA0077.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0077.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0077.jpg
+vixit_IMG-20181022-WA0078.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0078.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0078.jpg
+vixit_IMG-20181022-WA0079.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0079.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0079.jpg
+vixit_IMG-20181022-WA0080.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0080.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0080.jpg
+vixit_IMG-20181022-WA0081.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0081.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0081.jpg
+vixit_IMG-20181022-WA0082.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0082.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0082.jpg
+vixit_IMG-20181022-WA0083.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0083.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0083.jpg
+vixit_IMG-20181022-WA0084.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0084.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0084.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0082.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0082.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0082.jpg
+vixit_IMG-20181022-WA0083.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0083.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0083.jpg
+vixit_IMG-20181022-WA0081.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0081.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0081.jpg
+vixit_IMG-20180729-WA0019.jpg
+/var/www/imobiliaria/fotos/57/IMG-20180729-WA0019.jpg /var/www/imobiliaria/fotos/57/t_IMG-20180729-WA0019.jpg
+vixit_IMG-20180729-WA0022.jpg
+/var/www/imobiliaria/fotos/57/IMG-20180729-WA0022.jpg /var/www/imobiliaria/fotos/57/t_IMG-20180729-WA0022.jpg
+vixit_IMG-20181022-WA0077.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0077.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0077.jpg
+vixit_20181028_123544.jpg
+/var/www/imobiliaria/fotos/57/20181028_123544.jpg /var/www/imobiliaria/fotos/57/t_20181028_123544.jpg
+vixit_20181028_123544.jpg
+/var/www/imobiliaria/fotos/57/20181028_123544.jpg /var/www/imobiliaria/fotos/57/t_20181028_123544.jpg
+vixit_20181028_123551.jpg
+/var/www/imobiliaria/fotos/57/20181028_123551.jpg /var/www/imobiliaria/fotos/57/t_20181028_123551.jpg
+vixit_20181028_123601.jpg
+/var/www/imobiliaria/fotos/57/20181028_123601.jpg /var/www/imobiliaria/fotos/57/t_20181028_123601.jpg
+vixit_20181028_123609.jpg
+/var/www/imobiliaria/fotos/57/20181028_123609.jpg /var/www/imobiliaria/fotos/57/t_20181028_123609.jpg
+vixit_20181028_123623.jpg
+/var/www/imobiliaria/fotos/57/20181028_123623.jpg /var/www/imobiliaria/fotos/57/t_20181028_123623.jpg
+vixit_20181028_123630.jpg
+/var/www/imobiliaria/fotos/57/20181028_123630.jpg /var/www/imobiliaria/fotos/57/t_20181028_123630.jpg
+vixit_20181028_123636.jpg
+/var/www/imobiliaria/fotos/57/20181028_123636.jpg /var/www/imobiliaria/fotos/57/t_20181028_123636.jpg
+vixit_20181028_123644.jpg
+/var/www/imobiliaria/fotos/57/20181028_123644.jpg /var/www/imobiliaria/fotos/57/t_20181028_123644.jpg
+vixit_20181028_123700.jpg
+/var/www/imobiliaria/fotos/57/20181028_123700.jpg /var/www/imobiliaria/fotos/57/t_20181028_123700.jpg
+vixit_20181028_123711.jpg
+/var/www/imobiliaria/fotos/57/20181028_123711.jpg /var/www/imobiliaria/fotos/57/t_20181028_123711.jpg
+vixit_20181028_123719.jpg
+/var/www/imobiliaria/fotos/57/20181028_123719.jpg /var/www/imobiliaria/fotos/57/t_20181028_123719.jpg
+vixit_20181028_123726.jpg
+/var/www/imobiliaria/fotos/57/20181028_123726.jpg /var/www/imobiliaria/fotos/57/t_20181028_123726.jpg
+vixit_20181028_123739.jpg
+/var/www/imobiliaria/fotos/57/20181028_123739.jpg /var/www/imobiliaria/fotos/57/t_20181028_123739.jpg
+vixit_20181028_123758.jpg
+/var/www/imobiliaria/fotos/57/20181028_123758.jpg /var/www/imobiliaria/fotos/57/t_20181028_123758.jpg
+vixit_20181028_123806.jpg
+/var/www/imobiliaria/fotos/57/20181028_123806.jpg /var/www/imobiliaria/fotos/57/t_20181028_123806.jpg
+vixit_20181028_123819.jpg
+/var/www/imobiliaria/fotos/57/20181028_123819.jpg /var/www/imobiliaria/fotos/57/t_20181028_123819.jpg
+vixit_20181028_123825.jpg
+/var/www/imobiliaria/fotos/57/20181028_123825.jpg /var/www/imobiliaria/fotos/57/t_20181028_123825.jpg
+vixit_20181028_123840.jpg
+/var/www/imobiliaria/fotos/57/20181028_123840.jpg /var/www/imobiliaria/fotos/57/t_20181028_123840.jpg
+vixit_20181028_123922.jpg
+/var/www/imobiliaria/fotos/57/20181028_123922.jpg /var/www/imobiliaria/fotos/57/t_20181028_123922.jpg
+vixit_20181028_123913.jpg
+/var/www/imobiliaria/fotos/57/20181028_123913.jpg /var/www/imobiliaria/fotos/57/t_20181028_123913.jpg
+vixit_20181028_123902.jpg
+/var/www/imobiliaria/fotos/57/20181028_123902.jpg /var/www/imobiliaria/fotos/57/t_20181028_123902.jpg
+vixit_IMG-20181008-WA0025.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181008-WA0025.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181008-WA0025.jpg
+vixit_20181028_130232.jpg
+/var/www/imobiliaria/fotos/50/20181028_130232.jpg /var/www/imobiliaria/fotos/50/t_20181028_130232.jpg
+vixit_20181028_125658.jpg
+/var/www/imobiliaria/fotos/50/20181028_125658.jpg /var/www/imobiliaria/fotos/50/t_20181028_125658.jpg
+vixit_20181028_125717.jpg
+/var/www/imobiliaria/fotos/50/20181028_125717.jpg /var/www/imobiliaria/fotos/50/t_20181028_125717.jpg
+vixit_20181028_125742.jpg
+/var/www/imobiliaria/fotos/50/20181028_125742.jpg /var/www/imobiliaria/fotos/50/t_20181028_125742.jpg
+vixit_20181028_125751.jpg
+/var/www/imobiliaria/fotos/50/20181028_125751.jpg /var/www/imobiliaria/fotos/50/t_20181028_125751.jpg
+vixit_20181028_125809.jpg
+/var/www/imobiliaria/fotos/50/20181028_125809.jpg /var/www/imobiliaria/fotos/50/t_20181028_125809.jpg
+vixit_20181028_125817.jpg
+/var/www/imobiliaria/fotos/50/20181028_125817.jpg /var/www/imobiliaria/fotos/50/t_20181028_125817.jpg
+vixit_20181028_125824.jpg
+/var/www/imobiliaria/fotos/50/20181028_125824.jpg /var/www/imobiliaria/fotos/50/t_20181028_125824.jpg
+vixit_20181028_125834.jpg
+/var/www/imobiliaria/fotos/50/20181028_125834.jpg /var/www/imobiliaria/fotos/50/t_20181028_125834.jpg
+vixit_20181028_125844.jpg
+/var/www/imobiliaria/fotos/50/20181028_125844.jpg /var/www/imobiliaria/fotos/50/t_20181028_125844.jpg
+vixit_20181028_125852.jpg
+/var/www/imobiliaria/fotos/50/20181028_125852.jpg /var/www/imobiliaria/fotos/50/t_20181028_125852.jpg
+vixit_20181028_125907.jpg
+/var/www/imobiliaria/fotos/50/20181028_125907.jpg /var/www/imobiliaria/fotos/50/t_20181028_125907.jpg
+vixit_20181028_125919.jpg
+/var/www/imobiliaria/fotos/50/20181028_125919.jpg /var/www/imobiliaria/fotos/50/t_20181028_125919.jpg
+vixit_20181028_125949.jpg
+/var/www/imobiliaria/fotos/50/20181028_125949.jpg /var/www/imobiliaria/fotos/50/t_20181028_125949.jpg
+vixit_20181028_125957.jpg
+/var/www/imobiliaria/fotos/50/20181028_125957.jpg /var/www/imobiliaria/fotos/50/t_20181028_125957.jpg
+vixit_20181028_130008.jpg
+/var/www/imobiliaria/fotos/50/20181028_130008.jpg /var/www/imobiliaria/fotos/50/t_20181028_130008.jpg
+vixit_20181028_130019.jpg
+/var/www/imobiliaria/fotos/50/20181028_130019.jpg /var/www/imobiliaria/fotos/50/t_20181028_130019.jpg
+vixit_20181028_130029.jpg
+/var/www/imobiliaria/fotos/50/20181028_130029.jpg /var/www/imobiliaria/fotos/50/t_20181028_130029.jpg
+vixit_20181028_130035.jpg
+/var/www/imobiliaria/fotos/50/20181028_130035.jpg /var/www/imobiliaria/fotos/50/t_20181028_130035.jpg
+vixit_20181028_130042.jpg
+/var/www/imobiliaria/fotos/50/20181028_130042.jpg /var/www/imobiliaria/fotos/50/t_20181028_130042.jpg
+vixit_20181028_130049.jpg
+/var/www/imobiliaria/fotos/50/20181028_130049.jpg /var/www/imobiliaria/fotos/50/t_20181028_130049.jpg
+vixit_20181028_130054.jpg
+/var/www/imobiliaria/fotos/50/20181028_130054.jpg /var/www/imobiliaria/fotos/50/t_20181028_130054.jpg
+vixit_20181028_130103.jpg
+/var/www/imobiliaria/fotos/50/20181028_130103.jpg /var/www/imobiliaria/fotos/50/t_20181028_130103.jpg
+vixit_20181028_130115.jpg
+/var/www/imobiliaria/fotos/50/20181028_130115.jpg /var/www/imobiliaria/fotos/50/t_20181028_130115.jpg
+vixit_20181028_130123.jpg
+/var/www/imobiliaria/fotos/50/20181028_130123.jpg /var/www/imobiliaria/fotos/50/t_20181028_130123.jpg
+vixit_20181028_130137.jpg
+/var/www/imobiliaria/fotos/50/20181028_130137.jpg /var/www/imobiliaria/fotos/50/t_20181028_130137.jpg
+vixit_20181028_130151.jpg
+/var/www/imobiliaria/fotos/50/20181028_130151.jpg /var/www/imobiliaria/fotos/50/t_20181028_130151.jpg
+vixit_20181028_130212.jpg
+/var/www/imobiliaria/fotos/50/20181028_130212.jpg /var/www/imobiliaria/fotos/50/t_20181028_130212.jpg
+vixit_20181028_130226.jpg
+/var/www/imobiliaria/fotos/50/20181028_130226.jpg /var/www/imobiliaria/fotos/50/t_20181028_130226.jpg
+vixit_IMG-20181022-WA0084.jpg
+/var/www/imobiliaria/fotos/50/IMG-20181022-WA0084.jpg /var/www/imobiliaria/fotos/50/t_IMG-20181022-WA0084.jpg
+vixit_IMG-20181022-WA0084.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0084.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0084.jpg
+vixit_IMG-20181022-WA0076.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0076.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0076.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/50/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/50/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/50/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/50/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/50/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/50/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/50/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/50/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/50/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/50/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/50/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/50/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0073.jpg
+vixit_20181028_125658.jpg
+/var/www/imobiliaria/fotos/57/20181028_125658.jpg /var/www/imobiliaria/fotos/57/t_20181028_125658.jpg
+vixit_20181028_125717.jpg
+/var/www/imobiliaria/fotos/57/20181028_125717.jpg /var/www/imobiliaria/fotos/57/t_20181028_125717.jpg
+vixit_20181028_125742.jpg
+/var/www/imobiliaria/fotos/57/20181028_125742.jpg /var/www/imobiliaria/fotos/57/t_20181028_125742.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0076.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0076.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0076.jpg
+vixit_IMG-20181022-WA0075.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0075.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0075.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0074.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0074.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0074.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0074.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0074.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0074.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0074.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0074.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0074.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0074.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0074.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0074.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0074.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0074.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0074.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0074.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0074.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0074.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0074.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0074.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0074.jpg
+vixit_IMG-20181022-WA0075.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181022-WA0075.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181022-WA0075.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/49/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/49/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0081.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0081.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0081.jpg
+vixit_IMG-20181022-WA0082.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0082.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0082.jpg
+vixit_IMG-20181022-WA0083.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0083.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0083.jpg
+vixit_IMG-20181022-WA0084.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0084.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0084.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0074.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0074.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0074.jpg
+vixit_IMG-20181022-WA0075.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0075.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0075.jpg
+vixit_IMG-20181022-WA0076.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0076.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0076.jpg
+vixit_IMG-20181022-WA0077.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0077.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0077.jpg
+vixit_IMG-20181022-WA0078.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0078.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0078.jpg
+vixit_IMG-20181022-WA0079.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0079.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0079.jpg
+vixit_IMG-20181022-WA0080.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0080.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0080.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0074.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0074.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0074.jpg
+vixit_IMG-20181022-WA0075.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0075.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0075.jpg
+vixit_IMG-20181022-WA0076.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0076.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0076.jpg
+vixit_IMG-20181022-WA0077.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0077.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0077.jpg
+vixit_IMG-20181022-WA0078.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0078.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0078.jpg
+vixit_IMG-20181022-WA0079.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0079.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0079.jpg
+vixit_IMG-20181022-WA0080.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0080.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0080.jpg
+vixit_IMG-20181022-WA0081.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0081.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0081.jpg
+vixit_IMG-20181022-WA0082.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0082.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0082.jpg
+vixit_IMG-20181022-WA0083.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0083.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0083.jpg
+vixit_IMG-20181022-WA0084.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0084.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0084.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0073.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0073.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0073.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20180729-WA0003.jpg
+/var/www/imobiliaria/fotos/57/IMG-20180729-WA0003.jpg /var/www/imobiliaria/fotos/57/t_IMG-20180729-WA0003.jpg
+vixit_IMG-20180729-WA0006.jpg
+/var/www/imobiliaria/fotos/57/IMG-20180729-WA0006.jpg /var/www/imobiliaria/fotos/57/t_IMG-20180729-WA0006.jpg
+vixit_IMG-20180729-WA0015.jpg
+/var/www/imobiliaria/fotos/57/IMG-20180729-WA0015.jpg /var/www/imobiliaria/fotos/57/t_IMG-20180729-WA0015.jpg
+vixit_IMG-20181022-WA0072.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0072.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0072.jpg
+vixit_IMG-20181022-WA0075.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0075.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0075.jpg
+vixit_IMG-20181022-WA0077.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181022-WA0077.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181022-WA0077.jpg
+vixit_IMG-20180729-WA0003.jpg
+/var/www/imobiliaria/fotos/57/IMG-20180729-WA0003.jpg /var/www/imobiliaria/fotos/57/t_IMG-20180729-WA0003.jpg
+vixit_IMG-20180729-WA0006.jpg
+/var/www/imobiliaria/fotos/57/IMG-20180729-WA0006.jpg /var/www/imobiliaria/fotos/57/t_IMG-20180729-WA0006.jpg
+vixit_IMG-20181019-WA0023.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0023.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0023.jpg
+vixit_IMG-20181019-WA0023.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0023.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0023.jpg
+vixit_IMG-20181019-WA0023.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0023.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0023.jpg
+vixit_IMG-20181019-WA0024.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0024.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0024.jpg
+vixit_IMG-20181019-WA0025.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0025.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0025.jpg
+vixit_IMG-20181019-WA0026.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0026.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0026.jpg
+vixit_IMG-20181019-WA0027.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0027.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0027.jpg
+vixit_IMG-20181019-WA0028.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0028.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0028.jpg
+vixit_IMG-20181019-WA0029.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0029.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0029.jpg
+vixit_IMG-20181019-WA0030.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0030.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0030.jpg
+vixit_IMG-20181019-WA0024.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0024.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0024.jpg
+vixit_IMG-20181019-WA0025.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0025.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0025.jpg
+vixit_IMG-20181019-WA0023.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0023.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0023.jpg
+vixit_IMG-20181019-WA0026.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0026.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0026.jpg
+vixit_IMG-20181019-WA0023.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0023.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0023.jpg
+vixit_IMG-20181019-WA0024.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0024.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0024.jpg
+vixit_IMG-20181019-WA0025.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0025.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0025.jpg
+vixit_IMG-20181019-WA0024.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0024.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0024.jpg
+vixit_IMG-20181019-WA0023.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0023.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0023.jpg
+vixit_IMG-20181019-WA0024.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0024.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0024.jpg
+vixit_IMG-20181019-WA0025.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0025.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0025.jpg
+vixit_IMG-20181019-WA0026.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0026.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0026.jpg
+vixit_IMG-20181019-WA0023.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0023.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0023.jpg
+vixit_IMG-20181019-WA0024.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0024.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0024.jpg
+vixit_IMG-20181019-WA0023.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0023.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0023.jpg
+vixit_IMG-20181019-WA0024.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0024.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0024.jpg
+vixit_IMG-20181019-WA0025.jpg
+/var/www/imobiliaria/fotos/57/IMG-20181019-WA0025.jpg /var/www/imobiliaria/fotos/57/t_IMG-20181019-WA0025.jpg
