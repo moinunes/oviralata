@@ -68,6 +68,8 @@ include_once 'cadastro_hlp_tipo.php';
 
       $tipo = $_REQUEST['frm_id_tipo_imovel'];
       $ativo= $_REQUEST['frm_ativo'];
+      $cor_ativo =  ($ativo=='N') ? 'red' : 'green';
+      
 
       $checked_lavanderia      = $_REQUEST['frm_lavanderia'     ]=='1' ? 'checked' : '';
       $checked_salao_festa     = $_REQUEST['frm_salao_festa'    ]=='1' ? 'checked' : '';
@@ -234,7 +236,7 @@ include_once 'cadastro_hlp_tipo.php';
                <input type="text" class="form-control form-control-sm" id="frm_idade_imovel" name="frm_idade_imovel" value="<?=$_REQUEST['frm_idade_imovel']?>"  >
             </div>
             <div class="col-md-2">
-               <label for="frm_ativo">Ativo</label>               
+               <label for="frm_ativo" style="color:<?=$cor_ativo?>">Ativo</label>               
                <select id='frm_ativo' name='frm_ativo' class="form-control form-control-sm" required="required" value="<?=$_REQUEST['frm_ativo']?>">
                   <option value="S" <?= $ativo=='S' ? "selected" : '';?> >Sim</option>
                   <option value="N" <?= $ativo=='N' ? "selected" : '';?> >Não</option>

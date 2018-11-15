@@ -99,7 +99,6 @@ if ( !isset( $_SESSION['login'] ) ) {
 
     -->
    <script src="./dist/js/jquery-3.3.1.min.js"></script>
-   <script src="./dist/js/upload.js"></script>
 
 
    <script type="text/javascript">

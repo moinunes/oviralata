@@ -4,7 +4,6 @@
 * 
 *-----------------------------------------------------------------------------------*/
 
-
 /**
 * Incluir fotos
 */ 
@@ -42,6 +41,7 @@ $(function () {
 
    });
 });
+
 
 /**
 * obtém as miniaturas
@@ -152,51 +152,3 @@ function excluir_foto(nome_foto) {
       $('#'+id).remove();
    });
 } //  excluir_foto
-
-
-
-function salvar_foto_na_pastaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx( img, file, tipo, i  ) {
-   nome   = file.name;
-   base64 = img.toDataURL( "image/jpeg", 1.0 )
-   base64 = encodeURIComponent(base64);
-   $.ajax({
-     type: "POST",
-     url: 'fotos.php',
-     async: true,
-     data: {
-       imagem: base64,
-       nome: nome,
-       tipo: tipo,
-       acao: 'incluir_foto',
-     },     
-     beforeSend: function( xhr ) {
-        //.. antes de salvar
-     }
-   })
-   .done(function(){
-      // nada
-      $('#frm_status').val( i+'/'+total_fotos );
-   });
-
-} // salvar
-
-
-function exibir_miniaturaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx( nome_foto, img ) {
-   id            = 't_'+nome.replace( ".jpg", '' );
-   nome_foto     = 't_'+nome_foto;
-   tem_essa_foto = $('#'+id).length;
-   foto_g        = id_imovel+'__'+nome_foto.replace("t_",'');
-   
-   if ( !tem_essa_foto) {
-      str = "<div id='" + id + "' class='btn'>";
-      str += '<a href=\"javascript:void(0)\" onmouseover=\"exibir_foto_grande(\''+foto_g+'\')\" >';
-      str += "   <img src='"+img.toDataURL()+ "' width='50' height='50' >";
-      str += '</a>';
-      str += '<a href="javascript:excluir_foto(' + "'"+nome_foto+"'"+')"'+'>Delete</a>';
-      str += "</div>"; 
-      $("#div_fotos").append( str );
-   }
-
-} // exibir_miniatura
-
-

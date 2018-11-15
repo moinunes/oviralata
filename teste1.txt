@@ -1,2 +1,0 @@
-null
-/var/www/imobiliaria/server/php/files//thumbnail/

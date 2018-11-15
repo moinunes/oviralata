@@ -14,11 +14,24 @@ if ( isset($_REQUEST['frm_usuario']) ) {
 
 function validar_login() {
    $resultado = false;
-   if ( $_REQUEST['frm_usuario']=='moinunes' ) {
+   $conecta   = new Conecta();
+   $usuario   = $_REQUEST['frm_usuario'];
+   $senha     = MD5($_REQUEST['frm_senha']);
+   $sql = " SELECT       
+               usuario
+            FROM 
+               tbusuario
+            WHERE usuario = '{$usuario}' AND senha = '{$senha}'
+         "; 
+   $stmt = $conecta->con->prepare( $sql );      
+   $stmt->execute();
+   $usuario = $stmt->fetch(PDO::FETCH_OBJ);
+   if ( $usuario != '' ) {
       $resultado = true;
       $_SESSION['login'  ] = true;
-      $_SESSION['usuario'] = 'moinunes';
+      $_SESSION['usuario'] = $usuario->usuario;
    }   
+
    return $resultado;
 }
 
@@ -69,14 +82,14 @@ function logout() {
             <div class="row">
                <div class="col-md-12">
                   <label for="frm_usuario">Usuário</label>               
-                  <input type="text" class="form-control form-control-sm" id="frm_usuario" name="frm_usuario" value="moinunes">            
+                  <input type="text" class="form-control form-control-sm" id="frm_usuario" name="frm_usuario" value="">            
                </div>      
             </div>
 
             <div class="row">
                <div class="col-md-12">
                   <label for="frm_usuario">Senha</label>
-                  <input type="text" class="form-control form-control-sm" id="frm_senha" name="frm_senha" value="sucesso">
+                  <input type="password" class="form-control form-control-sm" id="frm_senha" name="frm_senha" value="">
                </div>
             </div>
 
