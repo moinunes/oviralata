@@ -15,7 +15,7 @@ class Utils {
    *
    */ 
    static public function configura_paginador( $total_registros, $pagina_atual ) {
-      $exibir        = 8;
+      $exibir        = 10;
       $do            = new StdClass();
       $pagina_atual  = ( $pagina_atual != '' ) ? $pagina_atual : 1;
       $qtd_paginas   = ceil(($total_registros/$exibir));
