@@ -1,9 +1,9 @@
 <?php
 
-   include_once './tools/endereco_hlp.php';
-   include_once './tools/cadastro_hlp_tipo.php';   
+   include_once 'endereco_hlp.php';
+   include_once 'cadastro_hlp_tipo.php';   
    include_once 'imoveis_hlp.php';
-   include_once './tools/utils.php';
+   include_once 'utils.php';
 
 
    $id_tipo_imovel  = isset($_REQUEST['frm_filtro_tipo_imovel']) ? trim($_REQUEST['frm_filtro_tipo_imovel']) : '';
@@ -378,8 +378,8 @@
                                            
                      <div class="imovel_<?=$id_imovel?> slide" id="div_imovel_<?=$id_imovel?>" style="display:none">
                         <?php                        
-                        foreach ( $imagens as $imagem ) {         
-                           $caminho="fotos/{$id_imovel}/{$imagem}";?>
+                        foreach ( $imagens as $imagem ) { 
+                           $caminho="server/php/files/{$id_imovel}/media/{$imagem}";?>
                            <div>
                               <a href="javascript:mostrar_detalhes(<?=$id_imovel?>)"  >
                                  <img src="<?=$caminho?>" >
@@ -486,7 +486,7 @@
                   
                   <div class="row">
                      <div class="col-12 text-center">
-                        <img class="img-fluid max-width:5%" src="<?="images/logo.png"?>" alt="<?=$imagem;?>">               
+                        <img class="img-fluid max-width:5%" src="<?="./images/logo.png"?>" alt="<?=$imagem;?>">               
                      </div>
                   </div>
 

@@ -320,8 +320,7 @@ a:active {
 }
 
 .cor_zebra_1 {
-   margin-bottom:5px;
-   padding:0px;
+   padding:4px;
    background-color:#F0F8FF;
 }
 .cor_zebra_1:hover { 
@@ -330,8 +329,7 @@ a:active {
 }
 
 .cor_zebra_2 {
-   margin-bottom:5px;
-   padding:0px;
+   padding:4px;
    background-color:#ffffff;
 }
 .cor_zebra_2:hover { 
@@ -552,8 +550,7 @@ label {
    box-shadow: 0px 1px 1px 0px #ccc;
 }
 .btn_voltar:hover {
-   color:#ffffff; 
-   background-color:green;
+   color:green ; 
    box-shadow: 0px 1px 1px 0px green;   
    text-decoration:none;   
 }
@@ -572,8 +569,8 @@ label {
 .btn_email {
    padding: 1px;
    margin:4px;
-   height:30px;   
-   width:200px;
+   height:25px;   
+   width:120px;
    background-color: #E0FFFF;
    color: #000;
    border-radius: 5px;

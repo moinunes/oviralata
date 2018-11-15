@@ -1,6 +1,6 @@
 <?php
-include_once './tools/conecta.php';
-include_once './tools/utils.php';
+include_once 'conecta.php';
+include_once 'utils.php';
 
 /**
 *
@@ -254,12 +254,13 @@ class Imoveis_Hlp  extends conecta {
    public function obter_nomes_imagens( &$imagens, $id_imovel ) {
       $imagens = array();
       $pasta = dirname(__FILE__).'/fotos/'.$id_imovel; 
+      $pasta = dirname(__FILE__).'/server/php/files/'.$id_imovel.'/media/'; 
       if ( is_dir($pasta) ) {
          $fotos = array_slice( scandir($pasta), 2 );      
          foreach ( $fotos as $foto ) {
-            if ( substr($foto,0,2)!='t_' ) {
+            //if ( substr($foto,0,2)!='t_' ) {
                $imagens[] = $foto;
-            }
+            //}
          }
       }
    } // obter_nomes_imagens

@@ -1,14 +1,12 @@
 
 
 <?php
-include_once 'tools/endereco_hlp.php';
+include_once 'endereco_hlp.php';
 include_once 'imoveis_hlp.php';
 
 
 $id_municipio = isset($_REQUEST['frm_filtro_municipio']) ? trim($_REQUEST['frm_filtro_municipio']) : '';
 
-
-//print_r($municipio);
 $municipio = new Endereco_Hlp();
 $municipio->obter_municipios($municipios);
 
@@ -93,7 +91,8 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
                      <?php
                      $i = 1;
                      foreach ( $imagens as $imagem ) {                           
-                        $caminho="fotos/{$id_imovel}/{$imagem}";?>
+                        $caminho="server/php/files/{$id_imovel}/{$imagem}";?>
+                        
                         <div>   
                           <img src="<?=$caminho?>" >
                         </div>
@@ -351,16 +350,17 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
 
        <!-- patrocínio -->
       <div class="row fundo_branco_1">
-         <div class="col-md-3 border border">              
+
+         <div class="col-3 d-none d-lg-block border border">              
             <br><br><br>         
          </div>            
-         <div class="col-md-3 border border">              
+         <div class="col-3 d-none d-lg-block border border">              
             <br><br><br>         
          </div>            
-         <div class="col-md-3 border border">              
+         <div class="col-3 d-none d-lg-block border border">
             <br><br><br>         
          </div>            
-         <div class="col-md-3 border border">              
+         <div class="col-3 d-none d-lg-block border border">              
             <br><br><br>         
          </div>            
 

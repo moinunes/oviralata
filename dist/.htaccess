@@ -1,0 +1,19 @@
+﻿RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
+RewriteCond %{HTTP_HOST} ^imoveisbs.com.br$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.imoveisbs.com.br$
+RewriteCond %{REQUEST_URI} !imobiliaria/
+RewriteRule (.*) /imobiliaria/$1
+
+RewriteCond %{HTTP_HOST} ^portalpetfeliz.com.br$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.portalpetfeliz.com.br$
+RewriteCond %{REQUEST_URI} !portalpetfeliz/
+RewriteRule (.*) /portalpetfeliz/$1
+
+RewriteCond %{HTTPS} off
+RewriteRule ^ https:www.//%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

@@ -6,15 +6,6 @@ select * from tblogradouro where cep='11740-000';
 
 
 
-Detalhes de Login no cPanel
-Usuário: imoveisb
-Senha: 34qgQ5X8qi
-
-e-mail
-contato@imoveisbs.com.br
-cadastro_imovel.php
-
-
 
 1 - imovel sim ou nao ( alterar para mostrar qdo sim )
 2 - tem sacada?

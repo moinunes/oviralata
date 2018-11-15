@@ -1,9 +1,6 @@
-RewriteEngine On
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+﻿RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} !^www\.imoveisbs\.com\.br$ [NC]
+RewriteRule ^(.*)$ https://www.imoveisbs.com.br/$1 [L,R=301]
+RewriteCond %{REQUEST_URI} !imobiliaria/
+RewriteRule (.*) /imobiliaria/$1 [L]

@@ -6,7 +6,7 @@
    <div class="col-1">
    </div>
    <div class="col-10">
-      <img src="images/logo.png" >
+      <img src="./images/logo.png" >
    </div>
    <div class="col-1"> 
    </div>
