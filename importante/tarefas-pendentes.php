@@ -4,7 +4,7 @@ www.portalpetfeliz.com.br - registrar
 
 
 
-1 - excluir pastas temporarias
+
 2 - fotos sem foto
 3 - github - excluir depois subir
 4 - copiar pra hd externo
