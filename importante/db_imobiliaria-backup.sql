@@ -1,5 +1,6 @@
 -- Adminer 4.6.2 MySQL dump
 
+
 SET NAMES utf8;
 SET time_zone = '+00:00';
 SET foreign_key_checks = 0;

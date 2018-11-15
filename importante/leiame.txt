@@ -127,9 +127,7 @@ git status
 git add .
 git 
 git commit -m "implementação do cadastro de cep"
-git push
-
-
+git push ou sudo git push -u origin master
 
 
 ------------------------------------ Algumas constantes "mágicas" do PHP --------------
