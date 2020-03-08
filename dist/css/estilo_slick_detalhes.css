@@ -8,7 +8,7 @@
 
 .slick-slide {
    margin: 0px 0px 0px 1px;
-   border:1px solid #7cc15d;
+   border:0px solid #7cc15d;
 }
 
 
@@ -50,8 +50,7 @@
 
 .slide_caption {
    position: absolute;
-   z-index: 2;
-   
+   z-index: 2;   
    height:22px;  
    width:80px;      
    font-family: Arial;

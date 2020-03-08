@@ -1,0 +1,8 @@
+
+
+
+
+
+Quando e como extraímos a URL pela última vez
+https://developers.facebook.com/tools/debug/sharing/?q=www.oviralata.com.br
+

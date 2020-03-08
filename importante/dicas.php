@@ -3,9 +3,9 @@
 
 
 
+
+
 -- bootstrap - 4.1 ---
-
-
 ------------------------------------------------------------------------------------------------
    1- Grid Bootstrap   
                                |  Extra small     Small      Medium     Large      Extra large
@@ -25,7 +25,7 @@
 <div class="col-12 d-lg-none"> <!-- Esconde em telas maiores que lg -->
 
 
+------------------------------------------------------------------------------------------------
+
 // icones em geral
 https://icons8.com.br/icon/set/chuveiro/allICONES
-
-

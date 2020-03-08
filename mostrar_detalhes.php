@@ -1,45 +1,57 @@
-
-
 <?php
-include_once 'endereco_hlp.php';
-include_once 'imoveis_hlp.php';
+if(!isset($_SESSION)) {
+   session_start();
+}
+include_once 'anuncio_hlp.php';
+include 'carrossel_adotar.php';
 
+$anuncios = new Anuncio_Hlp();
+$anuncios->set_id_anuncio($_REQUEST['frm_id_anuncio']);
+$anuncios->obter_anuncios($consulta_anuncios);
+$anuncio = $consulta_anuncios[0];
 
-$id_municipio = isset($_REQUEST['frm_filtro_municipio']) ? trim($_REQUEST['frm_filtro_municipio']) : '';
+$usuario = new Cad_Usuario_Hlp();
+$usuario->set_id_usuario($anuncio->id_usuario);
+$usuario->obter_dados_usuario( $usuario );
 
-$municipio = new Endereco_Hlp();
-$municipio->obter_municipios($municipios);
+$dados = Utils::obter_array_fotos( $anuncio->id_anuncio, $anuncio->data_cadastro );
 
-$imoveis = new Imoveis_Hlp();
-$imoveis->set_id_imovel($_REQUEST['id_imovel']);
-$imoveis->obter_imoveis($consulta_imoveis);
-$imovel = $consulta_imoveis[0];
+$id_anuncio     = $anuncio->id_anuncio;
+$titulo         = $anuncio->titulo;
+$nome_municipio = $anuncio->municipio.' - '.$anuncio->uf;
+$nome_bairro    = $anuncio->bairro;
+$descricao      = nl2br($anuncio->descricao);
 
-$id_imovel      = $imovel->id_imovel;
-$titulo         = $imovel->titulo;
-$nome_municipio = $imovel->nome_municipio;
-$nome_bairro    = $imovel->nome_bairro;
-$descricao      = $imovel->descricao;
-$imoveis->obter_nomes_imagens( $imagens, $id_imovel );
+$raca = $anuncio->raca!='' ? ' - '.$anuncio->raca : '';
+$categoria_raca = $anuncio->categoria.$raca;
 
+Utils:: obter_mensagens( $mensagem_1, $mensagem_2 );
 
+if ( $anuncio->codigo=='doacao' ) {
+   $tipo_fonte  = 'font_verde_g';
+   $tipo_fundo  = '';
+   $tipo_anuncio = 'Doação';
+   $_png = './images/adote_um_pet.png';
+
+} else if ( $anuncio->codigo=='petperdido' ) {   
+   $tipo_fonte = 'font_vermelha_g';
+   $tipo_fundo = 'fundo_amarelo_1';
+   $tipo_anuncio = 'Atenção: Pet Desaparecido';
+   $_png = './images/perdido.png';
+
+}
 ?>
-
 <!DOCTYPE HTML>
 <html lang="pt-br">
 <head>
-   <title>Imobiliaria</title>
-
-   <meta charset="utf-8" />
-   <meta name="keywords" content="imobiliaria,imóvel,imóveis,apartamentos,casas,compra,venda,santos, são vicente,"/>
-   <meta name="description" content="Escolha seu imóvel na baixada santista.">   
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <?php Utils::meta_tag() ?>
 
    <!-- Bootstrap styles -->
    <link rel="stylesheet" href="./dist/bootstrap-4.1/css/bootstrap.min.css">
      
      <!-- estilo.css -->  
    <link rel="stylesheet" href="./dist/css/estilo.css" >
+   <link rel="stylesheet" href="./dist/fonts/fonts.css" >
    <link rel="stylesheet" href="./dist/css/estilo_slick_detalhes.css" >
 
    <link rel="stylesheet" type="text/css" href="./dist/slick/slick/slick.css"/>
@@ -50,404 +62,379 @@ $imoveis->obter_nomes_imagens( $imagens, $id_imovel );
    
 </head>
 
-<body class="fundo_cinza_1">
-
-   <?php include_once 'cabecalho.php';?>
-
+<body class="fundo_branco_1">
   
    <div class="container">
 
+       <?php include_once 'cabecalho.php';?>
+
       <div class="row border-top">
          <div class="col-12 altura_linha_1"><br></div>
+      </div>   
+
+      <div class="row fundo_branco_1">            
+         <div class="col-12 text-center">
+            <a href="index.php"><img src="<?=$_png?>"></a>  
+         </div>   
       </div>
+      
+      <div class="row">
+         <div class="col-12 altura_linha_1">
+            <br>
+         </div>
+      </div>   
 
-      <div class="row fundo_branco_1">
+      <div class="row">         
          
-         <!-- coluna:1 fotos-->
-         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+         <!-- destaque Desktop -  ***lado esquerdo*** -->   
+         <div class="col-lg-3 col-xl-3 d-none d-lg-block">
 
-            <!-- código e título -->
-            <div class="row">
+             <div class="row shadow p-1 mb-1 rounded">
+               <div class="col-12 text-center fundo_laranja_0">
+                  <?php
+                  $instancia = new Carrossel_Adotar();
+                  $instancia->id_carousel = 'id_adotar_1';
+                  $instancia->cor_fundo='fundo_laranja_0';
+                  $instancia->total_anuncios = 30;
+                  $instancia->executar();
+                  ?>
+               </div>
+            </div>
+
+            <div class="row">         
                <div class="col-12 text-center">
-                  <span class="destaque_1">Código:<?=$id_imovel ?></span>                  
+                  <span class="tit_1">
+                     <br>
+                     Uma casa com um PET é como um jardim com flores!
+                  </span>
+                  <br><br>
                </div>  
-            </div>   
+            </div>
 
-            <!-- código e título -->
-            <div class="row">
-               <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
-                  <span class="destaque_3"><?= "{$imovel->tipo_imovel}" ?></span>                 
+            <div class="row">         
+               <div class="col-12 text-center">
+                  <a class="btn-block link_d fundo_verde_escuro" href="cadastro/cad_usuario.php?acao=alteracao&comportamento=exibir_formulario_alteracao">
+                     Eu quero me cadastar<br>no site oViraLata!
+                  </a>
                </div>  
-               <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
-                  <span class="destaque_2">R$ <?=number_format($imovel->valor_imovel, 2, ',', '.'); ?></span>
-               </div>  
-            </div>   
+            </div>
 
-                     
+         </div>
+         
 
-            <div class="row">     <!-- monta o slick carousel -->
-               <div class="col-12">                  
-                  <div class="imovel_<?=$id_imovel?> slide" >                        
-                     <?php
-                     $i = 1;
-                     foreach ( $imagens as $imagem ) {                           
-                        $caminho="server/php/files/{$id_imovel}/{$imagem}";?>
-                        
-                        <div>   
-                          <img src="<?=$caminho?>" >
+         <!-- coluna do meio -->  
+          <!-- monta o slick carousel -->
+         <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" >
+            <div class="row border <?=$tipo_fundo?> shadow p-1 mb-1 rounded">              
+               <div class="col-12">
+                  <div class="row">              
+                     <div class="col-12 text-center">
+                        <span class="<?=$tipo_fonte?>"><?=$tipo_anuncio?></span>
+                     </div>  
+                  </div>
+                  <div class="row">              
+                     <div class="col-12 text-center">
+                        <span class="titulo_1"><?=$anuncio->titulo ?><br></span>
+                     </div>  
+                  </div>
+                  <div id="div_slide" class="row" style="display:none">
+                     <div class="col-12 text-center">
+                        <div class="anuncio_<?=$anuncio->id_anuncio?> slide" >                        
+                           <?php                          
+                           $i = 1;
+                           $pasta_dc = 'fotos/'.date("d_m_Y", strtotime($anuncio->data_cadastro)).'/';
+                           foreach ( $dados->fotos as $imagem ) {
+                              $caminho=$pasta_dc.$imagem;
+                              ?>                     
+                              <div>   
+                                  <img src="<?=$caminho?>" class='img-fluid rounded border border-warning' alt="adote um pet, cachorro, gato ou outro animal de estimação" >
+                              </div>
+                           <?php
+                           }?>
                         </div>
-                     <?php
-                     $i++;
-                     }
-                     ?>                  
-                  </div>                  
-               </div>               
-            </div>   
-
-            <div class="row">
-               <div class="col-1">
-               </div>
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-center">
-                  <span class="font_preta_g"><?=$titulo ?></span>
-               </div>  
-            </div>   
-            <div class="row d-none d-lg-block"> <!-- Esconde em telas menores que lg -->
-               <div class="col-12">
-                  <hr class="hr1">
-               </div>   
-            </div>      
-            <div class="row d-none d-lg-block"> <!-- Esconde em telas menores que lg -->
-               <div class="col-md-12">            
-                  <span class="font_cinza_m"><?=$descricao ?></span>
-               </div>  
-            </div>   
-
-         </div>
-
-         <!-- coluna:2  dados do anuncio -->
-         <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
-            <div class="row">
-               <div class="col-12 d-lg-none"> <!-- Esconde em telas maiores que lg -->
-                  <hr class="hr1">
-               </div>      
-               <div class="col-12 text-center">
-                  <span class="font_preta_p"><?=$nome_municipio?></span>            
-               </div>      
-               <div class="col-12 text-center">
-                  <span class="font_preta_p"><?=$nome_bairro ?></span>            
-               </div>      
-               <div class="col-12">
-                  <hr class="hr1">
-               </div>
-            </div>
-
-            <div class="row">
-               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
-                  <span class="font_preta_p"><img class="altura_1" src="images/carro.png">&nbsp;<?= "{$imovel->qtd_vaga}"?>&nbsp;<?=($imovel->qtd_vaga>1) ? 'vagas':'vaga'?></span>
-               </div>
-               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
-                  <span class="font_preta_p"><img class="altura_1" src="images/cama.png"><?= "{$imovel->qtd_quartos}"?>&nbsp;<?=($imovel->qtd_quartos>1) ? 'quartos':'quarto'?></span>
-               </div>
-               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
-                  <span class="font_preta_p"><img class="altura_1" src="images/banheiro.png">&nbsp;<?="{$imovel->qtd_banheiro}"?>&nbsp;<?=($imovel->qtd_banheiro>1) ? 'banheiros':'banheiro'?></span>
-               </div>
-               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
-                  <span class="font_preta_p"><img class="altura_1" src="images/bide.png">&nbsp;<?="{$imovel->qtd_suite}"?>&nbsp;<?=($imovel->qtd_suite>1) ? 'suítes':'suíte'?></span>
-               </div>
-
-               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
-                  <span class="font_preta_p"><img class="altura_1" src="images/area_u.png">&nbsp;<?="{$imovel->area_util}m²"?>&nbsp;útil</span>
-               </div>
-               <div class="col-6 col-sm-6 col-md-6 col-lg-12 col-xl-12">
-                  <span class="font_preta_p"><img class="altura_1" src="images/area_t.png">&nbsp;<?="{$imovel->area_total}m²"?>&nbsp;total</span>
-               </div>
-               <div class="col-12">    
-                  <span class="font_preta_p"><img class="altura_1" src="images/calendario.png">Idade do imóvel:&nbsp;<?="{$imovel->idade_imovel}"?>&nbsp;anos</span>
-               </div>              
-            </div>
-
-            <div class="row">
-               <div class="col-12 altura_linha_1">                  
-               </div>                  
-            </div>
-
-
-            <div class="row">
-               <div class="col-12">
-                  <hr class="hr1">
-               </div>      
-               <div class="col-6 text-right">
-                  <span class="font_cinza_m text-right">Preço:</span>
-               </div>   
-               <div class="col-6">
-                  <span class="font_azul_p"><?='R$ '.number_format($imovel->valor_imovel, 2, ',', '.'); ?></span>
-               </div>                  
-            </div>
-
-            <div class="row">
-               <div class="col-6 text-right">
-                  <span class="font_cinza_m text-right">Condomínio:</span>
-               </div>
-               <div class="col-6">
-                  <span class="font_azul_p"><?='R$ '.$imovel->valor_condominio ?></span>                  
-               </div>   
-            </div>   
-
-            <div class="row">
-               <div class="col-6 text-right">
-                  <span class="font_cinza_m text-right">IPTU:</span>
-               </div>   
-               <div class="col-6">   
-                  <span class="font_azul_p"><?='R$ '.$imovel->valor_iptu ?></span>
-               </div>
-            </div>
-            <div class="row">   
-               <div class="col-6 text-right">   
-                  <span class="font_cinza_m ">Laudênio:</span>
-               </div>   
-               <div class="col-6">      
-                  <span class="font_azul_p text-right"><?='R$ '.$imovel->valor_laudemio ?></span>
-               </div>
-            </div>   
-            <div class="row">   
-               <div class="col-12">
-                  <hr class="hr1">
-               </div>   
-            </div>      
-            
-            <div class="row">
-               <div class="col-12">
-                  <span class="font_cinza_g text-right"></span>
-               </div>   
-               <div class="col-12">
-                  <span class="font_cinza_g text-right">Características:</span>
-               </div>   
-               <?php
-               if($imovel->lavanderia=='1'){?>
-                  <div class="col-12">
-                     <span class="font_cinza_m">&#9830; Lavanderia</span>
+                     </div>               
                   </div>
-               <?php
-               }               
-               if($imovel->salao_festa=='1'){?>
-                  <div class="col-12">
-                     <span class="font_cinza_m">&#9830; Salão de Festas</span>
+                  <div class="row">              
+                     <div class="col-12 text-center">
+                        <span class="titulo_1"><?=$anuncio->titulo ?><br></span>
+                     </div>  
                   </div>
-               <?php
-               }               
-               if($imovel->churrasqueira=='1'){?>
-                  <div class="col-12">
-                     <span class="font_cinza_m">&#9830; Churrasqueira</span>
-                  </div>
-               <?php
-               }               
-               if($imovel->academia=='1'){?>
-                  <div class="col-12">
-                     <span class="font_cinza_m">&#9830; Academia</span>
-                  </div>
-               <?php
-               }               
-               if($imovel->piscina=='1'){?>
-                  <div class="col-12">
-                     <span class="font_cinza_m">&#9830; Piscina</span>
-                  </div>
-               <?php
-               }
-               if($imovel->ar_condicionado=='1'){?>
-                  <div class="col-12">
-                     <span class="font_cinza_m">&#9830; Ar Condicionado</span>
-                  </div>
-               <?php
-               }               
-               if($imovel->prox_mercado=='1'){?>
-                  <div class="col-12">
-                     <span class="font_cinza_m">&#9830; Próximo a mercados</span>
-                  </div>
-               <?php
-               }               
-               if($imovel->prox_hospital=='1'){?>
-                  <div class="col-12">
-                     <span class="font_cinza_m">&#9830; Próximo a hospitais</span>
-                  </div>
-               <?php
-               }
-               ?>               
-            </div>      
 
-            <div class="row">
-                   <div class="col-12 altura_linha_1"></div>
-            </div>
+                  <div class="row"> <!-- Esconde em telas menores que lg -->
+                     <div class="col-12">            
+                        <span class="font_cinza_m"><?=$descricao ?></span>
+                     </div>
+                     <div class="col-12 altura_linha_2"></div>
+                  </div>  
 
-            
-         </div>
-      
-         <!-- coluna:3  e-mail -->
-         <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-3 fundo_verde_claro">
-            <form method="post" id="form_email" name="form_email" >
-               <input type="hidden" id="frm_id_imovel" name="frm_id_imovel" value = "<?=$imovel->id_imovel;?>">
-               <div class="row fundo_laranja_1">
-                  <div class="col-12 text-center">                  
-                     <span class="font_azul_m">Gostou do imóvel?</span>
-                     <br>
-                  </div>            
-                  <div class="col-12"><hr class="hr2"></div>                   
-                  <div class="col-12 text-center"> 
-                     <span class="font_preta_p">Ligue:</span>
-                     <span class="font_cinza_g">(13) 99708-1968</span>
-                     <span><img src="images/whatsapp.png" /></span>                     
+                  <div class="row">                     
+                     <div class="col-12 text">
+                        <span class="destaque_1"><?= "{$anuncio->tipo_anuncio}" ?></span>                 
+                     </div>
+                     <div class="col-12 text">
+                        <span class="tit_1"><?= "{$categoria_raca}"?></span>
+                     </div>
+                     <div class="col-12">
+                        <span class="font_courier_p">Data..:&nbsp;</span>
+                        <span class="text-muted"><?= Utils::data_anuncio($anuncio->data_atualizacao)?></span><br>
+                     </div>
+                     
+                     <div class="col-12">
+                        <span class="font_courier_p">Cidade:&nbsp;</span>
+                        <span class="text"><?=$nome_municipio?></span>            
+                     </div>      
+                     <div class="col-12">
+                        <span class="font_courier_p">Bairro:&nbsp;</span>
+                        <span class="text"><?=$nome_bairro ?></span>            
+                     </div>                    
                   </div>
-               </div>
+                  
+                  <div class="row">
+                     <div class="col-12 altura_linha_2"></div>
+                     <div class="col-12">
+                        <span class="destaque_2 sem_margem">Dados do Tutor:</span> 
+                     </div>  
+                  </div>
+                  <div class="row">
+                     <div class="col-12">
+                        <span class="font_courier_p">Nome..:</span> 
+                        <span class="text"><?= "{$anuncio->apelido}"?></span>           
+                        <br>
+                     </div>  
+                  </div>
+                  <?php
+                  if ( $usuario->exibir_tea=='E' || $usuario->exibir_tea=='A' ) {?>
+                     <div class="row">                  
+                        <div class="col-12">
+                           <span class="font_courier_p">E-mail:</span>
+                           <span class="text"><?="{$anuncio->email}"?></span>
+                        </div>
+                     </div>
+                  <?php
+                  }
+                  ?>
+                  <?php
+                  if ( $usuario->exibir_tea=='T' || $usuario->exibir_tea=='A' ) {
+                     
+                     $display_celular  =  $anuncio->tel_celular  == '' ? 'display:none;' : '';
+                     $display_whatzapp =  $anuncio->tel_whatzapp == '' ? 'display:none;' : '';
+                     $display_fixo     =  $anuncio->tel_fixo     == '' ? 'display:none;' : '';
+                   
+                     ?>
+                     <div class="row">
+                        <div class="col-12 altura_linha_1"></div>
+                        <div class="col-12">
+                           <div class="row" style="<?=$display_celular?>" >
+                              <div class="col-2">
+                                <img src="./images/cel.png" alt="o vira lata - adote um pet, cachorro, gato ou outro animal de estimação">
+                              </div>
+                              <div class="col-10">
+                                 <span class="text">(<?=$anuncio->ddd_celular?>) <?=$anuncio->tel_celular?></span>
+                              </div>         
+                           </div>
+                           <div class="row" style="<?=$display_whatzapp?>" >   
+                              <div class="col-2">
+                                 <img src="./images/whatsapp.png" alt="<?=$anuncio->tel_whatzapp?>">
+                              </div>
+                              <div class="col-10">
+                                 <span class="text">(<?=$anuncio->ddd_whatzapp?>) <?=$anuncio->tel_whatzapp?></span>
+                              </div>         
+                           </div>           
+                           <div class="row" style="<?=$display_fixo?>" >
+                              <div class="col-2">
+                                 <img src="./images/fixo.png" alt="respeito e amor aos animais">
+                              </div>
+                              <div class="col-10">
+                                 <span class="text">(<?=$anuncio->ddd_fixo?>) <?=$anuncio->tel_fixo?></span>
+                              </div>         
+                           </div>
+                        </div>
+                        
+                        <?php
+                        /*
+                        if ( $anuncio->tel_whatzapp!='' ) {?>
+                           <div class="col-12 text-right">
+                              <span>          
+                              <a class="btn btn_whatzapp"  target="_blank" href="https://www.forblink.com/index.php?phone=<?="55{$anuncio->ddd_whatzapp}{$anuncio->tel_whatzapp}"?>&text=Olá&nbsp;<?="{$anuncio->apelido}"?>">
+                                 <img src="./images/whatsapp.png">Contato pelo WhatsApp.
+                              </a>
+                              <span>
+                           </div>
+                        <?php
+                        }*/?>
+                        <div class="col-12 altura_linha_2"></div>
+                        <div class="col-12 text-center">
+                           <span class="tit_0">Entre em contato com o tutor do pet<br> por e-mail, celular ou WhatsApp.</span>
+                        </div>
+                        
 
-               <div id="div_email">
-               <div class="row fundo_laranja_1">
-                  <div class="col-md-12"><hr class="hr2"></div>
-
-                  <div class="col-md-12 text-center">                  
-                     <span class="font_azul_m">Quer enviar um e-mail?</span>
-                     <br>
-                  </div>   
-
-                  <div class="col-md-12">
-                     <label for="frm_nome">Nome</label>
-                     <input type="text" class="form-control form-control-sm" id="frm_nome" name="frm_nome" required  placeholder="Digite seu nome" />
+                     </div>                                   
+                  <?php
+                  }
+                  ?>            
+                  
+                  <div class="row fundo_branco">
+                     <div class="col-12">                  
+                        <!-- *** rodapé-->    
+                     </div>
                   </div>
-                  <div class="col-md-12">
-                     <label for="frm_email">E-mail</label>
-                     <input type="email" class="form-control form-control-sm" id="frm_email" name="frm_email" required  placeholder="Digite seu e-mail" />
-                  </div>
-                  <div class="col-md-12">
-                     <label for="frm_fone">Telefone</label>
-                     <input type="text" class="form-control form-control-sm" id="frm_fone" name="frm_fone" required   placeholder="Digite seu telefone" />
-                  </div>
-                   <div class="col-md-12">
-                     <label for="frm_fone">Mensagem</label>
-                     <textarea id='frm_mens' name='frm_mens' class="form-control form-control-sm" rows="4"  >Olá, gostei do imóvel quero receber mais informações sobre o mesmo...</textarea>
-                  </div>
-                  <div class="col-md-12 text-center">
-                     <button type="submit" class="btn btn-outline-success btn_email"><img src="./images/mail.svg"> Enviar</button>                    
-                  </div>
-               </div>
-               </div>
-            </form>
-         </div>
          
+               </div>
+            </div>
+
+         </div>      
+
+         <!-- *** lado Direito -->   
+         <!-- adscence -->
+         <div class="col-lg-3 col-xl-3 d-none d-lg-block">
+
+            <div class="row shadow p-1 mb-1 rounded margem_pequena fundo_laranja_0">
+               <div class="col-12 altura_linha_2"></div>
+               <div class="col-12 text-center">
+                  <span class="text-center"><?=$mensagem_1?><span>
+               </div>
+               <div class="col-12 altura_linha_1"></div>
+            </div>
+            
+            <div class="row text-center margem_pequena">
+               <div class="col-12 altura_linha_2"></div>
+               <div class="col-12 tit_0">Publicidade</div>     
+               <div class="col-12">
+                  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                  <!-- grafico_vertical_2 -->
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-2582645504069233"
+                       data-ad-slot="1529569902"
+                       data-ad-format="auto"
+                       data-full-width-responsive="true"></ins>
+                  <script>
+                       (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
+               </div>
+            </div>
+         </div>      
 
       </div>
 
-      <div class="row fundo_branco_1">
-         <div class="col-12 altura_linha_2"></div>
-      </div>
-
-      
-      <!--  -->
       <script src="./dist/js/jquery-3.3.1.min.js"></script>
+      <script src="./dist/bootstrap-4.1/js/popper.min.js"></script>
       <script src="./dist/bootstrap-4.1/js/bootstrap.min.js"></script>
       <script type="text/javascript" src="./dist/slick/slick/slick.min.js"></script>
 
-      
-      
-       <?php montar_js($consulta_imoveis); ?>
-
-       <!-- patrocínio -->
-      <div class="row fundo_branco_1">
-
-         <div class="col-3 d-none d-lg-block border border">              
-            <br><br><br>         
-         </div>            
-         <div class="col-3 d-none d-lg-block border border">              
-            <br><br><br>         
-         </div>            
-         <div class="col-3 d-none d-lg-block border border">
-            <br><br><br>         
-         </div>            
-         <div class="col-3 d-none d-lg-block border border">              
-            <br><br><br>         
-         </div>            
-
-      </div>
-
-      <div class="row fundo_verde_claro">
-         <div class="col-md-12 text-right">
-            <a class="btn btn_voltar" href="javascript:window.history.go(-1)" role="button"><img src="images/voltar.svg"> Voltar</a>
+      <div class="row text-center">
+         <div class="col-12 altura_linha_2"></div>
+         <div class="col-12 altura_linha_2"></div>
+         <div class="col-12 tit_0">Publicidade</div>
+         <div class="col-12 text-center"> 
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-fb+5w+4e-db+86"
+                 data-ad-client="ca-pub-2582645504069233"
+                 data-ad-slot="8484848734"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
          </div>
+         <div class="col-12 altura_linha_2"></div>
+         <div class="col-12 altura_linha_2"></div>
       </div>
+
+
+      <?php montar_js($consulta_anuncios); ?>
+
+      <div class="row fundo_branco_1">
+         <div class="col-12 altura_linha_2"></div>
+         <div class="col-12 altura_linha_2"></div>   
+      </div>
+
+       <div class="row fundo_branco_1">
+         <div class="col-md-12 text-center">
+            <a class="btn btn_voltar" href="javascript:window.history.back()" role="button"><img src="images/voltar.svg"> Voltar</a>
+            <br><br>
+         </div>
+         <div class="col-12 altura_linha_2"></div>
+      </div>
+
 
    </div> <!-- /container -->      
 
-   
-   <br>
-   <footer class="fundo_verde_claro">      
-      
-      <div class="row div_cabecalho">
-         <div class="col-12">
-         </div>         
-         <div class="col-12">         
-            <span class="font_cinza_p">Copyright © 2018 www.imoveisbs.com.br</span>
-         </div>
-         <div class="col-12">         
-            <span class="font_cinza_p">Todos os direitos reservados. </span>
-         </div>
-         <div class="col-12">
-            <br><br>
-         </div> 
-      </div>      
-   </footer>
 
 <?php
-
-
-function montar_js($consulta_imoveis) {
+function montar_js($consulta_anuncios) {
    echo "<script type='text/javascript'>
             $(document).ready(function() { \n";
-
-   foreach ( $consulta_imoveis as $imovel ) {
-      $id_imovel = $imovel->id_imovel;
-      echo "$('.imovel_".$id_imovel."').slick({               
+   foreach ( $consulta_anuncios as $anuncio ) {
+      $id_anuncio = $anuncio->id_anuncio;
+      echo "$('.anuncio_".$id_anuncio."').slick({               
                infinite: true,
                speed: 500,
                adaptiveHeight: true,    
-               fade: true,
-               
+               fade: true,               
             });\n";
    }
    echo " })";
-
    echo "</script>";
 }
-?>        
-    
+?>
 
-<script type="text/javascript">
-   
-   
+<script type="text/javascript">   
 
    $('form[name="form_email"]').submit(function () {
        enviar_email();
        return false;
    });
 
-function enviar_email() {
-   $.ajax({ 
-      url: 'enviar_email.php',
-      type: "POST",
-      async: true,
-      dataType: "html",
-      data: { 
-         codigo_imovel: $("#frm_id_imovel").val(),
-         nome: $("#frm_nome").val(),
-         email: $("#frm_email").val(),
-         fone: $("#frm_fone").val(),
-         mens: $("#frm_mens").val(),
-      },
-      success: function(resultado){   
-         $("#div_email").html( resultado );         
-      },
-      failure: function( errMsg ) { alert(errMsg); } 
+   function enviar_email() {   
+      _apelido       = $("#frm_apelido").val()     
+      _email_destino = $("#frm_email_destino").val();
+      _nome          = $("#frm_nome").val();
+      _email         = $("#frm_email").val();
+      _ddd           = $("#frm_ddd").val();
+      _tel           = $("#frm_tel").val(); 
+      _mens          = $("#frm_mens").val(); 
+      _url           = window.location.origin+'/cadastro/enviar_email_hlp.php';
+      $.ajax({ 
+         url: _url,
+         type: "POST",
+         async: true,
+         data: { 
+            acao:'mostrar_detalhes',
+            apelido:_apelido,  
+            email_destino:_email_destino,
+            nome:_nome,
+            email:_email,
+            ddd:_ddd,
+            tel:_tel,
+            mens:_mens
+         }
+      })
+      .done(function(data){
+         var obj = JSON.parse(data);
+         if ( obj.resultado == 'sucesso' ) {
+            _result  = '<span class="font_azul_p">';
+            _result += '<hr>';
+            _result += '&nbsp;&nbsp;Olá '+_nome+','; 
+            _result += '<br>';
+            _result += '&nbsp;&nbsp;Seu email foi enviado com sucesso!';   
+            _result += ' <br><hr>';
+            _result += '</span>';   
+            
+            $("#div_email").html( _result );         
+         }         
+      });
+
+   }
+
+   $( document ).ready(function() {
+      $('#div_slide').show();
    });
-} //.. enviar_email
 
-
-
+   function mostrar_detalhes(id) {
+      window.location.href="mostrar_detalhes.php?frm_id_anuncio="+id;
+   }
 
 </script>   
 

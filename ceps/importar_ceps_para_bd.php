@@ -11,17 +11,24 @@
 *                                tbmunicipio;
 *                                tbuf;
 *
-* Executar.: php /var/www/imobiliaria/ceps/importar_ceps_para_bd.php
+* Executar.: php /var/www/oviralata/ceps/importar_ceps_para_bd.php
 *
 *********************************************************************************/
 
 /*
 
-      delete from tbdomicilio;
       delete from tblogradouro;
       delete from tbbairro;
       delete from tbmunicipio;
       delete from tbuf;
+      
+      alter table tblogradouro AUTO_INCREMENT = 1;
+      alter table tbbairro     AUTO_INCREMENT = 1;
+      alter table tbmunicipio  AUTO_INCREMENT = 1;
+      alter table tbuf         AUTO_INCREMENT = 1;
+
+      SELECT table_schema "Nome da base", sum( data_length + index_length ) / 1024 / 1024 "Tamanho do BD em MB"
+      FROM information_schema.TABLES GROUP BY table_schema ;
 
 */
 
@@ -37,7 +44,7 @@ class Importar_Cep {
    }
    
    function executar() {
-      $fp    = fopen( "/var/www/imobiliaria/ceps/ceps.txt", "r" );
+      $fp    = fopen( "/var/www/oviralata/ceps/ceps.txt", "r" );
       $i=0;
       while ( !feof ($fp ) ) {
          $linha = fgets( $fp, 4096 );
@@ -59,7 +66,7 @@ class Importar_Cep {
       $username  = "root";
       $password  = "sucesso";
       $host      = "localhost";
-      $db        = "db_imobiliaria";         
+      $db        = "db_oviralata";         
       $this->con = new PDO("mysql:dbname=$db;host=$host", $username, $password );
    } // conecta
 
@@ -161,8 +168,28 @@ class Importar_Cep {
 } // Importar_Cep
 
 $atualizar = new Importar_Cep();
-//$atualizar->_importar_municipio = 'são vicente';
-//$atualizar->_importar_municipio = 'santos';
+$atualizar->_importar_municipio = 'são vicente';
+$atualizar->executar();
+
+$atualizar = new Importar_Cep();
+$atualizar->_importar_municipio = 'santos';
+$atualizar->executar();
+
+$atualizar = new Importar_Cep();
 $atualizar->_importar_municipio = 'praia grande';
 $atualizar->executar();
+
+$atualizar = new Importar_Cep();
+$atualizar->_importar_municipio = 'Cubatão';
+$atualizar->executar();
+
+$atualizar = new Importar_Cep();
+$atualizar->_importar_municipio = 'Guarujá';
+$atualizar->executar();
+
+
+//Mongagua    11730-000    // verificar 
+//Itanhaem    11740-000    // verificar
+//Peruíbe     11750-000    // verificar
+//Bertioga    11250-000    // verificar
 

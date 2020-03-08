@@ -1,0 +1,63 @@
+
+facebook
+magdapetsrd@gmail.com senha: cpd...
+
+
+
+
+-------------------------------------------------------- registro.br
+wwww.adotabrasil.com.br
+
+--------------------------------------------------------- Hostgator
+https://www.financeiro.hostgator.com.br
+usuario.: moinunes@gmail.com
+senha...: cpd....
+
+Banco de dados: port1053_db_adotabrasil
+Usuário.......: port1053_root
+senha.........: sucesso
+
+
+--------------------------------------------------------- email do adotabrasil
+email...............: adotabrazil@gmail.com  --> brasil com 'S' já estava em uso
+telefone............: (13) 99708-1968
+senha...............: cp.....
+email de recuperação: magdabpn@gmail.com
+
+--------------------------------------------------------- Facebook
+nome................: Magda
+sobrenome...........: Pet Srd
+email...............: magdapetsrd@gmail.com
+telefone............: (13) 99708-1968
+senha...............: cpd.....
+email de recuperação: magdabpn@gmail.com
+
+--------------------------------------------------------- APP LOGIN Do Facebook
+https://developers.facebook.com/apps/
+email...........: magdabpn@gmail.com
+senha...........: magda180168
+app.............: Login oViraLata
+namespace.......: loginoviralata
+ID do APLICATIVO: 2548948048478153
+Chave Secreta...: a6eb0699845d5059ea305f8a998e6fe5
+
+
+--------------------------------------------------------- adsense
+
+
+
+
+
+--------------------------------------------------------- api login facebook
+
+
+
+--------------------------------------------------------- pinterest
+
+
+--------------------------------------------------------- instagran
+email..........: magdapetsrd@gmail.com
+nome de usuário: siteoviralata
+nome completo..: O Vira Lata
+
+

@@ -8,8 +8,7 @@
 * Incluir fotos
 */ 
 $(function () {
-   id_imovel = $('#frm_id_imovel').val();
-
+   id_anuncio = $('#frm_id_anuncio').val();   
    $('#fileupload').fileupload({
       dataType: 'json',
       add: function ( e, data ) {
@@ -27,17 +26,16 @@ $(function () {
       },
       done: function (e, data) { 
          $("#div_status").html("");
-         $('#div_status').append(' Upload das fotos finalizado.');        
-         obter_todas_miniaturas(id_imovel);
+         $('#div_status').append(' Upload das fotos finalizado.');   
+         obter_todas_miniaturas(id_anuncio);
       },
       error: function (e, data) {
-            progress =0;
-            $('#progress .progress-bar').css('width', progress + '%')
-            $("#div_status").html("");
-            $('#div_status').append('fim' ); 
-            //console.log(e.readyState) 
-            //console.log(data)
-        }
+         obter_todas_miniaturas(id_anuncio);
+         progress =0;
+         $('#progress .progress-bar').css('width', progress + '%')
+         $("#div_status").html("");
+         $('#div_status').append('ok,,' ); 
+      }
 
    });
 });
@@ -49,106 +47,93 @@ $(function () {
 $(document).ready(function() {
    acao          = $('#acao').val();
    comportamento = $('#comportamento').val();
-   id_imovel     = $('#frm_id_imovel').val();
+   id_anuncio     = $('#frm_id_anuncio').val();
    if (acao=='alteracao' && comportamento=='efetivar') {
-      obter_todas_miniaturas(id_imovel);      
+      obter_todas_miniaturas(id_anuncio);      
    }
 })
 
+function tratar_string( str ) {
+   str = str.replace( ".", '' );
+   str = str.replace( / /g, '');      
+   return str;
+} 
 
 /**
 * obtém as miniaturas
 */ 
-function obter_todas_miniaturas(id_imovel) {
+function obter_todas_miniaturas(id_anuncio) {
+   $("#div_mens_0").html("");
+   $("#div_mens_1").html("");
    $("#div_status").html("");
    $('#div_status').append(' Aguarde... Buscando as fotos...' );
    $.ajax({
-     url: 'fotos.php',
+     url: '../cadastro/fotos.php',
      type: "POST",
      async: true,
      dataType: "html",
      data: {
-       id_imovel: id_imovel,
+       id_anuncio: id_anuncio,
        nome_foto:'',
        acao: 'obter_miniaturas',
      }
    })
-   .done(function(dados){    
+   .done(function(dados){ 
       if( dados != '' ) {
          exibir_todas_miniaturas(dados);
       }
-   });''
+   });
    
 } // obter_todas_miniaturas
-
-
 
 /**
 * Exibir as miniaturas
 */ 
-function exibir_todas_miniaturas(dados) {  
+function exibir_todas_miniaturas(dados) {
+   acao   = $('#acao').val();  
    pasta   ='../fotos/';
    var obj = jQuery.parseJSON( dados );
-   var id, str, nome, nome_foto;
+   var id, str, nome_foto;
    $("#div_fotos").html("");
    $("#div_status").html("");
    $('#div_status').append('Exibindo as fotos na tela...' );
    obj.forEach( function( obj, index ) {         
-      nome          = obj.foto;
-      nome_foto     = obj.foto;         
-      id            = nome.replace( ".jpg", '' );
+      
+      nome_foto = obj.foto;         
+      id        = tratar_string( obj.foto );
+      
       tem_essa_foto = $('#'+id).length;      
-      foto = './server/php/files/' + id_imovel + '/thumbnail/' + nome_foto;
-
+      
+      if( acao=='alteracao' ) {
+         foto = '../fotos/tmp_'+id_anuncio+'/thumbnail/' + nome_foto;
+      } else {
+         foto = '../fotos/' + id_anuncio + '/thumbnail/' + nome_foto;
+      }
+      
       str = "<div id='" + id + "' class='btn'>";
-      str += '<a href=\"javascript:void(0)\" onmouseover=\"exibir_foto_grande(\''+nome_foto+'\')\" >';
-      str += "   <img src='"+foto+ "' width='50' height='50' />";
-      str += "</a>";
-      str += '<a href="javascript:excluir_foto(' + "'"+nome_foto+"'"+ ')">Delete</a>';
+      str += "   <img src='"+foto+ "' width='80' height='80' />";
+      str += '   <a href="javascript:excluir_foto(' + "'"+nome_foto+"'"+ ')"><img src="../images/excluir.png"></a>';
       str += "</div>";         
       //..         
       $("#div_fotos").append( str );
    });
    $("#div_status").html("");
-   $('#div_status').append('fim' );  
+   $('#div_status').append('ok' );  
 }
-
-
-/**
-* Exibir foto grande
-*/ 
-function exibir_foto_grande(nome_foto) { 
-   var retorno   = nome_foto.split("__");  
-   id_imovel = $('#frm_id_imovel').val();
-
-   //var nome_foto = retorno[1];
-   var pasta     ='../fotos/';   
-
-   foto = './server/php/files/' + id_imovel + '/media/' + nome_foto;
-
-   str =  "<div>";
-   //str += "  <img src='"+pasta+id_imovel+"/"+nome_foto+ "' />";
-   str += "  <img src='"+foto+ "' />";
-   str += "</div>";  
-   $("#div_foto_grande").html("");
-   $("#div_foto_grande").html( str );
-}
-
 
 function excluir_foto(nome_foto) {
-   var nome = nome_foto;
-   id       = nome.replace( ".jpg", '' );
+   id = tratar_string( nome_foto );   
    $.ajax({
      url: 'fotos.php',     
      type: "POST",
      async: true,
      dataType: "html",
      data: {       
-       nome_foto: nome_foto,       
+       nome_foto: nome_foto,
        acao: 'excluir_foto',
      }
    })
-   .done(function(msg){      
+   .done(function(msg){     
       $('#'+id).remove();
    });
 } //  excluir_foto

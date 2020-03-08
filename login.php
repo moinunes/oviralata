@@ -41,18 +41,11 @@ function logout() {
        header("Location:login.php");
    }
 }
-
 ?>
-
 <!DOCTYPE HTML>
 <html lang="pt-br">
 <head>
-   <title>Imobiliaria</title>
-
-   <meta charset="utf-8" />
-   <meta name="keywords" content="imobiliaria,imóvel,imóveis,apartamentos,casas,compra,venda,santos, são vicente,"/>
-   <meta name="description" content="Escolha seu imóvel na baixada santista.">   
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php Utils::meta_tag() ?>
 
    <!-- Bootstrap styles -->
    <link rel="stylesheet" href="./dist/bootstrap-4.1/css/bootstrap.min.css">
@@ -82,14 +75,14 @@ function logout() {
             <div class="row">
                <div class="col-md-12">
                   <label for="frm_usuario">Usuário</label>               
-                  <input type="text" class="form-control form-control-sm" id="frm_usuario" name="frm_usuario" value="">            
+                  <input type="text" class="form-control form-control-sm" id="frm_usuario" name="frm_usuario" value="moinunes">            
                </div>      
             </div>
 
             <div class="row">
                <div class="col-md-12">
                   <label for="frm_usuario">Senha</label>
-                  <input type="password" class="form-control form-control-sm" id="frm_senha" name="frm_senha" value="">
+                  <input type="password" class="form-control form-control-sm" id="frm_senha" name="frm_senha" value="cpd392781">
                </div>
             </div>
 

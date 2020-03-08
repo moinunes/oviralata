@@ -1,28 +1,8 @@
 
 
-DROP INDEX cep ON tblogradouro
-select * from tblogradouro where cep='11740-000';
+https://financeiro.hostgator.com.br/
 
 
-
-
-
-1 - imovel sim ou nao ( alterar para mostrar qdo sim )
-2 - tem sacada?
-3 - destaques desktop (lado esquerdo)
-4 - criar email contato@imoveisbs.com.br
-5 - enviar email ( revisar o envio )
-6 - montar lista:  nome lista - ( anexar imoveis a uma lista
-   a) tblista
-         id_lista #
-         nome
-         dtinicio
-         observacao
-
-   b) tb_lista_item
-         id_lista_item #
-         id_lista
-         id_imovel
 
 
 

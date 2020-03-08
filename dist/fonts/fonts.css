@@ -1,0 +1,65 @@
+@font-face {
+     font-family: 'OpenSansCondensed-Light';
+     src: url('OpenSansCondensed-Light.ttf');
+}
+
+@font-face {
+     font-family: 'OpenSansCondensed-LightItalic';
+     src: url('OpenSansCondensed-LightItalic.ttf');
+}
+
+
+@font-face {
+     font-family: 'arial';
+     src: url('arial.ttf');
+}
+
+.tit_0 {
+      padding: 0px;
+      color:#000000;
+      font-family:"OpenSansCondensed-Light";
+      font-size:16px;  
+}
+
+.tit_1 {
+      padding: 0px;
+      color:#000000;
+      font-family:"OpenSansCondensed-Light";
+      font-size:20px;  
+}
+
+.tit_2 {
+      padding: 0px;
+      color:#000000;
+      font-family:"OpenSansCondensed-Light";
+      font-size:33px;  
+}
+
+.titulo_negrito_1 {
+   color:#000000;
+   font-family: "OpenSansCondensed-Light", Times New Roman, sans-serif;
+   font-size:15px;
+   font-weight: bold;
+}
+
+.tit_2 {
+   padding: 0px;
+   color:#000000;
+   font-family:"OpenSansCondensed-Light";
+   font-weight: bold;
+   font-size:28px;  
+}
+
+.fonts_azul_m {
+   padding: 0px;
+   color:blue;
+   font-family:"OpenSansCondensed-Light";
+   font-size:20px;  
+}
+
+.fonts_verde_m {
+   color:green;
+   font-family: "OpenSansCondensed-Light", Times New Roman, sans-serif;
+   font-size:16px;
+   font-weight: bold;
+}

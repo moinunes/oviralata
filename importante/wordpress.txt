@@ -1,0 +1,12 @@
+
+
+tema: virtue
+
+
+------------------------------------------------------- arquivos de tradução:
+arquivos:  pt_PT.mo e pt_PT.po
+pasta...: /public_html/blog/wp-content/themes/virtue/languages
+obs: pt_BR.po pode ser editado pelo programa: 'poedit' e depois compilar para .mo
+
+incluir define no arquivo --->  public_html/blog/wp-config.php
+define ('WPLANG', 'pt_PT');
